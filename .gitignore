@@ -1,0 +1,26 @@
+node_modules/
+dist/
+state/
+*.log
+.DS_Store
+
+# 本地配置、运行数据和凭据
+.env
+.env.*
+!.env.example
+.runtime/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.json
+secrets.json.*
+public-origin.txt
+backups/
+coverage/
+__pycache__/
+*.pyc
