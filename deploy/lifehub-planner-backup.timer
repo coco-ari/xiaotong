@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily Xiaobu planner backup
+
+[Timer]
+OnCalendar=*-*-* 19:30:00 UTC
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

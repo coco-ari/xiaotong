@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-12",
+  "domain": "planner.example.com",
+  "publicServer": "203.0.113.10",
+  "publicZeroTierAddress": "10.147.0.1",
+  "appLanAddress": "192.168.1.10",
+  "appZeroTierAddress": "10.147.0.2",
+  "route": "HTTPS -> BaoTa Nginx -> ZeroTier 10.147.0.2:18787 -> systemd-socket-proxyd -> 127.0.0.1:18787",
+  "nginxConfiguration": "/www/server/panel/vhost/nginx/planner.example.com.conf",
+  "certificate": {
+    "hostnameValidated": true,
+    "trustedByExternalClient": true,
+    "expiresUtc": "2027-01-10T13:58:00Z",
+    "renewalTimer": "xiaobu-my-certificate.timer",
+    "firstCheck": "success",
+    "renewWhenDaysRemainingBelow": 30
+  },
+  "checks": {
+    "dnsPointsToPublicServer": true,
+    "zeroTierPublicToApp": "passed",
+    "nonGatewaySourceBlocked": "passed",
+    "nginxConfiguration": "passed",
+    "httpRedirectsToHttps": 308,
+    "externalHttpsHealth": "passed",
+    "htmlJsCssMatchLocalBuild": true,
+    "pwaManifestAndServiceWorker": "passed",
+    "newOriginNoOpWrite": 200,
+    "legacyOriginNoOpWrite": 200,
+    "untrustedOriginWriteRejected": 403,
+    "regressionTestsLocal": "18/18 passed",
+    "regressionTestsAppServer": "18/18 passed",
+    "newTestTasksCreated": 0,
+    "pushNotificationsSent": 0
+  },
+  "transition": {
+    "canonicalOrigin": "https://planner.example.com",
+    "cloudflareNeededForNewEntry": false,
+    "legacyTunnelRetained": true,
+    "phoneAction": "从新入口添加到 iPhone 主屏幕并允许通知；旧域名权限不会自动迁移。",
+    "dataMigration": "无需移动数据，数据库仍保留在原内网服务器。"
+  },
+  "backups": {
+    "appCodeAndOrigin": "/opt/lifehub-planner/deploy/pre-public-proxy",
+    "appData": "/opt/lifehub-planner/state/backups",
+    "newSiteBeforeProxy": "/root/xiaobu-proxy-backup-final/planner.example.com.before-proxy.conf"
+  },
+  "redactionNote": "此为历史部署验收记录；公开版本已用示例替换实际域名和 IP，不能用于连接真实部署。"
+}

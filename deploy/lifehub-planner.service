@@ -1,0 +1,24 @@
+[Unit]
+Description=Xiaobu personal planner
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Group=nogroup
+WorkingDirectory=/opt/lifehub-planner
+Environment=NODE_ENV=production
+Environment=PORT=18787
+Environment=DATA_DIR=/opt/lifehub-planner/state
+ExecStart=/usr/bin/node /opt/lifehub-planner/server/index.mjs
+Restart=on-failure
+RestartSec=3
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/lifehub-planner/state
+
+[Install]
+WantedBy=multi-user.target

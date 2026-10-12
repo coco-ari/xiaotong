@@ -1,0 +1,92 @@
+{
+  "verifiedAt": "2026-10-12",
+  "release": "1.0.0",
+  "scope": "完成个人任务 App 开发及服务器部署，等待用户醒来后的 iPhone 安装验收",
+  "automated": {
+    "macOS_Node24": {
+      "passed": 18,
+      "failed": 0
+    },
+    "Ubuntu24_Node22": {
+      "passed": 18,
+      "failed": 0
+    },
+    "productionBuild": "passed",
+    "coverage": [
+      "任务增删改与版本冲突",
+      "数据库持久化",
+      "完成与撤销",
+      "节点自动计算进度",
+      "回收站恢复",
+      "每天及工作日重复",
+      "真实完成统计",
+      "免打扰与每日提醒上限",
+      "独立节点截止提醒",
+      "提醒去重与失败重试",
+      "暂停再继续",
+      "过期提醒阶段取消",
+      "HTTP 私人入口与来源校验",
+      "推送协议与设备回执"
+    ]
+  },
+  "browser": {
+    "engine": "Codex In-app Browser",
+    "viewports": [
+      "393x852",
+      "320x740",
+      "1280x900"
+    ],
+    "horizontalOverflow": false,
+    "verified": [
+      "快速新建任务并核实数据库记录",
+      "完成任务及刷新保留",
+      "创建长期计划及两个节点",
+      "完成节点和 +25% 增量，总进度 63%",
+      "节点截止日期与计划时间真实保存",
+      "工作日重复生成五天且时间一致",
+      "提醒时间及每日上限保存",
+      "任务收起、回收站恢复",
+      "浅色与深色外观",
+      "长期计划成长路线"
+    ],
+    "consoleErrorsObserved": 0,
+    "screenshots": [
+      "screenshots/mobile-today.jpg",
+      "screenshots/mobile-journey.jpg",
+      "screenshots/mobile-dark.jpg",
+      "screenshots/desktop-today.jpg"
+    ],
+    "screenshotData": "截图使用本地隔离测试数据和用户主动可启用的示例计划，生产环境没有这些任务。",
+    "remoteBrowserLimitation": "打开生产 HTTPS 页面的浏览器工具检查超时；已从 HTTPS 成功下载并逐字节核对 JS、CSS、Service Worker 与本地验收构建一致。"
+  },
+  "deployment": {
+    "server": "192.168.1.10",
+    "directory": "/opt/lifehub-planner",
+    "service": "lifehub-planner.service",
+    "health": "passed",
+    "serviceRestart": "passed",
+    "existingPrivateEntryPreserved": true,
+    "existingVapidKeysPreserved": true,
+    "existingPhoneSubscriptionPreserved": true,
+    "productionTaskCountAtHandoff": 0,
+    "newNotificationsSentDuringDevelopment": 0,
+    "backupService": "lifehub-planner-backup.timer",
+    "firstBackupIntegrity": "ok",
+    "secretFileMode": "600",
+    "httpsAssetsMatchLocalBuild": true,
+    "pwaManifest": "passed"
+  },
+  "pendingPhoneAcceptance": [
+    "Safari 添加到主屏幕及新名称/图标",
+    "重新打开 App 更新 Service Worker",
+    "前后台横幅通知和点击后定位任务",
+    "真机触控、键盘、安全区与动画体验"
+  ],
+  "limitations": [
+    "目前使用临时 Cloudflare Tunnel，隧道重启可能更换域名；正式使用需固定域名及持久隧道",
+    "本轮没有唤醒或操作实体 iPhone，也没有向其发送测试通知",
+    "App 需要网络才能加载和保存服务器数据",
+    "任务列表已实现，其他个人功能插件尚未开发"
+  ],
+  "redactionNote": "历史验收记录；部署地址已替换为示例。域名迁移后的验收见 public-proxy-verification.json。"
+}

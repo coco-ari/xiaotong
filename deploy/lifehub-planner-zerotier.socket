@@ -1,0 +1,12 @@
+[Unit]
+Description=Xiaobu gateway on ZeroTier
+After=zerotier-one.service
+
+[Socket]
+ListenStream=10.147.0.2:18787
+FreeBind=yes
+IPAddressDeny=any
+IPAddressAllow=10.147.0.1/32
+
+[Install]
+WantedBy=sockets.target

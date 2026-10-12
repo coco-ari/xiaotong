@@ -1,0 +1,13 @@
+{
+  "product": "小步",
+  "brief": "私人任务计划 PWA。今日清单、长期旅程、成长记录、提醒偏好。服务器保存真实数据。",
+  "references": [
+    {"name":"Organic Mind — Uizard 移动待办模板","url":"https://uizard.io/templates/mobile-app-templates/to-do-list-mobile-app/","use":"移动页面组织、清单与详情分层；只参考公开展示，没有购买或复制授权素材"},
+    {"name":"Things 3","url":"https://culturedcode.com/things/features/","use":"今日与将来分开、快速添加、项目进度与渐进展开的表单"},
+    {"name":"Duolingo 核心页面设计","url":"https://blog.duolingo.com/core-tabs-redesign/","use":"一致的圆润视觉、清晰层级、触感按钮、适度角色插画"},
+    {"name":"Duolingo 成长路径","url":"https://blog.duolingo.com/new-duolingo-home-screen-design/","use":"长期计划节点与有方向的成长反馈；自行绘制原创芽芽角色与图标"},
+    {"name":"TickTick","url":"https://ticktick.com/features","use":"重复任务、到期提醒、日期组织"},
+    {"name":"GTD 开源任务模板","url":"https://github.com/eyalcohen4/GTD","use":"比较任务/项目/状态结构。未直接引入旧版框架或源代码"}
+  ],
+  "decisions": ["移动优先，桌面使用侧栏与辅助栏","绿白主色、暖橙奖励、紫色长期目标","不复制多邻国商标、猫头鹰或专有字体","单标题快速创建，复杂设置折叠","服务端调度、默认 22:00–08:00 免打扰，每天最多 6 条自动提醒","示例仅在用户主动体验后创建，示例不触发通知","不在离线时伪装保存成功"]
+}

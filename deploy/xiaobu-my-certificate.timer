@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily planner.example.com HTTPS certificate check
+
+[Timer]
+OnCalendar=*-*-* 20:20:00 UTC
+RandomizedDelaySec=1800
+Persistent=true
+
+[Install]
+WantedBy=timers.target

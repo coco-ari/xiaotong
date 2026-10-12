@@ -1,0 +1,11 @@
+[Unit]
+Description=Check and renew planner.example.com HTTPS certificate
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/www/server/panel
+ExecStart=/www/server/panel/pyenv/bin/python3 /usr/local/sbin/xiaobu-renew-my-certificate.py
+UMask=0077
+TimeoutStartSec=600
