@@ -1,0 +1,11 @@
+{
+ "direction":"午夜动漫都市；墨蓝、象牙白与朱红。统一卡片、弹窗、详情与设置，不添加首页标题栏和底部导航。",
+ "references":[
+  {"name":"Lusion v3 / Edan Kwan & Lusion","url":"https://www.awwwards.com/sites/lusion-v3","verified":"Awwwards Site of the Day, 2023-10-02","application":"克制的主色、连续的过渡节奏、图形与大文字分层；手机端不引入重型 3D 场景。"},
+  {"name":"Apple Design Awards 2025 / Neva, DREDGE, Play","url":"https://www.apple.com/newsroom/2025/06/apple-unveils-winners-and-finalists-of-the-2025-apple-design-awards/","verified":"Neva 社会影响、DREDGE 交互、Play 创新奖","application":"参考场景与情绪的统一、直观操作与低干扰反馈；不是复制游戏素材。"}
+ ],
+ "assets":{"mode":"built-in image_gen","prompts":"v3-prompts.txt","icon":"xiaotong-icon-master.png","backgrounds":"../../src/home/art/scene-city-*-v3.png","delivery":"WebP 压缩副本用于页面；PNG 保留原图"},
+ "motion":{"exit":0.48,"background":1.1,"characterDelay":0.22,"textDelay":0.38,"reducedMotion":"遵循系统设置"},
+ "removed":["旧版任务、长期目标、成长积分、提醒调度","旧绿色 UI、旧图标","旧版任务 API（返回 410）"],
+ "preserved":["私人入口与域名","VAPID 密钥和现有通知订阅","旧数据仅归档，新的运行服务不加载旧数据库"]
+}

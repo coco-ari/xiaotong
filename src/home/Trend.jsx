@@ -1,0 +1,8 @@
+import React,{useId} from 'react';
+import {chartPoints} from './data.mjs';
+export default function Trend({values,progress=1,cursorProgress=progress,id:provided,mini=false}){
+  const generated=useId().replaceAll(':',''),id=provided||'trend'+generated;
+  const points=chartPoints(values),path=points.map((p,i)=>(i?'L':'M')+p.x.toFixed(2)+','+p.y.toFixed(2)).join(' '),end=points.at(-1),first=points[0];
+  const amount=Math.max(0,Math.min(1,progress)),cursorAmount=Math.max(0,Math.min(1,cursorProgress)),clipX=12+amount*576,x=12+cursorAmount*576,i=Math.min(points.length-2,Math.floor(cursorAmount*(points.length-1))),t=cursorAmount*(points.length-1)-i,y=points[i].y+(points[i+1].y-points[i].y)*t;
+  return <svg viewBox="0 0 600 160" preserveAspectRatio="none" className={'trend-svg '+(mini?'mini':'')} aria-hidden="true"><defs><linearGradient id={id+'fill'} x1="0" x2="0" y1="0" y2="1"><stop stopColor="currentColor" stopOpacity=".22"/><stop offset="1" stopColor="currentColor" stopOpacity=".005"/></linearGradient><clipPath id={id+'clip'}><rect width={Math.max(14,clipX+3)} height="170"/></clipPath></defs><g className="trend-grid"><path d="M0 32H600M0 80H600M0 128H600"/></g><g clipPath={'url(#'+id+'clip)'}><path d={path+` L${end.x},166 L${first.x},166 Z`} fill={'url(#'+id+'fill)'}/><path d={path} fill="none" stroke="currentColor" strokeWidth={mini?3:2.4} vectorEffect="non-scaling-stroke" strokeLinejoin="round" strokeLinecap="round"/></g>{!mini&&<><line x1={x} x2={x} y1="6" y2="160" className="trend-cursor"/><circle cx={x} cy={y} r="7" fill="currentColor" opacity=".15"/><circle cx={x} cy={y} r="3.5" fill="currentColor"/></>}</svg>;
+}

@@ -1,64 +1,50 @@
-# 小步 · 每天一点，走得更远
+# 小彤 · 个人空间
 
-个人任务管理 PWA，可在 iPhone 上添加到主屏幕使用。数据保存在自己的服务器，支持 Web Push 提醒。
+以红发角色小彤为主角的个人 PWA。午夜动漫都市场景、分层角色切换、逐日收益回放，以及安静的资讯阅读体验。
 
 ## 当前功能
 
-- 每日计划、长期计划、里程碑节点与进度管理
-- 每天或工作日重复任务、搜索、完成统计及回收站
-- 到期提醒、早晚汇总、免打扰时段与每日提醒上限
-- 浅色／深色外观、完成动画及减少动态效果支持
-- 手机通知连接、测试通知和服务端数据备份
+- 六种角色心情，暮色、雨幕、月夜三套原创动漫场景。旧人物淡出后，背景与新人物、文字错峰入场。
+- 最近 30 天收益动画、累计与今日盈亏、虚拟币/基金/股票详情、周期与日期选择。
+- 资讯列表、来源与关键词筛选、阅读详情、收藏。
+- 统计布局、收藏与插件开关保存在服务器。遵循系统减少动态效果设置。
+- 小彤桌面图标、Web Push 通知连接与延迟测试、设备显示回执。
 
-当前仅实现任务插件。信息收集、减肥、理财、音乐等功能尚未开发。
+**收益、持仓和资讯均为明确标注的演示数据。尚未接入真实行情、个人持仓或平台采集。**
 
-## 界面
+旧版小步的任务、长期目标、成长积分与提醒调度已移除。升级保留原私人入口及通知订阅；旧数据在部署前归档，新服务不读取旧计划数据库。
 
-| 每日计划 | 长期计划 |
-| --- | --- |
-| ![每日计划](docs/screenshots/mobile-today.jpg) | ![长期计划](docs/screenshots/mobile-journey.jpg) |
+## 本机运行
 
-截图使用隔离的示例数据。
-
-## 本地运行
-
-需要 Node.js 22.16 或更高版本。
+需要 Node.js 22.13+。
 
 ```sh
 npm ci
 npm run build
-PUBLIC_ORIGIN=http://127.0.0.1:18788 DATA_DIR=./state npm start
+PUBLIC_ORIGIN=http://127.0.0.1:18788 npm start
 ```
 
-打开终端显示的私人入口。首次启动会生成入口标识和推送密钥。`state/` 保存任务数据库和密钥，不纳入 Git。
+首次启动生成 `state/secrets.json` 与私人入口。控制台显示访问地址。运行数据、推送密钥和私人入口不得提交至公开仓库。
 
 ```sh
 npm test
 ```
 
-测试使用隔离数据和模拟推送，不会向真实手机发送通知。
+测试覆盖逐日收益一致性、角色场景、动画阶段、设置持久化、通知重试与回执、升级身份保留、旧接口关闭、PWA 图标尺寸。
 
-## 目录
+## 部署
 
-| 路径 | 内容 |
-| --- | --- |
-| `src/` | React 界面、样式和交互动画 |
-| `public/` | App 图标和 Service Worker |
-| `server/` | Node.js API、SQLite 数据存储、提醒队列和备份 |
-| `test/` | 任务、提醒、持久化和 HTTP 接口测试 |
-| `deploy/` | systemd、Nginx、ZeroTier 和证书维护配置示例 |
-| `docs/` | 界面参考、截图和历史验收记录 |
+前端由同一 Node 服务提供，使用 HTTPS 反向代理，服务器仅监听本机端口。示例服务文件位于 `deploy/`。
 
-## 部署和手机安装
+生产升级前停止服务并备份整个项目及 `state/`。部署新的 `dist/`、`server/` 和依赖清单，保留 `state/secrets.json`、`state/public-origin.txt`。新服务自动创建 `state/xiaotong.json`；原 `planner.sqlite` 应归档到备份目录。升级失败可恢复备份。原服务名可继续保留，避免破坏既有代理与定时备份。
 
-部署需要 HTTPS 域名。当前架构由公网 Nginx 通过 ZeroTier 转发到内网服务器；运行维护见 [README.txt](README.txt)。`deploy/` 中的域名和 IP 均为示例，使用前必须替换为自己的配置。
+iOS 已安装网页 App 的图标或名称可能继续使用安装时的缓存。若旧图标未变化，从 Safari 打开原私人入口并重新添加到主屏幕，名称为“小彤”。新安装实例需要在设置里连接通知。
 
-在 iPhone Safari 打开私人入口，选择“添加到主屏幕”，从桌面打开 App 后连接手机通知。Web Push 不需要付费 Apple Developer 会员。更换域名后需重新添加到主屏幕并授权通知。
+## 视觉资源
 
-私人入口拥有数据访问权限，请勿公开完整链接。代码仓库不包含实际任务、订阅信息、服务器密码或推送私钥。
+图像使用内置 image_gen 生成；PNG 原图位于 `src/home/art/`，页面使用压缩 WebP。图标母版位于 `docs/design/xiaotong-icon-master.png`，移动端使用 180/192/512 像素版本。
 
-`deploy/activate.sh` 和 `deploy/migrate-test.mjs` 用于已有通知测试服务的迁移，不是新服务器的通用安装脚本。
-
-## 技术栈
-
-React、Motion、Vite、Node.js、SQLite、Web Push。应用目前需要网络连接才能读取和保存数据；横幅展示也受手机网络、系统通知设置和专注模式影响。
+- 提示词：`docs/design/v3-prompts.txt`
+- 设计参考及取舍：`docs/design/v3-references.json`
+- Lusion v3：[Awwwards](https://www.awwwards.com/sites/lusion-v3)
+- 交互与场景参考：[Apple Design Awards 2025](https://www.apple.com/newsroom/2025/06/apple-unveils-winners-and-finalists-of-the-2025-apple-design-awards/)

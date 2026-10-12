@@ -1,0 +1,11 @@
+Use case: stylized-concept.
+Asset type: transparent character illustration for the lower-right corner of a premium personal dashboard cover.
+Primary request: an original, exceptionally cute red-haired anime maid character. She is a young adult woman, with soft bright crimson / copper-red flowing hair, expressive amber eyes, a cheerful gentle smile and rosy cheeks. A classic modest black-and-ivory maid dress, puff sleeves, white frilled apron, elegant white lace maid headband, small dark ribbon at her collar. Wholesome, friendly and fully clothed.
+Style/medium: beautiful Japanese anime game key art, refined clean linework, silky detailed hair, soft painterly cel shading, tasteful warm highlights, polished collectible character illustration. Adult anime proportions with a slightly oversized expressive face, not a toddler and not photorealistic.
+Composition/framing: portrait composition, isolated single character, from head to mid-thigh, fully visible headband and hair; flowing hair curves outward gently. Body faces slightly left, face looks at viewer. One hand near the chest gently holding the apron ribbon, the other making a small welcoming wave. The silhouette should occupy most of the canvas with minimal transparent margins; bottom of skirt may reach bottom edge. This will be placed on the right of an app header, with page text separately rendered on the left.
+Lighting/mood: warm morning light, sweet and reassuring, soft cream highlights and muted rosy shading.
+Scene/backdrop: genuinely transparent alpha background, no backdrop or floor or drop-shadow rectangle.
+Constraints: no text, no logos, no watermarks, no frame, no floating objects, no extra characters, natural hands, no sexualized outfit or pose.
+
+Generation: built-in image_gen; transparent background.
+Intended asset: src/home/art/red-maid.png

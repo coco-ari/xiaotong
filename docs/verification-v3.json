@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "https": true,
+  "manifestName": "小彤",
+  "pushSubscribed": true,
+  "assetHashesMatch": true,
+  "oldApiStatus": 410,
+  "testsPassed": 8,
+  "uiChecked": [
+    "393px 首页、收益详情、资讯与设置",
+    "插件开关与收藏刷新持久化"
+  ],
+  "phoneIconVerified": false,
+  "phoneBlocker": "USB 未检测到实体 iPhone"
+}

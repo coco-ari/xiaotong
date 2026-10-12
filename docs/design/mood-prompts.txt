@@ -1,0 +1,26 @@
+小彤首页角色提示词集
+
+生成方式：内置 image_gen，transparent_background=true。
+参考：src/home/art/red-maid.png。全部为同一原创成年角色的表情变体，透明 PNG。
+首张完整提示词：hero-prompt.txt。
+
+共用身份约束（整理后的复现模板）：
+Use case: identity-preserve. Create a transparent character sprite matching the provided original greeting reference. Preserve the same adult red-haired anime woman's face, copper-red flowing hair, amber eyes, white lace maid headband, modest black-and-ivory maid uniform, apron, black collar ribbon and small gold brooch. Keep the polished warm anime illustration style, portrait framing and scale. Change only her expression and arm pose as specified below. Genuine transparent alpha background; no text, logos, frame, scenery or extra characters.
+
+文件：src/home/art/red-maid-happy.png
+表情指令：Earning money / happy celebration: her eyes joyfully curve into crescent smiles, a wide delighted smile, rosy cheeks, both hands making small celebratory fists near her shoulders. Bright happy confidence. No cash or coins.
+
+文件：src/home/art/red-maid-sad.png
+表情指令：A small investment loss / gently crying: clearly teary shiny amber eyes, two delicate tears rolling down her cheeks, a cute small pout, one hand softly wiping a tear with the back of her fingers, other hand rests near her apron. Mild tender disappointment, not distress or anguish.
+
+文件：src/home/art/red-maid-excited.png
+表情指令：Discovered something fascinating: excited wide sparkling amber eyes and a bright open smile, leaning slightly forward, one hand pointing upward in an 'I found something!' gesture, the other near her chest. Infectious curiosity and enthusiasm.
+
+文件：src/home/art/red-maid-reading.png
+表情指令：Quietly reading: she holds a small plain closed-edge cream book OPEN at chest/waist level with both hands and looks down toward it with a thoughtful gentle smile. Relaxed, focused expression. Blank or indistinct pages without readable text.
+
+文件：src/home/art/red-maid-sleepy.png
+最终提示词：Use case: identity-preserve. Create an original transparent app character sprite matching this reference woman's identity, adult face, long copper-red hair, white frilled headband, amber eyes, black-and-white classic maid uniform, lace apron, black collar ribbon and small gold brooch, detailed warm anime illustration style. Change only her expression and arm pose to a calm good-night mood: peacefully closed eyes, a very gentle relaxed smile, both hands neatly clasped over her apron in front of her waist. She is standing upright, comfortably and politely saying good night. Wholesome, modest everyday portrait, fully covered chest and shoulders, opaque clothing. Keep headband completely visible, same portrait framing and scale, on a genuine transparent alpha background. No text, no floating elements, no scenery, no frame, no logo, no other people.
+
+首页行为：默认招呼；今日收益正值为开心、负值为落泪；有新资讯为兴奋；白天阅读、22:00 至次日 06:00 晚安。当前收益与资讯均来自显式演示数据。每 18 秒轮换一次，后台、弹窗或封面离开屏幕时暂停；手动选择暂停自动轮换；遵循系统减少动态效果设置。图片成功解码后再切换文案与角色，避免慢网络下空白。
+
