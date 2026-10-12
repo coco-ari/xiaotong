@@ -1,23 +1,19 @@
 import React, {memo, useEffect, useRef, useState} from 'react';
 import {motion, useReducedMotion} from 'motion/react';
+import NumberFlow from '@number-flow/react';
 import Trend from './Trend.jsx';
 import {money} from './data.mjs';
 import {PLAYBACK, playbackAt} from './playback.mjs';
 
+const AMOUNT_FORMAT = {minimumFractionDigits: 2, maximumFractionDigits: 2, signDisplay: 'exceptZero', useGrouping: true};
+const NUMBER_TIMING = {duration: 340, easing: 'cubic-bezier(.22,1,.36,1)'};
+const SPIN_TIMING = {duration: 240, easing: 'cubic-bezier(.2,.65,.3,1)'};
+const OPACITY_TIMING = {duration: 140, easing: 'ease-out'};
 const ProfitNumber = memo(function ProfitNumber({value, reduced}) {
-  const [whole, fraction] = Math.abs(value).toFixed(2).split('.');
-  const integer = Number(whole).toLocaleString('en-US');
-  const part = (text, prefix) => [...text].map((char, index) => /\d/.test(char)
-    ? <span className="reel-slot" key={prefix + index}><motion.span className="digit-reel"
-        initial={false} animate={{y: -Number(char) * 10 + '%'}}
-        transition={{duration: reduced ? 0 : 0.135, ease: [0.2, 0.65, 0.3, 1]}}>
-        {[0,1,2,3,4,5,6,7,8,9].map(n => <span key={n}>{n}</span>)}
-      </motion.span></span>
-    : <span key={prefix + index} className={char === ' ' ? 'reel-space' : 'reel-separator'}>{char === ' ' ? '\u00a0' : char}</span>);
-  return <span className={'profit-number ' + (value >= 0 ? 'positive' : 'negative')} aria-hidden="true">
-    <span className="reel-sign">{value < 0 ? '−' : '+'}</span>
-    {part(integer, 'i')}<span className="reel-fraction"><span className="reel-point">.</span>{part(fraction, 'f')}</span>
-  </span>;
+  return <NumberFlow className={'profit-number ' + (value >= 0 ? 'positive' : 'negative')}
+    value={value} locales="en-US" format={AMOUNT_FORMAT} animated={!reduced}
+    transformTiming={NUMBER_TIMING} spinTiming={SPIN_TIMING} opacityTiming={OPACITY_TIMING}
+    respectMotionPreference aria-hidden="true"/>;
 });
 
 function usePlayback(ref, count) {
@@ -25,7 +21,7 @@ function usePlayback(ref, count) {
   const [frame, setFrame] = useState(() => reduced ? playbackAt(Infinity, count) : {...playbackAt(0, count), phase: 'waiting'});
   useEffect(() => {
     if (reduced) {setFrame(playbackAt(Infinity, count)); return;}
-    let raf = 0, elapsed = 0, previous = null, inView = false, complete = false;
+    let raf = 0, elapsed = 0, previous = null, inView = false, complete = false, fontReady = false, disposed = false;
     setFrame({...playbackAt(0, count), phase: 'waiting'});
     const tick = now => {
       if (previous !== null) elapsed += Math.min(now - previous, 64);
@@ -36,12 +32,14 @@ function usePlayback(ref, count) {
     };
     const sync = () => {
       cancelAnimationFrame(raf); previous = null;
-      if (inView && !document.hidden && !complete) raf = requestAnimationFrame(tick);
+      if (inView && fontReady && !document.hidden && !complete && !disposed) raf = requestAnimationFrame(tick);
     };
-    const observer = new IntersectionObserver(([entry]) => {inView = entry.isIntersecting; sync();}, {threshold: 0.55});
+    const observer = new IntersectionObserver(([entry]) => {inView = entry.intersectionRatio >= 0.55; sync();}, {threshold: 0.55});
     if (ref.current) observer.observe(ref.current);
+    // 字体稳定后开始回放，避免加载时数字宽度突然改变。
+    document.fonts.load('500 60px "Inter Variable"').catch(() => {}).then(() => {fontReady = true; sync();});
     document.addEventListener('visibilitychange', sync);
-    return () => {observer.disconnect(); cancelAnimationFrame(raf); document.removeEventListener('visibilitychange', sync);};
+    return () => {disposed = true; observer.disconnect(); cancelAnimationFrame(raf); document.removeEventListener('visibilitychange', sync);};
   }, [count, reduced]);
   return frame;
 }
@@ -55,10 +53,12 @@ export default function FinanceCard({onOpen, portfolio, days}) {
     <button className="card-open-layer" onClick={onOpen} aria-label="查看收益详情"/>
     <div className="finance-scene-chart"><Trend values={portfolio.series} progress={frame.progress}/></div>
     <span className="finance-demo">演示</span>
+    <motion.span className="finance-total-label finance-amount-label" initial={false}
+      animate={{y: settled ? 0 : 64}}
+      transition={{duration: reduced ? 0 : 0.92, ease: [0.22, 1, 0.36, 1]}}>累计</motion.span>
     <motion.div className="finance-total" initial={false}
-      animate={{x: settled ? 0 : '5%', y: settled ? 0 : 64, scale: settled ? 0.47 : 1}}
+      animate={{x: settled ? 0 : 5, y: settled ? 0 : 64, scale: settled ? 0.54 : 1}}
       transition={{duration: reduced ? 0 : 0.92, ease: [0.22, 1, 0.36, 1]}}>
-      <span className="finance-amount-label">累计</span>
       <ProfitNumber value={total} reduced={reduced}/>
     </motion.div>
     <motion.div className="finance-today" initial={false}

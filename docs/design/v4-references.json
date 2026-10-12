@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-13",
+  "version": "2.1.0",
+  "references": [
+    {
+      "name": "Ellen Joe — 红、白、黑角色画报",
+      "page": "https://wall.alphacoders.com/big.php?i=1368234",
+      "image": "https://images6.alphacoders.com/136/1368234.png",
+      "file": "ellen-red-graphic.png",
+      "takeaway": "采用人物周围的浅色留白、受控的红色块和黑白服装之间的呼应；不复制人物或构图。"
+    },
+    {
+      "name": "Ellen Joe — Salmon88 插画",
+      "page": "https://esports.gg/news/zenless-zone-zero-zzz/ellen-joe-wallpapers-zenless-zone-zero-pc-mobile/",
+      "image": "https://media.esports.gg/uploads/2024/07/Ellen-Joe-desktop-wallpaper-by-Salmon88-1536x864.jpg",
+      "file": "ellen-graphic-contrast.jpg",
+      "takeaway": "参考角色作为视觉中心、笔触制造方向感；舍弃高饱和粉色涂鸦和复杂城市透视，避免抢人物。"
+    },
+    {
+      "name": "Persona 5 Royal — 官方宣传画报",
+      "page": "https://persona.atlus.com/p5r/",
+      "collectionPage": "https://thethirstymage.com/2020/06/11/persona-5-royal-review/",
+      "image": "https://thethirstymage.com/wp-content/uploads/2020/06/persona5royal.jpg",
+      "file": "persona5-editorial.jpg",
+      "takeaway": "参考有限配色、大色块、非对称画报构图。保留小彤的柔和笔触，降低原作强烈锐角和纯红占比。"
+    }
+  ],
+  "numericReferences": [
+    {
+      "name": "Robinhood 官方设计故事",
+      "url": "https://robinhood.com/us/en/newsroom/the-top-secret-robinhood-design-story/",
+      "takeaway": "内容优先，突出一个主要金额和一条趋势，减少装饰和说明。未声称复刻其专有字体或动画参数。"
+    },
+    {
+      "name": "NumberFlow React 官方文档",
+      "url": "https://number-flow.barvian.me/",
+      "takeaway": "采用成熟的逐位数字过渡，Intl 格式化、方向感、位数增减布局过渡、减少动态效果与静态回退。"
+    },
+    {
+      "name": "Inter 字体",
+      "url": "https://rsms.me/inter/",
+      "takeaway": "使用自托管 Inter Variable 的等宽数字，统一整数、小数、符号的视觉基线。"
+    }
+  ],
+  "decisions": [
+    "暖墨色界面、米白画报、朱红线条；三套背景共享弧线、缎带、细网点与女仆蕾丝边缘元素。",
+    "左上保留文案空间；右侧人物头部底色与红发保持对比。",
+    "旧人物淡出、背景交叉淡入、新人物和文字错峰入场；预先解码素材。",
+    "30 天在 5.2 秒内逐日回放；累计金额缩小左移后显示今日金额。",
+    "固定两位小数、千位分组、Inter 500、数字等宽；停留画外或页面后台时暂停回放。"
+  ],
+  "assets": [
+    "src/home/art/scene-vermilion-v4.png",
+    "src/home/art/scene-silver-v4.png",
+    "src/home/art/scene-nocturne-v4.png"
+  ],
+  "generation": {
+    "mode": "built-in image_gen",
+    "prompts": "docs/design/v4-prompts.txt",
+    "output": "PNG masters + compressed WebP"
+  },
+  "rights": "参考图片仅保存在本地参考资料夹，未加入公开仓库或生产页面；页面使用新生成的原创背景。"
+}

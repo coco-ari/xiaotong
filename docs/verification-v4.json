@@ -1,0 +1,59 @@
+{
+  "version": "2.1.0",
+  "https": "passed",
+  "manifest": "小彤",
+  "identityAndSettingsPreserved": true,
+  "pushSubscriptionPresent": true,
+  "assetsMatchLocalBuild": [
+    {
+      "file": "scene-nocturne-v4-Zt8p7H_i.webp",
+      "bytes": 147094,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "scene-silver-v4-D2_cNu3e.webp",
+      "bytes": 223046,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "index-DOnQKAsG.js",
+      "bytes": 404916,
+      "contentType": "text/javascript; charset=utf-8"
+    },
+    {
+      "file": "scene-vermilion-v4-MNbJSqr3.webp",
+      "bytes": 177064,
+      "contentType": "image/webp"
+    },
+    {
+      "file": "inter-latin-wght-normal-Dx4kXJAl.woff2",
+      "bytes": 48256,
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "index-DRk-gSJI.css",
+      "bytes": 20570,
+      "contentType": "text/css; charset=utf-8"
+    }
+  ],
+  "uiChecks": {
+    "viewportWidths": [
+      320,
+      393,
+      1024
+    ],
+    "horizontalOverflow": false,
+    "scenes": [
+      "greeting",
+      "sad",
+      "sleepy"
+    ],
+    "negativePnl": "green",
+    "browserConsoleErrors": 0
+  },
+  "tests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "physicalIPhoneTested": false
+}

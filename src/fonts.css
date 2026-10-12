@@ -1,0 +1,8 @@
+/* 自托管拉丁字形，中文继续使用系统字体；数字不会依赖外部字体服务。 */
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+}

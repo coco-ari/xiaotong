@@ -1,4 +1,4 @@
-const CACHE='xiaotong-shell-v3';
+const CACHE='xiaotong-shell-v4';
 self.addEventListener('install',()=>self.skipWaiting());
 self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys())if(key!==CACHE&&/^(xiaobu|xiaotong)-/.test(key))await caches.delete(key);await self.clients.claim();})()));
 self.addEventListener('fetch',event=>{

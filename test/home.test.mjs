@@ -59,9 +59,9 @@ test('收益动画按日期递进，最后一个交易日稳定后再展示今�
   assert.deepEqual(playbackAt(Infinity),{progress:1,step:29,phase:'done'});
 });
 
-test('每个心情都存在完整场景资源，雨夜使用相应环境',()=>{
-  assert.equal(SCENES.sad.background,'scene-city-rain-v3.png');
-  assert.equal(SCENES.sleepy.background,'scene-city-night-v3.png');
+test('每个心情都存在完整场景资源，沉静与晚安使用独立画报',()=>{
+  assert.equal(SCENES.sad.background,'scene-silver-v4.png');
+  assert.equal(SCENES.sleepy.background,'scene-nocturne-v4.png');
   for(const mood of MOODS){
     const scene=SCENES[mood.id];
     assert.equal(scene.lines.length,2);

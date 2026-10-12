@@ -23,7 +23,7 @@ export function createApp({dataDir=resolve('state'),staticDir=resolve('dist'),or
     try{return await (sendPush||webpush.sendNotification.bind(webpush))(secrets.subscription,JSON.stringify(payload),{TTL:3600,urgency:'high',timeout:15000,vapidDetails:{subject:origin.startsWith('https:')?origin:'mailto:local@example.com',...secrets.vapid}});}
     catch(e){if([404,410].includes(e.statusCode)){secrets.subscription=null;persist();}throw e;}
   };
-  const snapshot=()=>({...store.snapshot(),push:{subscribed:!!secrets.subscription,publicKey:secrets.vapid.publicKey},version:'2.0.0'});
+  const snapshot=()=>({...store.snapshot(),push:{subscribed:!!secrets.subscription,publicKey:secrets.vapid.publicKey},version:'2.1.0'});
   const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2','.json':'application/json'};
   const counts=new Map();
   const server=http.createServer(async(req,res)=>{
@@ -31,7 +31,7 @@ export function createApp({dataDir=resolve('state'),staticDir=resolve('dist'),or
     const reply=(status,value,type='application/json; charset=utf-8',extra={})=>{res.writeHead(status,{...headers,'Content-Type':type,...extra});res.end(Buffer.isBuffer(value)||typeof value==='string'?value:JSON.stringify(value));};
     try{
       const url=new URL(req.url,'http://local'),method=req.method;
-      if(url.pathname==='/health'&&method==='GET')return reply(200,{ok:true,app:'xiaotong',version:'2.0.0'});
+      if(url.pathname==='/health'&&method==='GET')return reply(200,{ok:true,app:'xiaotong',version:'2.1.0'});
       if(!url.pathname.startsWith(prefix))return reply(404,{error:'页面不存在，请使用你的私人入口'});
       const path=url.pathname.slice(prefix.length);
       if(path.startsWith('api/')){
@@ -59,7 +59,7 @@ export function createApp({dataDir=resolve('state'),staticDir=resolve('dist'),or
         fail('接口不存在',404);
       }
       if(method!=='GET'&&method!=='HEAD')fail('页面不存在',404);
-      if(path==='manifest.webmanifest')return reply(200,{id:prefix,name:'小彤',short_name:'小彤',description:'你的个人空间',lang:'zh-CN',start_url:prefix,scope:prefix,display:'standalone',background_color:'#10131b',theme_color:'#10131b',icons:[{src:'xiaotong-icon-192-v3.png',sizes:'192x192',type:'image/png',purpose:'any maskable'},{src:'xiaotong-icon-512-v3.png',sizes:'512x512',type:'image/png',purpose:'any maskable'}]},'application/manifest+json');
+      if(path==='manifest.webmanifest')return reply(200,{id:prefix,name:'小彤',short_name:'小彤',description:'你的个人空间',lang:'zh-CN',start_url:prefix,scope:prefix,display:'standalone',background_color:'#191716',theme_color:'#191716',icons:[{src:'xiaotong-icon-192-v3.png',sizes:'192x192',type:'image/png',purpose:'any maskable'},{src:'xiaotong-icon-512-v3.png',sizes:'512x512',type:'image/png',purpose:'any maskable'}]},'application/manifest+json');
       const file=resolve(staticDir,path||'index.html');if(!file.startsWith(resolve(staticDir)+sep)||!existsSync(file)||!statSync(file).isFile())fail('页面不存在',404);
       return reply(200,readFileSync(file),mime[extname(file)]||'application/octet-stream',path==='sw.js'?{'Service-Worker-Allowed':prefix}:{});
     }catch(e){if(!res.headersSent)reply(e.status||500,{error:e.status?e.message:'服务暂时不可用，请重试'});else res.destroy();}

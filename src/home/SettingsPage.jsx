@@ -17,7 +17,7 @@ export default function SettingsPage({state,onBack,onSave,busy,refresh}){
  }catch(e){setMessage(e.message);}finally{setWorking(false);}};
  const test=async()=>{setWorking(true);try{await api('push/test','POST',{});setMessage('10 秒后发送。现在可以回到桌面查看横幅。');await refresh();}catch(e){setMessage(e.message);}finally{setWorking(false);}};
  return <div className="detail-page settings-page"><PageHeading title="设置" onBack={onBack}/>
- <section className="settings-identity"><img src={BASE+'xiaotong-icon-192-v3.png'} alt="小彤 App 图标"/><div><h2>小彤</h2><p>你的个人空间</p></div><span>2.0</span></section>
+ <section className="settings-identity"><img src={BASE+'xiaotong-icon-192-v3.png'} alt="小彤 App 图标"/><div><h2>小彤</h2><p>你的个人空间</p></div><span>2.1</span></section>
  <h2 className="settings-caption">首页</h2><section className="settings-group">
  {[['finance','收益','持仓与最近走势'],['feed','资讯','你关注的内容']].map(([id,title,note])=><div className="setting-row" key={id}><span><b>{title}</b><small>{note}</small></span><Toggle label={'显示'+title+'插件'} checked={settings.plugins[id]} disabled={busy||!state} onChange={()=>onSave({plugins:{...settings.plugins,[id]:!settings.plugins[id]}})}/></div>)}
  <div className="setting-row"><span><b>心情轮换</b><small>跟随时段与演示内容变化</small></span><Toggle label="自动切换角色心情" checked={settings.autoMood} disabled={busy||!state} onChange={()=>onSave({autoMood:!settings.autoMood})}/></div></section>
