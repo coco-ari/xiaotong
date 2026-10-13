@@ -1,10 +1,12 @@
 /* 左侧为文案安全区，字数增加时由实测字体调整字号和行数。 */
-.refined-app .scene-adaptive-words { width: 44%; top: 19%; letter-spacing: -.035em; font-weight: 650; line-height: 1.4; color: #593b35; text-shadow: none; }
-.refined-app .tone-silver .scene-adaptive-words { color: #414f49; }
+.refined-app .scene-adaptive-words { width: 44%; top: 19%; letter-spacing: -.035em; font-weight: 650; line-height: 1.4; color: #164b49; text-shadow: none; }
+.refined-app .tone-silver .scene-adaptive-words { color: #274f52; }
 .refined-app .tone-night .scene-adaptive-words { color: #fff2dc; }
 .scene-adaptive-words .scene-line-mask > span { white-space: pre; }
-.scene-module-caption { position: absolute; z-index: 4; left: 8%; top: 9%; margin: 0; max-width: 43%; padding: 0; font-size: 11px; font-weight: 500; letter-spacing: .06em; line-height: 1.6; color: #7a5550; }
-.tone-silver .scene-module-caption { color: #59695e; }
+/* 行高与字体测量保持一致，四行短句不额外挤入底部花束区域。 */
+.scene-adaptive-words .scene-line-mask { padding-bottom: 0; }
+.scene-module-caption { position: absolute; z-index: 4; left: 8%; top: 9%; margin: 0; max-width: 43%; padding: 0; font-size: 11px; font-weight: 500; letter-spacing: .06em; line-height: 1.6; color: #354f49; }
+.tone-silver .scene-module-caption { color: #3c5660; }
 .tone-night .scene-module-caption { color: #eee0d0; }
 .scene-load-status { position: absolute; z-index: 10; inset: auto 10px 10px; margin: 0; padding: 8px 10px; border-radius: 9px; background: #fff4e8; color: #4d3d31; font-size: 12px; line-height: 1.5; pointer-events: none; }
 @media (max-width: 360px) { .scene-module-caption { font-size: 11px; } }
