@@ -1,0 +1,80 @@
+{
+  "version": 10,
+  "method": "内置 image_gen；每种状态独立生成，后五张参考问候版保持统一画风。PNG 保留原图，Pillow 仅转码 WebP。",
+  "assets": [
+    {
+      "id": "greeting",
+      "name": "薄荷序曲",
+      "file": "scene-abstract-greeting-v10.png",
+      "source": "C:\\Users\\taotao\\.codex\\generated_images\\01a1329e-1a31-7cc1-96c5-a788276fcca7\\exec-feaef096-d47f-49a6-89c3-1a97f490496f.png",
+      "prompt": "Use case: stylized-concept.\nCreate a completely new SQUARE PURE ABSTRACT ART BACKGROUND for an existing anime companion app. Contemporary Japanese graphic poster sensibility: extremely well-balanced large color fields, beautiful asymmetric cut-paper curves, cheerful yet refined color relationships, clear elegant negative space. This is NOT an illustrated room or an illustration of objects. It will have a red-haired anime girl overlaid on the right and dark navy Chinese headline on the left later.\nArt direction: \"Mint and apricot, a soft rhythm\". Start with a luminous pale celadon / mint-green field #CBE9DF across most of the canvas. A single enormous cropped butter-yellow circular plane #FFE59A centered at x=90%, y=29%, radius about 38% of canvas floats in the RIGHT half, softly offset with one flat cream sliver. A confident broad peach-coral wave #F3988E sweeps up from the left bottom edge at y=75% and rolls across the bottom behind the future character; a second deep teal-blue flowing band #478E9B enters the lower-left corner and follows a complementary curve along the bottom. ONE very fine cream offset contour follows only part of this lower curve, a quiet intentional printmaking detail. A tiny cropped navy plane may balance the far upper-right edge. Big purposeful shapes with clear boundaries and subtle fine matte paper grain only, no airbrushed blob gradients. Rich enough to catch the eye at thumbnail size, restrained enough for an adult personal dashboard. The warm coral relates to the red hair; mint and blue provide cooling balance.\nLayout: left x=5%-53%, y=7%-64% must remain luminous, low-detail and readable. Color planes may flow through at close luminance, but no little decorative marks or busy texture in this headline area. Avoid a straight vertical division in the middle: the whole background should feel like one flowing abstract composition. High chroma accents concentrate in the lower 30% and far right; bottom 8% will be covered by a white statistics strip. This is one full-bleed abstract image, no outside frame.\nCRITICAL: ABSOLUTELY NO recognizable objects, NO window, NO building, NO landscape, NO sky or cloud illustration, NO plants, leaves, flowers, books, drinks, coins, envelopes, stars, moons, lamps, confetti, checkerboard, lettering, symbols, UI, characters, faces, logos or watermark. Only 4–5 large abstract curved color planes and a single restrained contour accent. Flat premium graphic art, not 3D, not photographic. Square canvas.",
+      "size": [
+        1254,
+        1254
+      ],
+      "webpBytes": 32324
+    },
+    {
+      "id": "happy",
+      "name": "暖杏欢喜",
+      "file": "scene-abstract-happy-v10.png",
+      "source": "C:\\Users\\taotao\\.codex\\generated_images\\01a1329e-1a31-7cc1-96c5-a788276fcca7\\exec-bb51a92b-a254-4076-8855-df00cc20db53.png",
+      "prompt": "Use case: stylized-concept. Create an abstract companion-app background variant using reference image 1 as the exact graphic quality, grain, soft curve and composition reference. New mood: bright happiness, confident energy. BACKGROUND ONLY.\nPreserve the professional modern Japanese abstract poster feeling, about 4–5 broad clean curved color planes, subtly tactile matte paper with crisp boundaries. This variation: the main left field is luminous pale lemon-cream #FFF0C3, a very large cropped pale mint-green rounded plane occupies the right half behind the future red-haired character, edged with one soft ivory sliver. A broad warm apricot-coral flowing band sweeps along the bottom 28%, rising slightly toward the right like a gentle uplifting rhythm. A muted turquoise band anchors the lower-left corner, with one very fine ivory offset contour following the lower wave. Tiny cropped deep teal plane at extreme top-right allowed. Keep the body light and clear, saturated colors restricted to bottom/far-right. Top LEFT x=5%-53%, y=7%-64% stays light and low-detail for navy text. Avoid a hard middle vertical division. Right half will receive a character later; bottom 8% a separate white stats strip. Match reference design language but reshape the lower curves slightly to feel lifting and joyful.\nABSOLUTELY NO figures, people, objects, architecture, scenery, plant, leaves, clouds, coins, books, drink, star, moon, lamp, confetti, symbol, numbers, text, branding, UI, border or watermark. Not a sun illustration: only abstract overlapping color planes. No gradients or 3D blobs; fine paper texture only. One square full-bleed image.",
+      "size": [
+        1254,
+        1254
+      ],
+      "webpBytes": 31006
+    },
+    {
+      "id": "sad",
+      "name": "雾蓝缓缓",
+      "file": "scene-abstract-sad-v10.png",
+      "source": "C:\\Users\\taotao\\.codex\\generated_images\\01a1329e-1a31-7cc1-96c5-a788276fcca7\\exec-75ff85e3-184b-474a-a32d-e699029e89f3.png",
+      "prompt": "Create the SAD / gentle reassurance variation of the attached PURE ABSTRACT background. Keep its excellent flat Japanese graphic poster style, giant curving color planes, finely grained matte paper, clear asymmetrical composition. A full-bleed square abstract background only, later a red-haired anime girl is placed on the right and dark navy Chinese text on the left.\nMood: quiet and supportive, not gloomy. Main large field is luminous mist blue #DCEBF5. A huge cropped soft lilac circular plane #D4D1ED lives on the RIGHT centered x=92%, y=28%, with an ivory sliver beside it. A very slow shallow periwinkle curve #9FAFD8 sweeps along the bottom 28%, and a muted blue-teal plane #7FADB9 curves through the lower-left edge. One delicate ivory contour partly follows the lower curve. These are abstract planes, NOT water or sky. No gradients; just precise organic cut-paper edges and very subtle paper texture. Only 4–5 big well-balanced shapes. Avoid perfectly centered or vertically split composition.\nLeave x=5%-53%, y=7%-64% pale, quiet and largely empty for later text; no dark shapes there. Keep shapes mainly at the far right and bottom. The bottom 8% will be covered by statistics.\nAbsolutely NO recognizable objects, rooms, architecture, windows, weather, rain, clouds, flowers, plants, books, drink, money, stars, moon, sun, hearts, ornaments, small marks, characters, text, logos, UI, frames or watermark. Just abstract color and graceful curves. Match the reference's art quality and scale of shapes.",
+      "size": [
+        1254,
+        1254
+      ],
+      "webpBytes": 25030
+    },
+    {
+      "id": "excited",
+      "name": "绯色跃动",
+      "file": "scene-abstract-excited-v10.png",
+      "source": "C:\\Users\\taotao\\.codex\\generated_images\\01a1329e-1a31-7cc1-96c5-a788276fcca7\\exec-c0f3c1a3-0605-496d-9db8-3006adeb1105.png",
+      "prompt": "Create the EXCITED / discovery variation of the attached PURE ABSTRACT background. Same refined contemporary Japanese graphic poster art, flat giant cut-paper curves, matte paper grain, no objects. Square full-bleed canvas to be used behind a red-haired anime girl on the right and dark navy headline on the left.\nMood: a delightful energetic spark through color and curvature only. Main luminous light blush pink field #F9DDE4. One giant cropped periwinkle plane #ADBAEA at the right, with a thin warm ivory sliver as offset. A bold coral-pink broad curved plane #ED8F9B sweeps through the bottom 25–30%, its rising diagonal curved edge brings motion. A lavender-blue curve #879BCD at bottom-left and a tiny mint cropped plane on far right balance the red-haired character later. ONE fine cream offset contour. Aim for an expressive elegant asymmetrical arrangement, not a symmetrical bullseye, not stacked equal waves. Only 4–5 large organic planes, crisp edges with subtle paper texture, no 3D or airbrushed gradient.\nLeft x=5%-53%, y=7%-64% stays pale blush, quiet and low-detail for readable text. The large right color plane should not invade this text zone. Bottom 8% hidden by statistics. No straight vertical split.\nCRITICAL: NO recognizable objects, window, room, flowers, plants, books, sweets, coins, envelopes, sky, clouds, sun, moon, stars, hearts, confetti, decorative small marks, letters, words, characters, UI, logo, frame or watermark. PURE ABSTRACT geometric-organic color composition with beautifully chosen color relationships.",
+      "size": [
+        1254,
+        1254
+      ],
+      "webpBytes": 30066
+    },
+    {
+      "id": "reading",
+      "name": "青绿静思",
+      "file": "scene-abstract-reading-v10.png",
+      "source": "C:\\Users\\taotao\\.codex\\generated_images\\01a1329e-1a31-7cc1-96c5-a788276fcca7\\exec-e19d87ed-88a2-4911-8355-625e423f7a25.png",
+      "prompt": "Make the READING / peaceful concentration variant of this pure abstract Japanese graphic background. Retain refined flat paper-cut graphic art, large graceful asymmetrical curving planes and subtle matte grain. Square full-bleed, designed for red-haired anime character overlaid on right and navy Chinese words on left.\nA luminous pale sage green #DCECDD main field, one giant warm ivory #FFF0CF curved circular plane cropped off the right edge with a narrow pale peach offset sliver. Long restrained flowing muted jade #8DB6A4 and dusty blue-green #6F9FA8 bands sweep across the bottom quarter with ONE fine cream contour. Shapes have slower broad flatter curves that suggest stillness by rhythm alone. About 4–5 beautiful large flat planes, not striped equally, no gradients, 3D or glass.\nLeave x=5%-53%, y=7%-64% light sage, low-detail, uncluttered for text. Keep all stronger colored shapes low or right. Avoid central vertical dividing line; keep whole composition flowing. Bottom 8% will be covered.\nAbsolutely NO recognizable objects or scenes: NO books, bookmark, writing, glasses, stationery, plants, flowers, windows, room, landscape, sky, cloud, sun, moon, stars, drinks, money, letters, marks, icons, characters, logos, UI, border or watermark. Only abstract color planes with well-judged negative space, harmonizing with red hair and off-white UI. Match reference shape scale and quality.",
+      "size": [
+        1254,
+        1254
+      ],
+      "webpBytes": 28364
+    },
+    {
+      "id": "sleepy",
+      "name": "靛蓝轻眠",
+      "file": "scene-abstract-sleepy-v10.png",
+      "source": "C:\\Users\\taotao\\.codex\\generated_images\\01a1329e-1a31-7cc1-96c5-a788276fcca7\\exec-4bd60557-85ae-488e-8088-7f26cf691490.png",
+      "prompt": "Create the SLEEPY / calm evening variation of this PURE ABSTRACT art background. Match the attached refined flat Japanese graphic poster style and scale of oversized cut-paper curving planes, matte fine paper texture. This is a square background for a red-haired anime character later overlaid on right, with warm ivory Chinese text later overlaid on LEFT.\nUse a rich uniform deep indigo #253B60 for the whole upper-left and middle-left main field. A giant cropped rounded lavender-periwinkle plane #A8B5E1 rests at far RIGHT (center x=99%,y=26% radius 35%). A narrow muted rose-mauve offset sliver behind it. Broad calm curves of dusky cornflower #526A9C and muted violet #706C9D sweep gently across bottom 25%. ONE restrained fine pale lavender contour follows part of the lower curve. Only 4–5 large abstract planes, quiet and restful. No black, gloomy gray or neon. No 3D or shiny blobs. This must visually belong to the same set as the reference through shape grammar.\nCRITICAL readability: the area x=5%-54%, y=7%-65% must remain deep indigo without any pale intruding shape, to ensure high contrast with cream text, including long four-line headlines. Keep the bright lavender rounded plane entirely to the right of x=58%. Lower blue/violet curves start below y=70% in the left half. No central straight divider. Bottom 8% hidden by statistics.\nABSOLUTELY NO recognizable objects, landscape, room, window, lamp, moon, sun, stars, cloud, sky illustration, celestial objects, flowers, plants, drink, money, books, symbols, small marks, decorative dots, characters, lettering, logos, UI, frames or watermarks. Abstract color planes only; evening conveyed just through color and gentle rhythm.",
+      "size": [
+        1254,
+        1254
+      ],
+      "webpBytes": 24328,
+      "draftSource": "C:\\Users\\taotao\\.codex\\generated_images\\01a1329e-1a31-7cc1-96c5-a788276fcca7\\exec-51f4990c-cf52-4fe5-917b-fc67094b058d.png",
+      "refinementPrompt": "Edit this exact abstract background with one precise composition correction for text readability. Preserve all colors, paper texture, right lavender rounded plane, the small mauve offset, the flat graphic style, square canvas and absence of objects. ONLY push BOTH the lower purple and blue curved bands DOWN significantly: at the left edge the upper purple band's top border must start at y=76% of the canvas (currently around 58%), and must remain entirely BELOW y=74% across the full left 55% of the image. The blue band's top border and thin pale contour start around y=86% at left. Let both sweeping bands exit toward the bottom right naturally. Fill the entire newly uncovered left and middle area with the identical deep indigo field already at the top, without a visible seam or gradient. As a result the complete rectangle x=5%-54%, y=7%-68% is unbroken deep indigo so four-line cream text will remain legible. Keep the right lavender circle wholly to right of x=58%. Do not add anything else. No text, stars, moon, sky, objects, characters, UI or watermark."
+    }
+  ]
+}

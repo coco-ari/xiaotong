@@ -85,7 +85,7 @@
 .scene-setting-background { inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .scene-setting-shade { inset: 0; background: linear-gradient(90deg, #fffdf1ea, #fffdf1bb 38%, #fffdf100 66%); }
 .scene-setting-character { width: 63%; height: 140%; right: -6%; top: 5%; object-fit: contain; object-position: center top; }
-.scene-setting-preview-text { position: absolute; z-index: 1; width: 48%; left: 7%; top: 50%; transform: translateY(-50%); margin: 0; white-space: pre-line; overflow-wrap: anywhere; text-wrap: pretty; color: #233d62; font-family: inherit; font-size: clamp(17px, 3.5vw, 26px); line-height: 1.65; font-weight: 600; max-height: 88%; overflow: hidden; }
+.scene-setting-preview-text { position: absolute; z-index: 1; width: 48%; left: 7%; top: 50%; transform: translateY(-50%); margin: 0; white-space: pre-line; overflow-wrap: anywhere; text-wrap: pretty; color: #20364f; font-family: inherit; font-size: clamp(17px, 3.5vw, 26px); line-height: 1.65; font-weight: 600; max-height: 88%; overflow: hidden; }
 /* 夜间素材的预览保持深底浅字，避免用白天遮罩冲淡场景。 */
 .scene-setting-preview[data-tone="night"] .scene-setting-shade { background: linear-gradient(90deg, #263b64ea, #263b64bb 38%, #263b6400 66%); }
 .scene-setting-preview[data-tone="night"] .scene-setting-preview-text { color: #fff7df; }

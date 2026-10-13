@@ -6,7 +6,7 @@ import {characterArt} from './art.js';
 import './scene-settings.css';
 
 const copy = value => JSON.parse(JSON.stringify(value));
-const assetNames = {greeting: '汽水晴日', happy: '收获时刻', sad: '雨窗陪伴', excited: '心动来信', reading: '午后书页', sleepy: '月灯晚安'};
+const assetNames = {greeting: '薄荷序曲', happy: '暖杏欢喜', sad: '雾蓝缓缓', excited: '绯色跃动', reading: '青绿静思', sleepy: '靛蓝轻眠'};
 const operators = [['gt', '大于'], ['lt', '小于'], ['eq', '等于'], ['gte', '大于或等于'], ['lte', '小于或等于']];
 const statusNames = {ready: '数据可用', missing: '尚未接入', stale: '数据已过期', error: '获取失败', invalid: '数据无效'};
 const modeNames = {demo: '演示数据', live: '接口数据', local: '本地数据'};
