@@ -6,7 +6,7 @@ import {characterArt} from './art.js';
 import './scene-settings.css';
 
 const copy = value => JSON.parse(JSON.stringify(value));
-const assetNames = {greeting: '玫瑰序曲', happy: '金色好消息', sad: '雨中陪伴', excited: '暮色来信', reading: '花园书香', sleepy: '月下晚安'};
+const assetNames = {greeting: '汽水晴日', happy: '收获时刻', sad: '雨窗陪伴', excited: '心动来信', reading: '午后书页', sleepy: '月灯晚安'};
 const operators = [['gt', '大于'], ['lt', '小于'], ['eq', '等于'], ['gte', '大于或等于'], ['lte', '小于或等于']];
 const statusNames = {ready: '数据可用', missing: '尚未接入', stale: '数据已过期', error: '获取失败', invalid: '数据无效'};
 const modeNames = {demo: '演示数据', live: '接口数据', local: '本地数据'};
@@ -21,7 +21,7 @@ function reordered(items, index, step) {
 function AssetPreview({characterId, backgroundId, text, name}) {
   const mood = MOODS.find(item => item.id === characterId) || MOODS[0];
   const background = SCENES[backgroundId] || SCENES.greeting;
-  return <div className="scene-setting-preview" role="img" aria-label={`${name}：${mood.label}，${assetNames[backgroundId] || '玫瑰插画背景'}。${text || '暂无文案'}`}>
+  return <div className="scene-setting-preview" data-tone={background.tone} role="img" aria-label={`${name}：${mood.label}，${assetNames[backgroundId] || '日系插画背景'}。${text || '暂无文案'}`}>
     <img className="scene-setting-background" src={characterArt(background.background)} alt="" loading="lazy"/>
     <div className="scene-setting-shade"/>
     <p className="scene-setting-preview-text" aria-hidden="true" data-length={countCharacters(text) > 16 ? 'long' : 'short'}>{text || '填写文案，\n预览此刻。'}</p>

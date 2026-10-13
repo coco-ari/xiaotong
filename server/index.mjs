@@ -69,7 +69,7 @@ export function createApp({dataDir=resolve('state'),staticDir=resolve('dist'),or
         fail('接口不存在',404);
       }
       if(method!=='GET'&&method!=='HEAD')fail('页面不存在',404);
-      if(path==='manifest.webmanifest')return reply(200,{id:prefix,name:'小彤',short_name:'小彤',description:'你的个人空间',lang:'zh-CN',start_url:prefix,scope:prefix,display:'standalone',background_color:'#191716',theme_color:'#191716',icons:[{src:'xiaotong-icon-192-v3.png',sizes:'192x192',type:'image/png',purpose:'any maskable'},{src:'xiaotong-icon-512-v3.png',sizes:'512x512',type:'image/png',purpose:'any maskable'}]},'application/manifest+json');
+      if(path==='manifest.webmanifest')return reply(200,{id:prefix,name:'小彤',short_name:'小彤',description:'你的个人空间',lang:'zh-CN',start_url:prefix,scope:prefix,display:'standalone',background_color:'#eef3f5',theme_color:'#eef3f5',icons:[{src:'xiaotong-icon-192-v3.png',sizes:'192x192',type:'image/png',purpose:'any maskable'},{src:'xiaotong-icon-512-v3.png',sizes:'512x512',type:'image/png',purpose:'any maskable'}]},'application/manifest+json');
       const file=resolve(staticDir,path||'index.html');if(!file.startsWith(resolve(staticDir)+sep)||!existsSync(file)||!statSync(file).isFile())fail('页面不存在',404);
       return reply(200,readFileSync(file),mime[extname(file)]||'application/octet-stream',path==='sw.js'?{'Service-Worker-Allowed':prefix}:{});
     }catch(e){if(!res.headersSent)reply(e.status||500,{error:e.status?e.message:'服务暂时不可用，请重试'});else res.destroy();}

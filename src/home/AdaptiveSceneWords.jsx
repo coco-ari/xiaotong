@@ -13,7 +13,7 @@ export default function AdaptiveSceneWords({scene, duration}) {
     const measure = () => {
       if (disposed || !context) return;
       const rect = cover.getBoundingClientRect(), style = getComputedStyle(element);
-      // 文案限制在封面中上部，为下方花园与人物发梢保留空间。
+      // 文案限制在封面中上部，为下方插画与人物发梢保留空间。
       setLayout(fitSceneText(scene.text, rect.width * 0.44 - 4, rect.height * 0.44, (value, size) => {
         context.font = `${style.fontWeight} ${size}px ${style.fontFamily}`;
         return context.measureText(value).width;

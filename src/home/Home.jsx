@@ -24,7 +24,7 @@ import './refined.css';
 const PORTFOLIO = portfolio();
 const TODAY = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Shanghai', year:'numeric', month:'2-digit', day:'2-digit'}).format(new Date());
 const DAYS = daySeries(TODAY);
-const MOOD_NOTES = {greeting:'玫瑰序曲', happy:'金色好消息', sad:'雨中陪伴', excited:'暮色来信', reading:'花园书香', sleepy:'月下晚安'};
+const MOOD_NOTES = {greeting:'汽水晴日', happy:'收获时刻', sad:'雨窗陪伴', excited:'心动来信', reading:'午后书页', sleepy:'月灯晚安'};
 const SLOT_LABELS = {assets:'持仓', reading:'待读', saved:'收藏', empty:'留给以后'};
 
 function Overview({saved, slots, onEdit}) {
@@ -88,6 +88,18 @@ export default function PersonalHome() {
     return()=>navigator.serviceWorker?.removeEventListener('message',onMessage);
   },[go]);
   useEffect(()=>{setDialog(null);},[route.key]);
+  useEffect(()=>{
+    const color=page==='home'?'#eef3f5':'#1c1816';
+    const theme=document.querySelector('meta[name="theme-color"]');
+    const previousTheme=theme?.content,previousBackground=document.documentElement.style.backgroundColor;
+    // 浏览器栏与页面画布同步，手机回弹时不露出旧版深棕底色。
+    if(theme)theme.content=color;
+    document.documentElement.style.backgroundColor=color;
+    return()=>{
+      if(theme)theme.content=previousTheme;
+      document.documentElement.style.backgroundColor=previousBackground;
+    };
+  },[page]);
   useEffect(()=>{if(!status)return;const timer=setTimeout(()=>setStatus(''),2600);return()=>clearTimeout(timer);},[status]);
 
   const saveSettings=async patch=>{
@@ -105,7 +117,7 @@ export default function PersonalHome() {
     catch(failure){setError(failure.message);}
     finally{savingArticle.current=false;revision.current++;setPendingSaved([]);}
   };
-  return <MotionConfig reducedMotion={reduced?'always':'never'}><div className="personal-app refined-app">
+  return <MotionConfig reducedMotion={reduced?'always':'never'}><div className="personal-app refined-app" data-view={page}>
     <a className="skip-link" href="#main-content">跳到主要内容</a>
     <main id="main-content" tabIndex={-1} className={'personal-main view-'+page}>
       {page==='home'&&<div className="home-layout">

@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-13",
+  "method": "内置 image_gen",
+  "direction": "日系现代插画：汽水画报",
+  "selection": "用户明确选择日系现代插画方向；实施方比较两张完整首页后采用 B 汽水画报。",
+  "referencePrinciples": [
+    {
+      "url": "https://bluearchive.jp/",
+      "use": "天空蓝、白色高光与红发冷暖对比"
+    },
+    {
+      "url": "https://gakuen.idolmaster-official.jp/",
+      "use": "白底、几何边界、局部高彩度强调"
+    },
+    {
+      "url": "https://www.hakusensha.co.jp/news/76388/",
+      "use": "浅色人物与明亮点缀，不采用密集标题"
+    },
+    {
+      "url": "https://www.pokemon.jp/special/pokepeace/",
+      "use": "日常物件叙事与清晰配色，不改变人物身份"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "a",
+      "prompt": "Use case: illustration-story.\nAsset: original square raster BACKGROUND ONLY for an existing Chinese anime companion app homepage, professional Japanese contemporary illustration and magazine art direction.\nInput image 1 is the existing transparent red-haired maid character, provided ONLY to match palette and illustration finish. DO NOT include the character or any person in the output.\nArt direction A, \"Clear sky soda\": a lucid summer afternoon at a small contemporary Japanese cafe. Visually arresting but sophisticated, sky blue + clean ivory + tiny coral-red accents, crisp cel-painted environmental shapes with delicate hand-drawn details and luminous glass. NOT a realistic photograph.\nLayout is critical: the left half from x=0% to 52%, y=0% to 64% is a luminous almost-ivory pale-blue plaster wall, very quiet and uniform, providing legible space for large dark navy Chinese text later. Do not draw text. Avoid making the whole image flat: a bold large diagonal shaft of white sunlight crosses the lower left below y=64%; a rich cerulean rectangular window occupies the right 48% with a few bright white cloud forms and one fine cropped teal leaf at the top edge. The window has slim contemporary white mullions, NO arch. Behind the future character at right, keep shapes large and simple. At the lower LEFT x=9%-35%, y=69%-91%, paint a small delicate transparent ice-blue soda glass with a cherry-red cherry and cream scoop, on an ivory cafe tabletop; one tiny red paper coaster and sharp translucent cyan cast shadow. The glass must remain entirely below y=65%, small enough to leave headline clear. A saturated periwinkle-blue cropped tiled counter band anchors the bottom edge, crossed by a restrained coral-red stripe at bottom left. Composition feels like a beautifully art-directed Japanese illustrated summer magazine cover without the typography. Controlled cool white highlights, transparent blue shadows, saturated sky blue framing the warm red hair that will be overlaid later.\nThe upper-left 52% must have almost no detail; all illustrated object interest sits below 65% height or right of 58% width. Leave bottom 8% expendable because a UI stats bar will overlap it. Edge-to-edge image, no exterior border, no frame.\nConstraints: absolutely no people, no faces, no text, no letters, no numbers, no logos, no watermark. No European ornament, no roses, no gold filigree, no lace, no stone arch, no retro brown wash, no generic gradient blob, no dense miniature pattern. Sharp high-quality raster illustration, square canvas."
+    },
+    {
+      "id": "b",
+      "prompt": "Use case: stylized-concept.\nCreate an original square raster BACKGROUND ONLY for a modern Japanese illustrated magazine / anime character card.\nDirection B: \"Soda pop editorial\". Contemporary Japanese graphic art direction, striking yet airy. Crisp flat cel illustration and delicate hand-drawn ink contours, refined editorial paper collage. A limited palette: bright blue #498BC6, milky mint #CEF0E5, warm paper white #FFFDF1, soft lemon #FBE696, restrained strawberry red #EB655B. Polished analog print finish with extremely fine grain. More art-directed graphic cover than an actual room.\nComposition for an app: LEFT x=0%-52%, y=0%-65% must be very clean warm off-white paper for a large navy headline added later; no typography in image. Across the RIGHT 48% place a cropped enormous pale lemon circle over a clear sky-blue rectangular plane with one bold white cloud silhouette, delicate blueprint-like blue pencil window lines, and a few tiny red cherry-dot accents. Let a sweeping mint curved plane start at x=0%,y=76% and rise towards the right behind the future character. A coral-red slim sweeping stripe separates this mint base from the paper. At the lower left x=11%-32%, y=71%-91%, a small delicately inked Japanese kissaten cream-soda glass: mint soda, a white ice-cream scoop, one saturated red cherry and 2 crisp translucent ice cubes. Beside it a tiny folded pale blue paper napkin. The object has clean blue outlines and simple cel shading, not photorealistic, not childish clip art. One small dark-green branch cropped into the top-right only. Strong asymmetry, oversized graphic shapes balanced with exquisite small illustrated details. Leave the upper-left empty and the bottom 8% expendable for a separate white stats bar. The future red-haired anime girl will occupy x=53%-100%, y=19%-100%, so background focal shapes should support her, not compete with her.\nAbsolutely no character, no face, no person, no text, no numbers, no logos, no watermark, no UI. No arches, no roses, no gold, no European ornament, no thick picture frame, no photoreal room, no realistic 3D render, no washed-out beige vintage filter, no oversized floating meaningless UI blobs.\nOutput one sophisticated graphic anime-editorial background, edge to edge square."
+    }
+  ],
+  "assets": [
+    {
+      "id": "greeting",
+      "name": "汽水晴日",
+      "file": "src/home/art/scene-editorial-greeting-v9.png",
+      "webp": "src/home/art/scene-editorial-greeting-v9.webp",
+      "reference": null,
+      "prompt": "Use case: stylized-concept.\nCreate an original square raster BACKGROUND ONLY for a modern Japanese illustrated magazine / anime character card.\nDirection B: \"Soda pop editorial\". Contemporary Japanese graphic art direction, striking yet airy. Crisp flat cel illustration and delicate hand-drawn ink contours, refined editorial paper collage. A limited palette: bright blue #498BC6, milky mint #CEF0E5, warm paper white #FFFDF1, soft lemon #FBE696, restrained strawberry red #EB655B. Polished analog print finish with extremely fine grain. More art-directed graphic cover than an actual room.\nComposition for an app: LEFT x=0%-52%, y=0%-65% must be very clean warm off-white paper for a large navy headline added later; no typography in image. Across the RIGHT 48% place a cropped enormous pale lemon circle over a clear sky-blue rectangular plane with one bold white cloud silhouette, delicate blueprint-like blue pencil window lines, and a few tiny red cherry-dot accents. Let a sweeping mint curved plane start at x=0%,y=76% and rise towards the right behind the future character. A coral-red slim sweeping stripe separates this mint base from the paper. At the lower left x=11%-32%, y=71%-91%, a small delicately inked Japanese kissaten cream-soda glass: mint soda, a white ice-cream scoop, one saturated red cherry and 2 crisp translucent ice cubes. Beside it a tiny folded pale blue paper napkin. The object has clean blue outlines and simple cel shading, not photorealistic, not childish clip art. One small dark-green branch cropped into the top-right only. Strong asymmetry, oversized graphic shapes balanced with exquisite small illustrated details. Leave the upper-left empty and the bottom 8% expendable for a separate white stats bar. The future red-haired anime girl will occupy x=53%-100%, y=19%-100%, so background focal shapes should support her, not compete with her.\nAbsolutely no character, no face, no person, no text, no numbers, no logos, no watermark, no UI. No arches, no roses, no gold, no European ornament, no thick picture frame, no photoreal room, no realistic 3D render, no washed-out beige vintage filter, no oversized floating meaningless UI blobs.\nOutput one sophisticated graphic anime-editorial background, edge to edge square."
+    },
+    {
+      "id": "happy",
+      "name": "收获时刻",
+      "file": "src/home/art/scene-editorial-happy-v9.png",
+      "webp": "src/home/art/scene-editorial-happy-v9.webp",
+      "reference": "src/home/art/scene-editorial-greeting-v9.png",
+      "prompt": "Use case: stylized-concept. Create one new square background in EXACTLY the contemporary Japanese illustrated-magazine art direction of reference image 1. Reference is the approved working visual system: flat cel illustration with fine blue ink contours, clean asymmetry, limited clear color blocks and very subtle paper grain. It is a style/composition reference, not a request to repeat its soda scene.\nNew mood: happy positive financial day, a small harvest. Keep upper-left x=0%-52%,y=0%-64% entirely clear for dark navy text added later, with a soft luminous lemon-cream #FFF3C8 field. Right 48%: mint-turquoise sky plane, a large cropped apricot-coral sun disk behind the future red-haired character, fine simple cyan window lines, 3 tiny bright confetti strokes near TOP-RIGHT only, and a little green sprout branch cropped at the very top. Low sweeping aqua tabletop across bottom 25% bordered with a slim deep-blue line, composed like the reference. At lower LEFT x=10%-35%, y=69%-90%: two short beautiful stacks of small brass-yellow coins, one delicate small transparent jar holding a fresh sprout; the coins have no text, currency symbols, numbers or emblems. One tiny paper bow on the side, exquisite restrained cel-drawn details. Props stay below 66% height and cannot enter headline area. Make it cheerful, airy, optimistic, editorial; warm yellow against cool mint with restrained coral accents, not luxurious gold.\nThe character will be placed over the right half afterwards. No people, no character silhouette, no text or typography or UI anywhere. Bottom 8% may be covered by a separate stats strip. Do not draw European arches, roses, filigree, furniture realism or 3D. Keep clear printed illustration language of reference."
+    },
+    {
+      "id": "sad",
+      "name": "雨窗陪伴",
+      "file": "src/home/art/scene-editorial-sad-v9.png",
+      "webp": "src/home/art/scene-editorial-sad-v9.webp",
+      "reference": "src/home/art/scene-editorial-greeting-v9.png",
+      "prompt": "Use case: stylized-concept. Generate one square original BACKGROUND ONLY belonging to the exact same Japanese contemporary illustrated-magazine series as reference image 1. Preserve the flat cel-painted finish, fine colored ink outlines, large graphic composition, extremely fine paper grain, quiet left half and right-side window panel.\nNew scene \"Rain, then a pause\": comforting on a disappointing day. LEFT x=0%-52%,y=0%-64% is clean pale ice-blue paper #E9F2FA, uninterrupted for dark blue dynamic text later. No rain, stems or shadows over this region. RIGHT 48% is a lovely periwinkle-blue window plane, a large cropped pale lavender circle with a few delicate rain streaks, a distant tiny muted-blue city silhouette low on the right, and a white cloud shape. Small sparse raindrops only on the far right window; retain beautiful clean light rather than gloomy realistic storm. Bottom sweeping tabletop is mist-blue/mint with a thin lavender-blue boundary line. Lower LEFT x=11%-36%,y=69%-91%: a small rounded ivory mug of warm tea with one delicate curve of steam, on a folded pale-blue napkin; beside it one small sprig of lavender hydrangea in a short clear glass. Fine restrained shadows and cel highlights. The top of steam and flowers must be BELOW 66% image height. These objects provide gentle company and a recognizable Japanese rainy-season atmosphere.\nA future red-haired anime character covers the right half; the left text area stays sparse. Mood: compassionate, quiet, clear, modern, not celebratory. No coins, confetti or gold. No people or text of any kind, no logo, no watermark, no UI, no border. No European arches, roses or ornament. Match reference graphic illustration quality; do not turn into a photo or 3D room. Bottom 8% is expendable for UI overlay."
+    },
+    {
+      "id": "excited",
+      "name": "心动来信",
+      "file": "src/home/art/scene-editorial-excited-v9.png",
+      "webp": "src/home/art/scene-editorial-excited-v9.webp",
+      "reference": "src/home/art/scene-editorial-greeting-v9.png",
+      "prompt": "Use case: stylized-concept. One original square background-only illustration for the same contemporary Japanese illustrated-magazine series as reference image 1. Preserve its exquisitely clean cel-painted print quality, fine blue ink outlines, huge graphic planes and asymmetrical layout, barely visible paper texture.\nNew mood: \"A delightful new letter\", curious excitement about discovering interesting reading. Upper LEFT x=0%-52%,y=0%-64% stays quiet clean pink-white #FFF3F4 with no detail, reserved for dark-blue Chinese text added later. RIGHT 48%: saturated but airy periwinkle-blue window-like graphic plane with a large cropped soft coral-pink disk, white cloud shapes, fine blue architectural/window linework. A few tiny lemon-yellow sparkle marks near TOP-RIGHT, and cropped mint leaves. Bottom sweeping plane soft pale peach, accented by a fine blue edge and a small mint strip.\nAt lower LEFT x=10%-36%,y=70%-91%, paint an open coral-red envelope with a blank pale ivory sheet emerging, one small folded sky-blue paper crane beside it and a little yellow star-shaped paper seal lying on the desk. Crisp ink outlines and restrained cel shading, no writing or marks on the blank letter. The objects are small editorial still-life accents, do not extend above y=66%.\nThe right half will receive a separate red-haired anime girl, so no subject character now. Controlled high-chroma accents, clear air and freshness, youthful yet grown-up Japanese stationery and editorial sensibility. No people, no text of any kind, no numbers, no labels, no UI, no watermark. No European ornament, no roses, no arches, no golden frame. No photorealism, no 3D render. Square edge-to-edge; bottom 8% may be covered."
+    },
+    {
+      "id": "reading",
+      "name": "午后书页",
+      "file": "src/home/art/scene-editorial-reading-v9.png",
+      "webp": "src/home/art/scene-editorial-reading-v9.webp",
+      "reference": "src/home/art/scene-editorial-greeting-v9.png",
+      "prompt": "Use case: stylized-concept. One original square background illustration, no character, in the exact same modern Japanese editorial illustration series as reference image 1. Use its crisp cel-shaded printed art, fine colored pen outlines, very subtle paper grain, large asymmetric color planes, bold but calm composition.\nNew mood: \"A page in the afternoon\", focused and curious. Upper LEFT x=0%-52%,y=0%-64% is a clean very pale mint-ivory #EFF7E9 wall-paper plane, wholly undisturbed for future dark-blue Chinese text. Right-side 48% graphic window panel in clear seafoam turquoise and sage green, with one large cropped warm ivory disk behind the future red-haired character, a sliver of fresh sky blue, restrained white cloud silhouette and fine blue line drawing of distant rooftops at bottom-right. Sparse cropped leafy branch at top-right. Bottom sweeping tabletop warm ivory, bordered by a fine leaf-green stripe.\nLower LEFT x=10%-39%,y=71%-91% contains a beautiful small editorial still-life: two slim books with blank periwinkle and coral covers, an open ivory book angled gently toward the viewer on top, a fine red ribbon bookmark, a tiny white cup of green tea beside it. NO letters, no fake text or scribble on the book pages, only very faint clean page-edge lines. All props remain below 67% height. Delicate cel shadows in teal, clear light, more Japanese bookshop magazine than ornate library. Leave the entire upper-left quiet. The character will be composited over the right half later. No people, no text, no UI, no logos or watermark. No European arches, flowers, gilding or ornate interior. No realistic rendering, no 3D. Square canvas, bottom 8% can be covered by a stats bar."
+    },
+    {
+      "id": "sleepy",
+      "name": "月灯晚安",
+      "file": "src/home/art/scene-editorial-sleepy-v9.png",
+      "webp": "src/home/art/scene-editorial-sleepy-v9.webp",
+      "reference": "src/home/art/scene-editorial-greeting-v9.png",
+      "prompt": "Use case: stylized-concept. Create one original square nighttime BACKGROUND ONLY in the precise same Japanese contemporary illustrated-magazine visual system as reference image 1. Preserve refined flat cel illustration, fine colored ink linework, asymmetrical left headline / right character composition, clean large color planes, faint paper grain. The scene must be clearly nighttime, not recolored daytime.\nLEFT x=0%-52%,y=0%-64%: uniformly deep clear indigo navy #263B64, quiet and uncluttered, a future cream-colored Chinese headline goes here. No stars or objects in this text rectangle.\nRIGHT 48%: deep periwinkle-blue night window plane, a large cropped pale lavender circular disk sitting high behind where the future character will stand, a few tiny warm stars in the TOP-RIGHT, and a slim clearly visible pale lemon crescent near x=59%,y=9% where the later character will NOT cover it. Low distant rooftops are blue silhouettes with 3 tiny warm window dots, fine ice-blue architectural linework. No clouds in bright daylight style. A cropped restrained midnight-teal branch at the top-right.\nBottom sweeping plane muted soft cornflower blue with a thin pale-lavender line. At lower LEFT x=11%-35%,y=71%-91% a small modern Japanese mushroom-shaped table lamp with opaque ivory dome, simple stem and round base, softly glowing pale honey yellow; beside it a single small closed blue book with a coral ribbon. Stylized crisp cel shading, subtle warm cast-light pool only at the bottom, beautiful warm-cool balance. Lamp top stays below 67% image height. Bottom 8% can be covered by separate stats overlay.\nGentle companionable bedtime atmosphere, not gloomy and not a flashy neon space scene. No character, no people, no text, no clocks or numbers, no logos, no UI, no watermark. No ornate furniture, European arch, roses or gilded frame. Do not make a photograph or 3D render. Square edge-to-edge illustration."
+    }
+  ],
+  "delivery": {
+    "originalDimensions": [
+      1254,
+      1254
+    ],
+    "webpQuality": 88,
+    "webpMethod": 6
+  }
+}
