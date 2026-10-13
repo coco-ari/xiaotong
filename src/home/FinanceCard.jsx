@@ -1,5 +1,6 @@
 import React, {memo, useEffect, useRef, useState} from 'react';
-import {motion, useReducedMotion} from 'motion/react';
+import {motion} from 'motion/react';
+import useMotionPreference from './useMotionPreference.js';
 import NumberFlow from '@number-flow/react';
 import Trend from './Trend.jsx';
 import {money} from './data.mjs';
@@ -16,11 +17,11 @@ const ProfitNumber = memo(function ProfitNumber({value, reduced}) {
     respectMotionPreference aria-hidden="true"/>;
 });
 
-function usePlayback(ref, count) {
-  const reduced = useReducedMotion();
-  const [frame, setFrame] = useState(() => reduced ? playbackAt(Infinity, count) : {...playbackAt(0, count), phase: 'waiting'});
+function usePlayback(ref, count, completed, onComplete) {
+  const reduced = useMotionPreference();
+  const [frame, setFrame] = useState(() => reduced || completed ? playbackAt(Infinity, count) : {...playbackAt(0, count), phase: 'waiting'});
   useEffect(() => {
-    if (reduced) {setFrame(playbackAt(Infinity, count)); return;}
+    if (reduced || completed) {setFrame(playbackAt(Infinity, count)); if (!completed) onComplete?.(); return;}
     let raf = 0, elapsed = 0, previous = null, inView = false, complete = false, fontReady = false, disposed = false;
     setFrame({...playbackAt(0, count), phase: 'waiting'});
     const tick = now => {
@@ -28,6 +29,7 @@ function usePlayback(ref, count) {
       previous = now;
       setFrame(playbackAt(elapsed, count));
       complete = elapsed >= PLAYBACK.draw + PLAYBACK.settle + PLAYBACK.reveal;
+      if (complete) onComplete?.();
       if (!complete) raf = requestAnimationFrame(tick);
     };
     const sync = () => {
@@ -40,17 +42,17 @@ function usePlayback(ref, count) {
     document.fonts.load('500 60px "Inter Variable"').catch(() => {}).then(() => {fontReady = true; sync();});
     document.addEventListener('visibilitychange', sync);
     return () => {disposed = true; observer.disconnect(); cancelAnimationFrame(raf); document.removeEventListener('visibilitychange', sync);};
-  }, [count, reduced]);
+  }, [count, reduced, completed, onComplete]);
   return frame;
 }
 
-export default function FinanceCard({onOpen, portfolio, days}) {
-  const ref = useRef(null), reduced = useReducedMotion(), frame = usePlayback(ref, days.length);
+export default function FinanceCard({onOpen, portfolio, days, completed = false, onComplete}) {
+  const ref = useRef(null), reduced = useMotionPreference(), frame = usePlayback(ref, days.length, completed, onComplete);
   const settled = frame.phase === 'settling' || frame.phase === 'done';
   const total = portfolio.series[frame.step];
   return <section ref={ref} className={'finance-card quiet-finance ' + (portfolio.total >= 0 ? 'positive' : 'negative')}
     data-phase={frame.phase} data-day={days[frame.step]} aria-label="收益概览，演示数据">
-    <button className="card-open-layer" onClick={onOpen} aria-label="查看收益详情"/>
+    <button className="card-open-layer" data-focus-key="finance-open" onClick={onOpen} aria-label="查看收益详情"/>
     <div className="finance-scene-chart"><Trend values={portfolio.series} progress={frame.progress}/></div>
     <span className="finance-demo">演示</span>
     <motion.span className="finance-total-label finance-amount-label" initial={false}

@@ -1,0 +1,2807 @@
+{
+  "meta": {
+    "reviewedAt": "2026-10-13",
+    "summary": "30 条原创提示词，55 条来源评审，覆盖 52 个唯一 URL、31 个同源作者／机构族。其中 50 条记录已读正文或明确范围；热度与主观适配评分分开记录，待读资料不参与推荐。",
+    "methodology": [
+      "提示词均为结合本项目任务的原创综合改写。来源关联表示参考原则，不表示原作者写过、认可或担保这些提示词。",
+      "评分为本轮 0–10 分主观判断，综合场景适配、可执行性、交互边界、可访问性与复用清晰度；不是用户研究、行业排名或模型基准测试。",
+      "热度保留查证日期及所属层级；仓库星数不是子技能安装数，目录条数不是使用人数，作者自述不是独立验证。",
+      "来源评审记录、唯一 URL 与 sourceFamily 分开计数。sourceFamily 合并同仓库、同作者博客和相关讨论；该数量不是独立质量实验证据数量。",
+      "未取得正文的来源标待读或不入库，不参与推荐。待读条目的 0 分只是数值字段占位，不代表质量被判零分。",
+      "appliedTo 只标记本轮已应用的明确模式；额外注明 applicationScope 时，以该范围为准。验收条目是后续维护目标，不等于全面认证。",
+      "提示词中的动效时长、位移和尺寸是项目起始参数，需按浏览器、设备和内容验证；不把个人风格禁令当成正式标准。",
+      "没有安装研究到的外部 skills、hooks、下载包或运行其脚本；仓库保留链接、评价与原创规格，不搬运付费文本或长篇原文。"
+    ],
+    "sourceCount": 55,
+    "uniqueURLCount": 52,
+    "independentSourceCount": 31,
+    "readSourceCount": 50,
+    "readUniqueURLCount": 47,
+    "readSourceFamilyCount": 27,
+    "promptCount": 30,
+    "appliedPromptCount": 11
+  },
+  "sources": [
+    {
+      "id": "int-s01",
+      "title": "Good vs Great Animations",
+      "url": "https://emilkowal.ski/ui/good-vs-great-animations",
+      "type": "设计工程作者博客",
+      "author": "Emil Kowalski",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 讲清动效起点、缓动、弹簧与标签高亮的质感差异，特别区分装饰图表和金融功能图表。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "推荐",
+      "score": 9.4,
+      "strengths": [
+        "有交互示例，也说明何时不应使用效果；对细节评审很有用。"
+      ],
+      "limits": [
+        "金融功能图表需要立即、准确反馈，不能直接套用装饰曲线的弹簧效果。"
+      ],
+      "suitable": [
+        "动效细节",
+        "导航反馈"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "emil-kowalski",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s02",
+      "title": "You Don't Need Animations",
+      "url": "https://emilkowal.ski/ui/you-dont-need-animations",
+      "type": "设计工程作者博客",
+      "author": "Emil Kowalski",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 以使用频率和任务目的判断动画价值；展示高频菜单、键盘交互和反馈之间的差别。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "推荐",
+      "score": 9.5,
+      "strengths": [
+        "能筛掉大量只在演示视频中好看的动效，适合日常仪表盘。"
+      ],
+      "limits": [
+        "作者提出通常低于 300ms 的经验建议；这是指导值，不能当通用标准或每个场景的硬规定。"
+      ],
+      "suitable": [
+        "高频工具",
+        "动效决策"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "emil-kowalski",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s03",
+      "title": "The Magic of Clip Path",
+      "url": "https://emilkowal.ski/ui/the-magic-of-clip-path",
+      "type": "设计工程作者博客",
+      "author": "Emil Kowalski",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 演示裁剪揭示、图片比较与标签高亮，保持元素占据布局空间。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "有条件",
+      "score": 8.4,
+      "strengths": [
+        "效果具体，适合独立预览区和标签指示器。"
+      ],
+      "limits": [
+        "重复视觉层需要从无障碍树隐藏；作者关于性能的概括应以实际浏览器分析验证，不能保证所有 clip-path 均在合成线程运行。"
+      ],
+      "suitable": [
+        "标签指示器",
+        "图片比较"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "emil-kowalski",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s04",
+      "title": "Create accessible animations in React",
+      "url": "https://motion.dev/docs/react-accessibility",
+      "type": "库官方文档",
+      "author": "Motion 官方文档团队",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 通过 MotionConfig 与 useReducedMotion 尊重减少动态效果偏好，对大位移、自动播放和视差做降级。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "推荐",
+      "score": 9.6,
+      "strengths": [
+        "可直接用于项目已有 Motion 依赖，全局策略和局部策略都有清晰入口。"
+      ],
+      "limits": [
+        "MotionConfig 不会自动关闭项目中独立 CSS 动画；CSS 与 JavaScript 需各自处理。"
+      ],
+      "suitable": [
+        "减少动态策略",
+        "角色场景"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "motion",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s05",
+      "title": "Layout Animation — React FLIP & Shared Element",
+      "url": "https://motion.dev/docs/react-layout-animations",
+      "type": "库官方文档",
+      "author": "Motion 官方文档团队",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 说明 layout/layoutId 布局过渡及文字、图片、圆角缩放失真处理。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "推荐",
+      "score": 9.2,
+      "strengths": [
+        "能支撑流动标签、卡片位置和图片展开，说明了具体工程故障。"
+      ],
+      "limits": [
+        "文字与图片不应盲目整块 scale；必要时只过渡位置，固定滚动条空间，并确认唯一且稳定的共享元素标识。"
+      ],
+      "suitable": [
+        "布局变化",
+        "共享元素"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "motion",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s06",
+      "title": "useReducedMotion",
+      "url": "https://motion.dev/docs/react-use-reduced-motion",
+      "type": "库官方文档",
+      "author": "Motion 官方文档团队",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 Hook 读取减少动态效果偏好并响应设置变化，支持替换位移、关闭视差及背景视频自动播放。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "推荐",
+      "score": 9.3,
+      "strengths": [
+        "很小的实现入口能覆盖角色场景、数字和弹层。"
+      ],
+      "limits": [
+        "客户端状态与服务端默认值需要匹配，不能初次闪动后才关闭动画。"
+      ],
+      "suitable": [
+        "系统偏好联动",
+        "静态回退"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "motion",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s07",
+      "title": "Tabs — Radix Primitives",
+      "url": "https://www.radix-ui.com/primitives/docs/components/tabs",
+      "type": "组件官方文档",
+      "author": "Radix / WorkOS",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 明确标签面板关系、受控状态、手动/自动激活与完整键盘导航。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "推荐",
+      "score": 9.4,
+      "strengths": [
+        "给视觉高级感补足真实可用的状态模型。"
+      ],
+      "limits": [
+        "项目未依赖 Radix；可借鉴其行为与 APG，不为一个指示器强装整个组件库。"
+      ],
+      "suitable": [
+        "标签页",
+        "同页视图"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "radix",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s08",
+      "title": "Dialog — Radix Primitives",
+      "url": "https://www.radix-ui.com/primitives/docs/components/dialog",
+      "type": "组件官方文档",
+      "author": "Radix / WorkOS",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 覆盖模态焦点约束、标题描述、Esc 关闭及焦点返回触发器。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "推荐",
+      "score": 9.5,
+      "strengths": [
+        "适合设置面板、文章阅读弹层和图片详情。"
+      ],
+      "limits": [
+        "视觉动画不能延迟焦点管理；长内容需滚动，移动端键盘需单独验证。"
+      ],
+      "suitable": [
+        "设置弹层",
+        "阅读详情"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "radix",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s09",
+      "title": "Motion — Apple Human Interface Guidelines",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/motion",
+      "type": "平台设计指南",
+      "author": "Apple",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已访问该地址，但工具只取得要求 JavaScript 的提示。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "待读",
+      "score": 0,
+      "strengths": [
+        "尚未完成正文审阅，不作质量判断。"
+      ],
+      "limits": [
+        "不能声称已读完整规范，不能凭印象冒充内容摘录。"
+      ],
+      "suitable": [
+        "候选文档复核"
+      ],
+      "unsuitable": [
+        "当前推荐结论的依据"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "apple-hig",
+      "evidenceStatus": "blocked"
+    },
+    {
+      "id": "int-s10",
+      "title": "Motion — Material Design 3",
+      "url": "https://m3.material.io/styles/motion/overview/how-it-works",
+      "type": "平台设计指南",
+      "author": "Google Material Design",
+      "reviewedAt": "2026-10-13",
+      "evidence": "原 overview 地址跳转至 how-it-works，工具仅返回 JavaScript 要求。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "待读",
+      "score": 0,
+      "strengths": [
+        "尚未完成正文审阅，不作质量判断。"
+      ],
+      "limits": [
+        "不能将搜索片段冒充页面全文阅读；暂不引用具体 spring tokens。"
+      ],
+      "suitable": [
+        "候选文档复核"
+      ],
+      "unsuitable": [
+        "当前推荐结论的依据"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "material-design",
+      "evidenceStatus": "blocked"
+    },
+    {
+      "id": "int-s11",
+      "title": "Accessible Animations in React — The prefers-reduced-motion Hook",
+      "url": "https://www.joshwcomeau.com/react/prefers-reduced-motion/",
+      "type": "设计工程作者博客",
+      "author": "Josh W. Comeau",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 解释减少动态效果设置、默认静态渐进增强和 React/SSR 处理。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "推荐",
+      "score": 9.3,
+      "strengths": [
+        "把动效的可访问性作为体验设计而非事后补丁。"
+      ],
+      "limits": [
+        "不能只把动画时长缩到极短而保留大范围滚动或视差；需要替代设计。"
+      ],
+      "suitable": [
+        "React 可访问动效",
+        "服务端渲染"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "josh-comeau",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s12",
+      "title": "How to create high-performance CSS animations",
+      "url": "https://web.dev/articles/animations-guide",
+      "type": "浏览器工程官方教程",
+      "author": "Kayce Basques、Rachel Andrew / web.dev",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 推荐 transform/opacity，说明布局、绘制开销与 DevTools 分析方法。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "推荐",
+      "score": 9.5,
+      "strengths": [
+        "给所有提示词提供可执行的性能边界。"
+      ],
+      "limits": [
+        "will-change 不能撒到全站，需有性能问题证据且在必要时清理；动画属性是否昂贵仍要实测。"
+      ],
+      "suitable": [
+        "动画性能检查",
+        "浏览器分析"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "web-dev",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s13",
+      "title": "The Role of Animation and Motion in UX",
+      "url": "https://www.nngroup.com/articles/animation-purpose-ux/",
+      "type": "用户体验研究机构文章",
+      "author": "Page Laubheimer / Nielsen Norman Group",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 从反馈、状态变化、空间关系解释用途，并分析无关动画如何争抢注意力。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "推荐",
+      "score": 9.2,
+      "strengths": [
+        "适合评估截图中的炫技效果是否值得落到日常工具。"
+      ],
+      "limits": [
+        "文章给的是研究解释和案例，不代表每个具体时长或方案都经本项目用户测试。"
+      ],
+      "suitable": [
+        "微交互决策",
+        "信息层级"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "nngroup",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s14",
+      "title": "Tabs Pattern — ARIA Authoring Practices Guide",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/",
+      "type": "无障碍官方实践指南",
+      "author": "W3C WAI / ARIA Authoring Practices Task Force",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 定义 tablist/tab/tabpanel、方向键及激活规则；面板有明显延迟时应避免焦点即激活。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "推荐",
+      "score": 9.7,
+      "strengths": [
+        "适用于轻量原生 React 标签实现，可逐项验收。"
+      ],
+      "limits": [
+        "页面级导航通常仍应使用链接；不能为了滑动高亮把所有导航都改成 ARIA tabs。"
+      ],
+      "suitable": [
+        "可访问标签页",
+        "键盘导航"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "w3c-wai",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s15",
+      "title": "Reorder — React drag-to-reorder animation",
+      "url": "https://motion.dev/docs/react-reorder",
+      "type": "库官方文档",
+      "author": "Motion 官方文档团队",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 展示重排值状态、独立拖动手柄、退出动画、自动滚动和层叠关系。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "有条件",
+      "score": 8.4,
+      "strengths": [
+        "项目已有 Motion，适合真正可编辑顺序的收藏列表。"
+      ],
+      "limits": [
+        "键盘替代控制和持久化失败回滚必须自行设计；展示拖动并不等于完整可访问排序。"
+      ],
+      "suitable": [
+        "自定义排序",
+        "收藏列表"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "motion",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s16",
+      "title": "Building a drawer component",
+      "url": "https://emilkowal.ski/ui/building-a-drawer-component",
+      "type": "组件作者工程复盘",
+      "author": "Emil Kowalski",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 解释 Vaul 的滚动与拖拽竞争、软键盘、惯性、阻尼、多点触摸和 CSS 变量重算问题。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "有条件",
+      "score": 8.7,
+      "strengths": [
+        "不是效果清单，而是有失败经验的移动端工程笔记。"
+      ],
+      "limits": [
+        "示例 500ms 为作者模拟系统体验的选择，不能机械应用所有产品；输入、滚动、未保存状态比手势更优先。"
+      ],
+      "suitable": [
+        "手机抽屉",
+        "滚动与手势"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "emil-kowalski",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s17",
+      "title": "Building a toast component",
+      "url": "https://emilkowal.ski/ui/building-a-toast-component",
+      "type": "组件作者工程复盘",
+      "author": "Emil Kowalski",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 解释 Sonner 的可中断过渡、不同高度堆叠、滑动与隐藏页面暂停计时。",
+      "popularity": "作者页面称 Sonner 每周 npm 下载超过 40,000,000 次，列出 Cursor、X、OpenAI；本轮未独立核验 npm。",
+      "verdict": "推荐",
+      "score": 9,
+      "strengths": [
+        "成功/失败/进行中三状态可直接变成好用的收藏与复制反馈。"
+      ],
+      "limits": [
+        "品牌方采用及下载量来自作者自述；用户操作不可因等动画或自动消失提示而丢失。"
+      ],
+      "suitable": [
+        "操作反馈",
+        "可逆动作提示"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "emil-kowalski",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s18",
+      "title": "NumberFlow for React",
+      "url": "https://number-flow.barvian.me/",
+      "type": "组件作者官方文档",
+      "author": "Maxwell / Max Barvian",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 提供数字滚动、格式化、动画开关、默认尊重减少动态效果、分组与等宽数字建议。",
+      "popularity": "首页 GitHub 链接文本为 7.7K；这是页面观察值，未核验实时精确星数。",
+      "verdict": "推荐",
+      "score": 9.1,
+      "strengths": [
+        "现成项目依赖，无需增加库即可改进指标更新。"
+      ],
+      "limits": [
+        "不支持所有数字体系与科学计数格式；精确金融读数首次直接显示，变化方向不能靠动效单独表达。"
+      ],
+      "suitable": [
+        "低频指标",
+        "数字格式化"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "max-barvian",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s19",
+      "title": "Complex Images — WAI Images Tutorial",
+      "url": "https://www.w3.org/WAI/tutorials/images/complex/",
+      "type": "无障碍官方教程",
+      "author": "W3C WAI；编辑 Eric Eggert、Shadi Abou-Zahra",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 图表需要简要识别与包含关键数值、趋势的详细替代说明，可用正文和表格承载。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "推荐",
+      "score": 9.5,
+      "strengths": [
+        "适合财务和趋势组件，能检查图表不是只有视觉。"
+      ],
+      "limits": [
+        "aria-describedby 对复杂表格结构会变成长段文字；数据表应保留结构化语义。"
+      ],
+      "suitable": [
+        "图表说明",
+        "结构化数据"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "w3c-wai",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s20",
+      "title": "Accordion — Radix Primitives",
+      "url": "https://www.radix-ui.com/primitives/docs/components/accordion",
+      "type": "组件官方文档",
+      "author": "Radix / WorkOS",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 支持受控展开、多个面板、键盘导航及测量内容尺寸的展开过渡。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "推荐",
+      "score": 9.2,
+      "strengths": [
+        "适合新闻摘要、说明和设置次级内容。"
+      ],
+      "limits": [
+        "展开高度确实会改变布局，不能把它宣传成零布局成本；图片加载、字体加载后高度仍需正确。"
+      ],
+      "suitable": [
+        "摘要展开",
+        "设置次级内容"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "radix",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s21",
+      "title": "Tooltip Pattern — ARIA Authoring Practices Guide",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/",
+      "type": "无障碍官方实践草案",
+      "author": "W3C WAI / ARIA Authoring Practices Task Force",
+      "reviewedAt": "2026-10-13",
+      "evidence": "已实际打开并读取正文或相关 API/工程限制段落；未在浏览器实测页面内交互演示。 工具提示不拿走焦点；聚焦和悬停可见；Esc 可关闭；触发器通过 aria-describedby 关联。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "有条件",
+      "score": 7.9,
+      "strengths": [
+        "能约束精致悬浮标签，避免只有鼠标用户能读说明。"
+      ],
+      "limits": [
+        "页面明示该模式仍在进行中、未达 task force consensus；含按钮的浮层应使用弹层或非模态对话框。"
+      ],
+      "suitable": [
+        "简短说明",
+        "非交互工具提示"
+      ],
+      "unsuitable": [
+        "不经项目验证机械套用全部示例"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "w3c-wai",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "int-s22",
+      "title": "Obsession with Animations — r/UXDesign",
+      "url": "https://www.reddit.com/r/UXDesign/comments/1l028zi",
+      "type": "论坛候选",
+      "author": "Reddit 社区用户（未完整读取）",
+      "reviewedAt": "2026-10-13",
+      "evidence": "搜索发现讨论过度动画并链接 NNGroup；打开失败，无法核验完整上下文或票数。",
+      "popularity": "未取得可核验量化热度信号；不据此宣称受欢迎。",
+      "verdict": "待读",
+      "score": 0,
+      "strengths": [
+        "尚未完成正文审阅，不作质量判断。"
+      ],
+      "limits": [
+        "不根据搜索摘要推断共识或受欢迎程度。"
+      ],
+      "suitable": [
+        "候选讨论复核"
+      ],
+      "unsuitable": [
+        "当前推荐结论的依据"
+      ],
+      "licenseOrReuse": "仅保存链接、简短评价与原创提示词；未核验整页转载许可，不复制长段原文或示例代码。",
+      "sourceFamily": "reddit-uxdesign",
+      "evidenceStatus": "blocked"
+    },
+    {
+      "id": "anthropic-frontend-design",
+      "title": "Frontend Design：从产品主题形成视觉语言",
+      "url": "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md",
+      "type": "官方提示词 / GitHub",
+      "author": "Anthropic",
+      "reviewedAt": "2026-10-13",
+      "evidence": "full-read：读取 52 行核心 SKILL.md 全文及仓库首页；未通读整个多技能仓库。",
+      "popularity": "anthropics/skills 仓库约 180.8k stars、21.4k forks；不是 frontend-design 单技能安装或效果证明。",
+      "verdict": "推荐",
+      "score": 9.2,
+      "strengths": [
+        "先明确主题、受众和任务，再形成 token 与布局并自评。",
+        "将视觉重点集中于一处，覆盖手机、焦点和减少动态。"
+      ],
+      "limits": [
+        "没有复杂控件的完整交互规格。",
+        "反模板清单不能当成对奶油色、衬线字等的普遍禁令。"
+      ],
+      "suitable": [
+        "品牌首页",
+        "角色陪伴首页",
+        "视觉改造"
+      ],
+      "unsuitable": [
+        "复杂业务状态实现",
+        "唯一的无障碍规范"
+      ],
+      "licenseOrReuse": "SKILL 指向独立 LICENSE.txt；只保存来源与原创改写，不整段复制。",
+      "sourceFamily": "anthropic-skills",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "impeccable",
+      "title": "Impeccable：设计批评、系统化和有目的的动效",
+      "url": "https://github.com/pbakaus/impeccable",
+      "type": "作者开源提示词工具 / GitHub",
+      "author": "Paul Bakaus",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：读取 README 的命令、方法、反模式和许可部分及作者文章；没有完整审核 24 个命令或运行时。",
+      "popularity": "GitHub 约 80.3k stars、4.8k forks；作者 2026-06-22 的安装量为历史自报，本库不用它替代当前快照。",
+      "verdict": "推荐",
+      "score": 9.3,
+      "strengths": [
+        "把批评、审核、排版、布局、动效和边界状态拆为可审阅任务。",
+        "区分长期产品事实与页面视觉决策，适合长期提示词库。"
+      ],
+      "limits": [
+        "部分字体和配色禁令属于个人审美。",
+        "收集提示词不必引入整套工具。"
+      ],
+      "suitable": [
+        "已有产品改造",
+        "设计审核",
+        "组件打磨",
+        "规范沉淀"
+      ],
+      "unsuitable": [
+        "同时套全部效果",
+        "只看截图而不验证行为"
+      ],
+      "licenseOrReuse": "仓库 Apache-2.0；只总结方法，不安装 runtime、hooks 或下载脚本。",
+      "sourceFamily": "impeccable",
+      "evidenceStatus": "partial",
+      "relatedUrls": [
+        "https://www.a16z.news/p/impeccable-by-design"
+      ]
+    },
+    {
+      "id": "ui-ux-pro-max",
+      "title": "UI UX Pro Max：场景匹配的设计系统提示词",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "type": "开源设计提示词与数据集 / GitHub",
+      "author": "NextLevelBuilder",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：读取 README 设计系统生成、风格分类、检查项和文字稳健性部分；未核验全部数据行。",
+      "popularity": "GitHub 约 135.2k stars、14.4k forks；不能据此说明所有风格同样流行。",
+      "verdict": "推荐",
+      "score": 9,
+      "strengths": [
+        "按任务和产品类型匹配色彩、排版及控件。",
+        "关注文字换行、对比、焦点、取消和减少动态。"
+      ],
+      "limits": [
+        "规则匹配不是用户研究或转化率证据。",
+        "预设不可覆盖已有角色品牌。"
+      ],
+      "suitable": [
+        "新功能规格",
+        "跨页 token 统一",
+        "场景筛选"
+      ],
+      "unsuitable": [
+        "把所有规则塞进一个提示词",
+        "按行业自动决定最终设计"
+      ],
+      "licenseOrReuse": "仓库 MIT；总结方法，不整库搬入项目。",
+      "sourceFamily": "ui-ux-pro-max",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "taste-main",
+      "title": "Taste Skill：布局、动效、信息密度三项控制",
+      "url": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md",
+      "type": "开源提示词 / GitHub",
+      "author": "Leonxlnx / Taste Skill 团队",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：读取 1087 行主文件的边界与需求推导，及 README 的技能分类和三项参数。",
+      "popularity": "Taste Skill 仓库约 95.2k stars、6.5k forks；与 soft/redesign 同源，不重复计为独立热门证据。",
+      "verdict": "有条件",
+      "score": 8.3,
+      "strengths": [
+        "把高级感拆为布局探索、动效和密度。",
+        "先读需求，只选匹配规则。"
+      ],
+      "limits": [
+        "当前主技能明确不面向 dashboard、data table、multi-step UI。",
+        "默认 v2 标为 experimental；长提示词及 GSAP 倾向成本较高。"
+      ],
+      "suitable": [
+        "首页探索",
+        "角色展示",
+        "介绍页面"
+      ],
+      "unsuitable": [
+        "计划管理整体规范",
+        "高密度列表",
+        "设置表单"
+      ],
+      "licenseOrReuse": "MIT；采用参数化方法的原创改写。",
+      "sourceFamily": "taste-skill",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "taste-redesign",
+      "title": "Redesign Existing Projects：先审查再定点改造",
+      "url": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/redesign-skill/SKILL.md",
+      "type": "开源提示词 / GitHub",
+      "author": "Leonxlnx / Taste Skill 团队",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：读取 155 行文件的流程、排版、色彩、布局和状态部分，未逐条审阅后半。",
+      "popularity": "与 taste-main 共用 95.2k stars 仓库快照，不视为子技能独立热度。",
+      "verdict": "有条件",
+      "score": 8.5,
+      "strengths": [
+        "先确认已有栈再诊断，支持原生 CSS。",
+        "关注数字跳动、侧栏和内容对齐等截图容易遗漏的细节。"
+      ],
+      "limits": [
+        "对称布局、平面区域等不能普遍视为缺点。",
+        "翻倍间距或负边距叠层必须按任务判断。"
+      ],
+      "suitable": [
+        "渐进重构",
+        "功能保留式更新"
+      ],
+      "unsuitable": [
+        "无审查全站改色",
+        "只为新鲜而换掉熟悉操作"
+      ],
+      "licenseOrReuse": "MIT；保存原创审查与应用提示词。",
+      "sourceFamily": "taste-skill",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "taste-soft",
+      "title": "High-end Visual Design：柔和奢华风格提示词",
+      "url": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/soft-skill/SKILL.md",
+      "type": "开源风格提示词 / GitHub",
+      "author": "Leonxlnx / Taste Skill 团队",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：读取 81 行文件前 59 行，涵盖字体禁令、材质、嵌套、磁吸和滚动入场。",
+      "popularity": "与 taste-main 同源，不能把仓库 95.2k stars 视为此风格有效性的证明。",
+      "verdict": "不入库",
+      "score": 5.2,
+      "strengths": [
+        "材质、留白、圆角关系具体。",
+        "给部分不对称布局提供手机简化。"
+      ],
+      "limits": [
+        "强制昂贵感、字体禁令和大留白可能覆盖主任务。",
+        "示例包含 transition-all、700ms 过渡、800ms 以上入场，与日常高频操作不合。",
+        "强制嵌套容器、玻璃覆盖层提高复杂度。"
+      ],
+      "suitable": [
+        "独立品牌展示实验",
+        "低频宣传页"
+      ],
+      "unsuitable": [
+        "本项目任务主流程",
+        "设置与列表",
+        "低性能手机"
+      ],
+      "licenseOrReuse": "MIT 仓库子文件；保留评价，不纳入默认可执行提示词。",
+      "sourceFamily": "taste-skill",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "baseline-ui",
+      "title": "Baseline UI：快速清理界面与状态基线",
+      "url": "https://github.com/ibelick/ui-skills/blob/main/skills/baseline-ui/SKILL.md",
+      "type": "作者开源技能 / GitHub",
+      "author": "ibelick",
+      "reviewedAt": "2026-10-13",
+      "evidence": "full-read：读取 76 行核心文件并核对仓库首页。",
+      "popularity": "UI Skills 约 9.6k stars、452 forks；与 motion-performance 同源。",
+      "verdict": "有条件",
+      "score": 8.2,
+      "strengths": [
+        "强调图标按钮名称、临近错误、空状态和安全区。",
+        "约束大面积模糊和离屏动画。"
+      ],
+      "limits": [
+        "强制 Tailwind 和 motion/react，不能直接套给非 React 项目。",
+        "绝对禁高度动画、全部反馈 200ms 等应按组件判断。"
+      ],
+      "suitable": [
+        "收尾审查",
+        "控件状态",
+        "移动适配"
+      ],
+      "unsuitable": [
+        "为了技能更换技术栈",
+        "唯一的审美来源"
+      ],
+      "licenseOrReuse": "仓库 MIT；提炼与现有栈兼容的规则，不直接安装。",
+      "sourceFamily": "ibelick-ui-skills",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "motion-performance",
+      "title": "Fixing Motion Performance：动画性能审查",
+      "url": "https://github.com/ibelick/ui-skills/blob/main/skills/fixing-motion-performance/SKILL.md",
+      "type": "作者开源技能 / GitHub",
+      "author": "ibelick",
+      "reviewedAt": "2026-10-13",
+      "evidence": "full-read：读取 137 行核心技能，含渲染阶段、测量、滚动、图层和审核格式。",
+      "popularity": "UI Skills 仓库 9.6k stars 快照，不是单技能安装数。",
+      "verdict": "推荐",
+      "score": 9.4,
+      "strengths": [
+        "约束 DOM 读写、持续 layout/paint、停止条件和测量方式。",
+        "明确保留原有动画系统，避免无谓依赖迁移。"
+      ],
+      "limits": [
+        "规则偏保守，仍需实测浏览器和表面大小。",
+        "不负责产品风格与语义。"
+      ],
+      "suitable": [
+        "角色过渡",
+        "视差",
+        "列表重排",
+        "抽屉"
+      ],
+      "unsuitable": [
+        "无性能证据的大规模重写",
+        "一刀切删除所有动效"
+      ],
+      "licenseOrReuse": "MIT；原创编排性能提示词。",
+      "sourceFamily": "ibelick-ui-skills",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "emil-design-eng",
+      "title": "Emil Design Engineering：按使用频率选择动效",
+      "url": "https://github.com/emilkowalski/skills/blob/main/skills/emil-design-eng/SKILL.md",
+      "type": "设计工程师技能 / GitHub + 博客",
+      "author": "Emil Kowalski",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：读取核心技能前 207 行决策、时长、弹簧、按压和原点部分；完整读取两篇关联博客。",
+      "popularity": "官方 skills 仓库约 45.7k stars、2.6k forks；博客无可靠阅读量。",
+      "verdict": "推荐",
+      "score": 9.5,
+      "strengths": [
+        "先问是否该动，再确定用途、曲线、时长和原点。",
+        "区分高频工作与偶发惊喜，重视可打断性。"
+      ],
+      "limits": [
+        "部分 never 规则是作者偏好，不能当正式标准。",
+        "Motion 示例需按项目栈转换。"
+      ],
+      "suitable": [
+        "按压",
+        "触发点感知弹层",
+        "分段切换",
+        "心情反馈"
+      ],
+      "unsuitable": [
+        "让键盘焦点等待动画",
+        "所有操作磁吸或弹跳"
+      ],
+      "licenseOrReuse": "技能仓库 MIT；博客只原创总结。",
+      "sourceFamily": "emil-kowalski",
+      "evidenceStatus": "partial",
+      "relatedUrls": [
+        "https://emilkowal.ski/ui/good-vs-great-animations",
+        "https://emilkowal.ski/ui/you-dont-need-animations",
+        "https://emilkowal.ski/skill"
+      ]
+    },
+    {
+      "id": "emil-vocabulary",
+      "title": "Animation Vocabulary：将感觉变成明确动效术语",
+      "url": "https://github.com/emilkowalski/skills/blob/main/skills/animation-vocabulary/SKILL.md",
+      "type": "词汇提示词 / GitHub",
+      "author": "Emil Kowalski",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：读取 161 行文件前 97 行，覆盖入场、顺序、变换、过渡、滚动。",
+      "popularity": "与 emil-design-eng 同源，共用仓库 45.7k stars 快照。",
+      "verdict": "有条件",
+      "score": 8.5,
+      "strengths": [
+        "区分 crossfade、morph、shared element，减少需求歧义。",
+        "适合作为仓库标签和检索别名。"
+      ],
+      "limits": [
+        "作者明确只负责命名，不负责设计实现。",
+        "名词本身没有状态、失败或无障碍规格。"
+      ],
+      "suitable": [
+        "提示词搜索",
+        "需求沟通",
+        "效果标签"
+      ],
+      "unsuitable": [
+        "作为完整实施规格"
+      ],
+      "licenseOrReuse": "MIT；用通用技术术语及原创说明，不逐字搬词汇定义。",
+      "sourceFamily": "emil-kowalski",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "jakub-feel-better",
+      "title": "Details That Make Interfaces Feel Better：细节形成质感",
+      "url": "https://github.com/jakubkrehel/make-interfaces-feel-better",
+      "type": "作者博客 + 开源技能",
+      "author": "Jakub Krehel",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：完整读取作者博客；读取技能核心原则前 92 行并核对当前仓库。",
+      "popularity": "GitHub 约 3.6k stars、150 forks；博客未公开阅读量。",
+      "verdict": "推荐",
+      "score": 9.3,
+      "strengths": [
+        "圆角、光学对齐、数字宽度和表面层级具体，基本无需新增依赖。",
+        "尊重既有样式系统，限制高频自定义动画。"
+      ],
+      "limits": [
+        "精确缩放值和颜色值是个人偏好，需适应场景。",
+        "macOS 字体平滑经验不能保证 Windows 中文效果。"
+      ],
+      "suitable": [
+        "按钮标签",
+        "计数进度",
+        "表面细节",
+        "导航"
+      ],
+      "unsuitable": [
+        "照搬拉丁字距到中文",
+        "只修外观不修点击范围"
+      ],
+      "licenseOrReuse": "当前仓库 MIT；旧第三方 issue 曾说无许可，当前已变化。博客只总结。",
+      "sourceFamily": "jakub-krehel",
+      "evidenceStatus": "partial",
+      "relatedUrls": [
+        "https://jakub.kr/writing/details-that-make-interfaces-feel-better"
+      ]
+    },
+    {
+      "id": "rauno-guidelines",
+      "title": "Rauno Web Interface Guidelines：行为与触摸细节",
+      "url": "https://interfaces.rauno.me/",
+      "type": "作者个人规范",
+      "author": "Rauno Freiberg",
+      "reviewedAt": "2026-10-13",
+      "evidence": "full-read：读取 94 行公开规范及脚注。",
+      "popularity": "页面无可靠点赞/阅读量；被设计工程博客引用是传播线索，不当使用量。",
+      "verdict": "有条件",
+      "score": 8,
+      "strengths": [
+        "关注标签聚焦、触摸 hover、离屏暂停及反馈贴近触发处。",
+        "能检查静态截图不能证明的完成度。"
+      ],
+      "limits": [
+        "部分规则有年份背景，如 outline 圆角脚注说明 Safari 已改进。",
+        "关闭 autocomplete 或统一箭头键规则不能直接套所有控件。"
+      ],
+      "suitable": [
+        "触摸体验",
+        "表单",
+        "局部反馈"
+      ],
+      "unsuitable": [
+        "替代 ARIA/WCAG",
+        "普遍禁用浏览器辅助"
+      ],
+      "licenseOrReuse": "未确认页面独立许可；简短总结并原创提示词。",
+      "sourceFamily": "rauno-freiberg",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "vercel-web-guidelines",
+      "title": "Vercel Web Interface Guidelines：定位到代码的 UI 审查",
+      "url": "https://github.com/vercel-labs/web-interface-guidelines/blob/main/command.md",
+      "type": "官方工程审核提示词 / GitHub",
+      "author": "Vercel",
+      "reviewedAt": "2026-10-13",
+      "evidence": "full-read：读取 169 行 command.md 和 agent-skills 入口。",
+      "popularity": "Vercel 官方组织来源已核验，未抽取该规范独立星数，不填数量。",
+      "verdict": "推荐",
+      "score": 9.6,
+      "strengths": [
+        "覆盖语义、焦点、表单、手势替代、图片、动画和边界数据。",
+        "输出位置可落实为修复与验收。"
+      ],
+      "limits": [
+        "部分规则面向英文，不能直接用于中文标题和文案。",
+        "清单不等于正式无障碍认证。"
+      ],
+      "suitable": [
+        "交付审核",
+        "响应式回归",
+        "核心页面"
+      ],
+      "unsuitable": [
+        "生成审美方向",
+        "声称已完成全面 WCAG 审计"
+      ],
+      "licenseOrReuse": "本次未通读 LICENSE；只参考工程规则并原创改写。",
+      "sourceFamily": "vercel",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "stitch-enhance-prompt",
+      "title": "Enhance Prompt：把模糊审美转为结构化需求",
+      "url": "https://github.com/google-labs-code/stitch-skills/blob/main/plugins/stitch-utilities/skills/enhance-prompt/SKILL.md",
+      "type": "Google Labs 开源提示词工具",
+      "author": "google-labs-code 维护者",
+      "reviewedAt": "2026-10-13",
+      "evidence": "full-read：读取 185 行核心文件，核对 README 与不属正式支持产品的声明。",
+      "popularity": "stitch-skills 约 8.5k stars、1.1k forks；不是此子技能单独的热度。",
+      "verdict": "推荐",
+      "score": 8.6,
+      "strengths": [
+        "补齐平台、类型、结构、组件及颜色功能角色。",
+        "注入 DESIGN.md 保持跨页一致。"
+      ],
+      "limits": [
+        "偏生成设计，对代码验收、性能、无障碍需补充。",
+        "示例焦点扩宽搜索框可能带来布局移动。"
+      ],
+      "suitable": [
+        "新提示词整理",
+        "多页一致性",
+        "截图需求转规格"
+      ],
+      "unsuitable": [
+        "替代完整实现及测试"
+      ],
+      "licenseOrReuse": "Apache-2.0；提取结构化方法，不调用 Stitch 服务。",
+      "sourceFamily": "google-stitch",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "crm-v40",
+      "title": "CRM Dashboard Prompt v40：严格规格型提示词",
+      "url": "https://github.com/arhamkhnz/ui-prompts/blob/main/dashboard-ui-prompt-v40.md",
+      "type": "论坛作者项目 / GitHub",
+      "author": "arhamkhnz；Reddit 发布账号 New-Ad6482",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：读取提示词目标与硬约束、仓库结构；读取原帖及作者关于迭代和静态结果的回复，未逐条审查 570 行规格。",
+      "popularity": "GitHub 42 stars、7 forks；帖子正文未见可核验票数，不填数量。",
+      "verdict": "有条件",
+      "score": 6.5,
+      "strengths": [
+        "结构与内容非常明确，输出便于对照。",
+        "提供静态 HTML 和预览。"
+      ],
+      "limits": [
+        "作者明确是静态单文件、50 多次迭代，不是完整 CRM。",
+        "固定栈与信息架构不能自然适应小彤品牌。",
+        "评论有偏好旧版和批评模板化的反对意见。"
+      ],
+      "suitable": [
+        "固定规格实验",
+        "静态排版参考"
+      ],
+      "unsuitable": [
+        "直接替换真实应用",
+        "当作一键生产系统"
+      ],
+      "licenseOrReuse": "首页未见许可；不复制原长提示词，仅评估组织方式。",
+      "sourceFamily": "crm-ui-prompts",
+      "evidenceStatus": "partial",
+      "relatedUrls": [
+        "https://www.reddit.com/r/codex/comments/1s6qype/generated_this_crm_ui_with_codex_v1_vs_v40/"
+      ]
+    },
+    {
+      "id": "khosro-ui-workflow",
+      "title": "22 UI Prompts：工程化界面改进工作流",
+      "url": "https://www.codewithkhosro.dev/blog/post/shipping-solid-ui-as-a-back-end-developer-using-llms-part-2-a-practical-daily-workflow-using-22-prompts",
+      "type": "作者个人博客 / 提示词工作流",
+      "author": "Khosro Pakmanesh",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：读取第二篇的目标、阶段 1–3 和阶段 6；链接的 22 项示例仓库未成功展开。",
+      "popularity": "文章发布 2026-01-25，显示 0 评论；无可靠阅读量，不宣传为热门。",
+      "verdict": "有条件",
+      "score": 8.1,
+      "strengths": [
+        "先验证任务，再做一致性与 token 提取，适合渐进工程。",
+        "不要求每次运行全部步骤。"
+      ],
+      "limits": [
+        "本次未验证全部 runnable 示例。",
+        "不是高级动效库。"
+      ],
+      "suitable": [
+        "UI 仓库维护",
+        "视觉一致性",
+        "长期演进"
+      ],
+      "unsuitable": [
+        "流行度背书",
+        "替代实际交互审核"
+      ],
+      "licenseOrReuse": "博客 All Rights Reserved；只总结方法，提示词原创。",
+      "sourceFamily": "khosro-pakmanesh",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "junaid-task-focused",
+      "title": "Task-focused Frontend Design：围绕任务的清晰界面",
+      "url": "https://github.com/Junaid-PK/frontend-design-skill/blob/main/frontend-design/SKILL.md",
+      "type": "社区开源提示词 / GitHub",
+      "author": "Junaid-PK",
+      "reviewedAt": "2026-10-13",
+      "evidence": "full-read：读取 107 行核心文件及 README。",
+      "popularity": "GitHub 1 star、0 forks、2 commits；不能称热门，独立评估内容。",
+      "verdict": "推荐",
+      "score": 8.7,
+      "strengths": [
+        "主操作、行动层级、真实数据和全状态适合日常计划工具。",
+        "简短，不强制框架，尊重既有品牌。"
+      ],
+      "limits": [
+        "社区验证与历史很少；分数代表本项目适配，不是普遍效果。",
+        "缺复杂动效实现。"
+      ],
+      "suitable": [
+        "计划列表",
+        "收藏设置",
+        "空与错状态"
+      ],
+      "unsuitable": [
+        "炫技展示",
+        "把低星资源包装热门"
+      ],
+      "licenseOrReuse": "Apache-2.0；原创提炼。",
+      "sourceFamily": "junaid-pk",
+      "evidenceStatus": "read"
+    },
+    {
+      "id": "better-web-ui",
+      "title": "Better Web UI：层级优先与渐进公开",
+      "url": "https://github.com/aladicf/better-web-ui",
+      "type": "社区技能集合 / GitHub",
+      "author": "aladicf",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：读取 README 方法、分类、维护和许可；读取 301 行核心设计技能，未读取大量 reference。",
+      "popularity": "GitHub 41 stars、2 forks；README 标维护模式，开发重心已转别库。",
+      "verdict": "有条件",
+      "score": 7.9,
+      "strengths": [
+        "任务与灰度层级优先，渐进公开与低打扰状态有边界。",
+        "场景索引丰富。"
+      ],
+      "limits": [
+        "主观禁令多，某些动效规则互相紧张。",
+        "许可不一致、维护模式和低社区反馈不利于整库采用。"
+      ],
+      "suitable": [
+        "行动层级",
+        "复杂设置",
+        "安静状态提示"
+      ],
+      "unsuitable": [
+        "整库直接复制",
+        "把审美偏好当通用规则"
+      ],
+      "licenseOrReuse": "README 明确自定义许可且不是普通 MIT，核心文件头仍写 Apache-2.0，文档不一致；只借通用方法，不搬运或分发库。",
+      "sourceFamily": "better-web-ui",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "image-ui-prompts-cn",
+      "title": "中文 Image UI 提示词合集：静态设计图",
+      "url": "https://github.com/lintendo/awesome-gpt-image-2-ui-prompts",
+      "type": "社区图像提示词 / GitHub",
+      "author": "lintendo",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：读取定位、桌面 SaaS 与移动记账示例，核对统计。",
+      "popularity": "0 stars、0 forks、1 commit；未有可核验流行度。",
+      "verdict": "不入库",
+      "score": 4.3,
+      "strengths": [
+        "中文目标和区域明确，可做初步概念图。"
+      ],
+      "limits": [
+        "静态图片不证明准确文字、语义或实际交互。",
+        "缺公开效果验证，和可执行动效规格不同。"
+      ],
+      "suitable": [
+        "早期 moodboard",
+        "页面概念图"
+      ],
+      "unsuitable": [
+        "直接重构",
+        "高级交互主库"
+      ],
+      "licenseOrReuse": "首页未见许可；只留评估与来源。",
+      "sourceFamily": "image-ui-prompts-cn",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "unverified-ui-prompt-pack",
+      "title": "UI Prompt Library：下载包型未核验候选",
+      "url": "https://github.com/melinaclincherbuilt937/ui-prompt-library",
+      "type": "搜索发现社区仓库",
+      "author": "melinaclincherbuilt937",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：读取搜索返回长 README 与统计；没有下载、打开或运行压缩包。",
+      "popularity": "搜索快照 1 star、1 fork；未见可信效果评测。",
+      "verdict": "不入库",
+      "score": 1.8,
+      "strengths": [
+        "列出了常见页面类型，仅属目录级说明。"
+      ],
+      "limits": [
+        "文本提示词仓库主要引导下载运行 Windows ZIP，核心提示词证据不足。",
+        "不能验证质量、出处、功能；不将它断言为已证实恶意。"
+      ],
+      "suitable": [
+        "仅作排除记录"
+      ],
+      "unsuitable": [
+        "正式提示词库",
+        "运行安装包",
+        "热门推荐"
+      ],
+      "licenseOrReuse": "搜索结果称 MIT，未核验许可与包内容；不收录其程序或提示词。",
+      "sourceFamily": "unverified-ui-prompt-pack",
+      "evidenceStatus": "search-only"
+    },
+    {
+      "id": "designprompts",
+      "title": "DesignPrompts：同一内容的多风格比较",
+      "url": "https://www.designprompts.dev/",
+      "type": "提示词原站",
+      "author": "mellowkenneth",
+      "reviewedAt": "2026-10-13",
+      "evidence": "浏览器实读：主页30种风格；打开 Luxury、Swiss Minimalist、Newsprint、Professional 的 Get Prompt 内容。静态抓取无正文，已补浏览器读取。",
+      "popularity": "作者 Reddit 发布帖搜索快照显示 +473；这是整站帖子的互动量，不是单条提示词效果证明。",
+      "licenseOrReuse": "未确认可整包再分发的许可；仅链接、评价并原创改写。",
+      "verdict": "推荐",
+      "score": 8.4,
+      "strengths": [
+        "相同内容比较风格，适合做方向选择",
+        "提示词覆盖排版、间距、交互及移动端"
+      ],
+      "limits": [
+        "大多是营销页；不能直接推断业务可用性",
+        "不同风格同源，不重复计算热度"
+      ],
+      "suitable": [
+        "设计方向探索",
+        "作品集",
+        "品牌落地页"
+      ],
+      "unsuitable": [
+        "直接替代业务流程设计",
+        "一键上线"
+      ],
+      "sourceFamily": "designprompts",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "designprompts-luxury",
+      "title": "DesignPrompts Luxury：视觉完整，交互规则过强",
+      "url": "https://www.designprompts.dev/",
+      "type": "具体提示词审阅",
+      "author": "mellowkenneth",
+      "reviewedAt": "2026-10-13",
+      "evidence": "真实浏览器打开 Luxury / Get Prompt，检查其动效、字体、颜色及响应式章节。",
+      "popularity": "沿用同站信号，无独立热度数据。",
+      "licenseOrReuse": "原创评议，不收录原文。",
+      "verdict": "有条件",
+      "score": 6.7,
+      "strengths": [
+        "留白、细线、主次字体形成一致视觉"
+      ],
+      "limits": [
+        "强制慢交互、图片灰度、零圆角，适配范围窄",
+        "黑白金与本项目朱红角色风格冲突"
+      ],
+      "suitable": [
+        "珠宝/时尚展示",
+        "品牌画册"
+      ],
+      "unsuitable": [
+        "高频财务操作",
+        "依赖彩色角色的产品"
+      ],
+      "sourceFamily": "designprompts",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "designprompts-professional",
+      "title": "DesignPrompts Professional：克制排版，需消除规则冲突",
+      "url": "https://www.designprompts.dev/",
+      "type": "具体提示词审阅",
+      "author": "mellowkenneth",
+      "reviewedAt": "2026-10-13",
+      "evidence": "真实浏览器打开 Professional / Get Prompt；读排版、按钮、卡片、动效和移动端规则。",
+      "popularity": "无独立热度数据。",
+      "licenseOrReuse": "仅原创提炼。",
+      "verdict": "推荐",
+      "score": 8,
+      "strengths": [
+        "明确间距、细分割线、字体层级与触控目标"
+      ],
+      "limits": [
+        "同一提示词里允许按钮轻抬又禁止位移，需人工消歧",
+        "自称对比度通过仍需实测"
+      ],
+      "suitable": [
+        "知识库",
+        "服务产品",
+        "内容阅读"
+      ],
+      "unsuitable": [
+        "机械保留全部字体/颜色参数"
+      ],
+      "sourceFamily": "designprompts",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "designprompts-newsprint",
+      "title": "DesignPrompts Newsprint / Swiss Minimalist：编辑式信息层级",
+      "url": "https://www.designprompts.dev/",
+      "type": "具体提示词审阅",
+      "author": "mellowkenneth",
+      "reviewedAt": "2026-10-13",
+      "evidence": "真实浏览器分别打开两项 Get Prompt，检查字体层次、网格、边界和内容密度。",
+      "popularity": "无单条热度数据。",
+      "licenseOrReuse": "仅原创提炼，不整包转载。",
+      "verdict": "推荐",
+      "score": 8.3,
+      "strengths": [
+        "以阅读顺序与对齐组织内容",
+        "可提炼为中文内容卡片规则"
+      ],
+      "limits": [
+        "全套报纸风未必适合动漫人物页面",
+        "英文字体尺度需重新适配中文"
+      ],
+      "suitable": [
+        "文章列表",
+        "研究目录",
+        "日报与知识库"
+      ],
+      "unsuitable": [
+        "所有区域都加入报头或装饰标号"
+      ],
+      "sourceFamily": "designprompts",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "designprompts-forum",
+      "title": "Reddit：DesignPrompts 作者发布与真实反馈",
+      "url": "https://www.reddit.com/r/vibecoding/comments/1pcy8bi/i_made_a_free_gallery_of_31_actuallygood_ui/",
+      "type": "论坛讨论",
+      "author": "mellowkenneth 与评论者",
+      "reviewedAt": "2026-10-13",
+      "evidence": "实际读取作者介绍与评论；既有感谢、实践反馈，也有批评设计能力、询问提示词入口等内容。",
+      "popularity": "搜索快照 +473，页面读取未稳定提供实时总票数；不作为实时值。",
+      "licenseOrReuse": "评论不搬运，仅总结意见。",
+      "verdict": "有条件",
+      "score": 7.1,
+      "strengths": [
+        "有作者解释和用户反应，可用于发现候选"
+      ],
+      "limits": [
+        "用户自报效果不是对照实验",
+        "作者关联产品，存在自我推广"
+      ],
+      "suitable": [
+        "发现热门资源",
+        "寻找使用痛点"
+      ],
+      "unsuitable": [
+        "证明转化率",
+        "证明提示词稳定质量"
+      ],
+      "sourceFamily": "designprompts",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "typeui-structure",
+      "title": "TypeUI：把视觉方向和页面结构分开",
+      "url": "https://www.typeui.sh/docs/creative/ui-prompts",
+      "type": "产品官方文档",
+      "author": "Bergside / TypeUI",
+      "reviewedAt": "2026-10-13",
+      "evidence": "实读官方结构文档与 /prompts 目录；目录显示449项，覆盖营销、应用和电商。未逐项试用449条。",
+      "popularity": "449是目录容量，不是使用人数或效果指标。",
+      "licenseOrReuse": "未下载商业包；以公开文档为方法参考并原创改写。",
+      "verdict": "推荐",
+      "score": 8.2,
+      "strengths": [
+        "页面结构与皮肤分离",
+        "类别明确，便于按任务检索"
+      ],
+      "limits": [
+        "营销转化说法未见独立验证",
+        "不能把目录数量当质量"
+      ],
+      "suitable": [
+        "应用外壳",
+        "数据卡片",
+        "表单与内容模块"
+      ],
+      "unsuitable": [
+        "不加筛选地混合多个视觉主题"
+      ],
+      "sourceFamily": "typeui",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "typeui-editorial",
+      "title": "TypeUI Basic 页面中的 Editorial 说明",
+      "url": "https://www.typeui.sh/design-skills/basic",
+      "type": "产品官方说明",
+      "author": "Bergside / TypeUI",
+      "reviewedAt": "2026-10-13",
+      "evidence": "实读页面，标题为 Basic，但正文持续称 Editorial；记录此命名不一致。",
+      "popularity": "未核验独立热度。",
+      "licenseOrReuse": "不复制技能文本，仅保留阅读层级的通用方法。",
+      "verdict": "有条件",
+      "score": 6.8,
+      "strengths": [
+        "强调阅读宽度、空白和完整状态"
+      ],
+      "limits": [
+        "页面命名不一致",
+        "字体和紫色品牌要求不适合本项目直接套用"
+      ],
+      "suitable": [
+        "出版物",
+        "长文阅读"
+      ],
+      "unsuitable": [
+        "整套当作已验证通用技能安装"
+      ],
+      "sourceFamily": "typeui",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "accessible-ui-animation-case",
+      "title": "Mercado Libre 团队的可访问动效实践",
+      "url": "https://www.smashingmagazine.com/2023/11/creating-accessible-ui-animations/",
+      "type": "实践者文章",
+      "author": "Smashing Magazine / Mercado Libre 设计实践",
+      "reviewedAt": "2026-10-13",
+      "evidence": "实读研究过程与动效分类；区分可移除装饰运动和承担信息职责的反馈。",
+      "popularity": "未取得可比阅读或点赞数字。",
+      "licenseOrReuse": "仅简短评价与原创需求，不转载文章。",
+      "verdict": "推荐",
+      "score": 9,
+      "strengths": [
+        "给出决定保留或移除动效的依据"
+      ],
+      "limits": [
+        "不是可直接复制的工程实现",
+        "仍需在实际页面测试"
+      ],
+      "suitable": [
+        "减少动态策略",
+        "全产品动效审核"
+      ],
+      "unsuitable": [
+        "把全站动画一刀切变慢"
+      ],
+      "sourceFamily": "smashing",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "a11y-project-checklist",
+      "title": "The A11Y Project 检查表",
+      "url": "https://www.a11yproject.com/checklist/",
+      "type": "专业社区检查表",
+      "author": "The A11Y Project",
+      "reviewedAt": "2026-10-13",
+      "evidence": "实读动画和颜色对比检查项；作为浏览器验收清单参考。",
+      "popularity": "未使用点赞作为质量依据。",
+      "licenseOrReuse": "原创验收规则，链接原文。",
+      "verdict": "推荐",
+      "score": 9.1,
+      "strengths": [
+        "明确可观察的通过条件"
+      ],
+      "limits": [
+        "检查表通过不等于覆盖所有残障需求"
+      ],
+      "suitable": [
+        "上线前可访问性检查",
+        "设计回归"
+      ],
+      "unsuitable": [
+        "仅凭截图宣称完全符合WCAG"
+      ],
+      "sourceFamily": "a11y",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "random-style-forum",
+      "title": "Reddit：随机生成不同落地页风格的元提示词",
+      "url": "https://www.reddit.com/r/PromptEngineering/comments/1p5ztk4/i_made_a_prompt_to_generate_unique_beautiful/",
+      "type": "论坛提示词",
+      "author": "JCodesMore",
+      "reviewedAt": "2026-10-13",
+      "evidence": "读作者的生成流程与展示说明；本质为探索风格而非验证产品任务。",
+      "popularity": "未核验票数。",
+      "licenseOrReuse": "不收原文；保留候选评价。",
+      "verdict": "不入库",
+      "score": 5.6,
+      "strengths": [
+        "可产生方向草案"
+      ],
+      "limits": [
+        "随机组合降低产品一致性",
+        "缺少真实状态、性能和无障碍验收"
+      ],
+      "suitable": [
+        "早期灵感发散"
+      ],
+      "unsuitable": [
+        "持续维护的个人仪表盘",
+        "作为生产设计系统"
+      ],
+      "sourceFamily": "reddit-random",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "forum-crm-iterations",
+      "title": "CRM v40 作者承认静态结果与反复迭代",
+      "url": "https://www.reddit.com/r/codex/comments/1s6qype/generated_this_crm_ui_with_codex_v1_vs_v40/",
+      "type": "论坛作者与社区反馈",
+      "author": "CRM 发布作者与 Reddit 评论者",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：作者回复说明 50 多次提示迭代、单文件 HTML/Tailwind，尚非完整应用；评论有偏好 v1 和批评模板化的意见。",
+      "popularity": "未核验稳定的票数或独立使用人数。",
+      "verdict": "有条件",
+      "score": 6.5,
+      "strengths": [
+        "个人展示不支持一键完成生产产品或所有人更喜欢新版的推论。"
+      ],
+      "limits": [
+        "用户自报经验有选择偏差，不能代表整体人群或可重复效果。"
+      ],
+      "suitable": [
+        "发现候选",
+        "识别真实使用痛点"
+      ],
+      "unsuitable": [
+        "证明提示词普遍有效",
+        "宣称一键生产级效果"
+      ],
+      "licenseOrReuse": "仅概述观点并链接原帖，不转载评论全文。",
+      "sourceFamily": "crm-ui-prompts",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "forum-frontend-repetition",
+      "title": "同一技能仍出现重复构图的反馈",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1t3ht2g/claude_code_frontenddesign_skill_always_outputs/",
+      "type": "论坛作者与社区反馈",
+      "author": "Reddit 原帖作者与评论者",
+      "reviewedAt": "2026-10-13",
+      "evidence": "partial：读取原帖问题及相关回复；是个人经验，不是对照实验。",
+      "popularity": "未核验稳定的票数或独立使用人数。",
+      "verdict": "有条件",
+      "score": 6.8,
+      "strengths": [
+        "提示词必须结合项目事实、截图和行为验证，不能仅凭热门 skill 承诺审美效果。"
+      ],
+      "limits": [
+        "用户自报经验有选择偏差，不能代表整体人群或可重复效果。"
+      ],
+      "suitable": [
+        "发现候选",
+        "识别真实使用痛点"
+      ],
+      "unsuitable": [
+        "证明提示词普遍有效",
+        "宣称一键生产级效果"
+      ],
+      "licenseOrReuse": "仅概述观点并链接原帖，不转载评论全文。",
+      "sourceFamily": "anthropic-skills",
+      "evidenceStatus": "partial"
+    },
+    {
+      "id": "forum-taste-share",
+      "title": "Taste Skill 社区分享",
+      "url": "https://www.reddit.com/r/BestGitHubRepos/comments/1wz4v19/taste_skill_the_antislop_frontend_framework_for/",
+      "type": "论坛作者与社区反馈",
+      "author": "Reddit 原帖作者与评论者",
+      "reviewedAt": "2026-10-13",
+      "evidence": "search-snapshot：2026-10-06 分享帖搜索结果显示 +171 votes，主要转贴 README。",
+      "popularity": "搜索快照显示 +171，尚未完整打开复核；不是质量证明。",
+      "verdict": "待读",
+      "score": 0,
+      "strengths": [
+        "证明传播线索，不能当独立质量验证。"
+      ],
+      "limits": [
+        "只有搜索快照，未作为推荐技术证据。"
+      ],
+      "suitable": [
+        "发现候选",
+        "识别真实使用痛点"
+      ],
+      "unsuitable": [
+        "证明提示词普遍有效",
+        "宣称一键生产级效果"
+      ],
+      "licenseOrReuse": "仅概述观点并链接原帖，不转载评论全文。",
+      "sourceFamily": "taste-skill",
+      "evidenceStatus": "search-only"
+    }
+  ],
+  "prompts": [
+    {
+      "id": "interaction-tactile-press",
+      "title": "有分寸的按压反馈",
+      "category": "交互动效",
+      "tags": [
+        "按钮",
+        "即时反馈",
+        "高频操作"
+      ],
+      "sourceIds": [
+        "int-s01",
+        "int-s02",
+        "int-s12"
+      ],
+      "score": 9.6,
+      "verdict": "推荐",
+      "suitable": [
+        "收藏按钮",
+        "复制提示词",
+        "确认设置",
+        "角色切换"
+      ],
+      "avoid": [
+        "整个表格行缩放",
+        "输入框文字形变",
+        "确认前模拟成功"
+      ],
+      "why": "小范围按压能确认输入，成本低且不打断日常任务。",
+      "cost": "低；原生按钮与 CSS 即可",
+      "prompt": "为原生按钮增加克制的按压反馈，沿用项目配色和真实操作。按下时只让小按钮视觉层轻缩约 0.97，松开约 120ms 归位；不用整个大卡片缩放来移动阅读内容。键盘、触摸动作立即执行，focus-visible 清晰，命中区域至少按本项目 44px 目标设计。提交中防止重复请求，成功与失败以真实结果更新文字或选中状态。保持控件宽度，hover 只轻改表面颜色，触屏不依赖 hover。减少动态效果时取消缩放和过渡，但保留焦点及状态差异。",
+      "acceptance": [
+        "鼠标、触摸、Enter、Space 都只触发一次有效动作。",
+        "请求失败显示可理解文案，按钮尺寸不抖动。",
+        "减少动态效果时仍能辨认按下、禁用与成功状态。"
+      ],
+      "appliedTo": [
+        "src/home/refined.css"
+      ],
+      "applicationScope": "小型按钮的按压、触摸尺寸、焦点与减少动态效果规则。"
+    },
+    {
+      "id": "interaction-shared-tab",
+      "title": "语义正确的滑动选中底板",
+      "category": "交互动效",
+      "tags": [
+        "标签页",
+        "流动高亮",
+        "键盘"
+      ],
+      "sourceIds": [
+        "int-s03",
+        "int-s05",
+        "int-s07",
+        "int-s14"
+      ],
+      "score": 9.7,
+      "verdict": "推荐",
+      "suitable": [
+        "内容频道",
+        "时间区间",
+        "同页视图切换"
+      ],
+      "avoid": [
+        "将页面级链接伪装成 tabs",
+        "用切换动画拖延结果",
+        "水滴形变覆盖文字"
+      ],
+      "why": "选中位置连续可见，有精致感且帮助识别当前视图。",
+      "cost": "低到中；复用 Motion layoutId 或 CSS",
+      "prompt": "为同页筛选与周期选择实现稳定的分段控件：文字、位置和点击范围固定，只让暖红浅底指示器在选项间约 180ms 移动。筛选使用 radiogroup/radio、aria-checked 与单一 Tab 入口；方向键、Home/End 移动焦点并立即选中，不等待底板动画。只有确实切换关联内容面板的组件才使用 tablist/tab/tabpanel，并按加载延迟选择手动或自动激活。指针点击不额外抢焦点；Motion 的 layoutId 用组件实例 id 隔离，文字不拉伸。窄屏保证选项可横向浏览，焦点仍可见。减少动态效果或键盘连续选择时直接更新底板。",
+      "acceptance": [
+        "快速连点或连续按方向键，最终指示器和实际面板一致。",
+        "键盘能进入、切换并离开标签组。",
+        "手机宽度无截断的关键标签，焦点不被圆角容器裁掉。"
+      ],
+      "appliedTo": [
+        "src/home/ui/SegmentedControl.jsx",
+        "src/home/FinancePage.jsx",
+        "src/home/FeedPage.jsx"
+      ]
+    },
+    {
+      "id": "interaction-reading-disclosure",
+      "title": "稳定展开的阅读摘要",
+      "category": "交互动效",
+      "tags": [
+        "摘要",
+        "展开",
+        "阅读"
+      ],
+      "sourceIds": [
+        "int-s20",
+        "int-s13",
+        "int-s12"
+      ],
+      "score": 9.6,
+      "verdict": "推荐",
+      "suitable": [
+        "资讯摘要",
+        "背景说明",
+        "长提示词预览"
+      ],
+      "avoid": [
+        "短文也强制折叠",
+        "正在阅读时自动收起",
+        "固定高度截掉完整文本"
+      ],
+      "why": "先扫描再深入，能降低信息密度；展开动作解释内容位置。",
+      "cost": "低到中；原生 details 或受控面板",
+      "prompt": "为长摘要增加明确的“展开全文／收起”按钮，默认显示真实摘要，不用仅靠渐隐遮住半行文字。展开后完整正文进入正常文档流；约 180ms 的高度变化只是辅助，不能压扁文字或复制两份可朗读内容。按钮使用 aria-expanded 和 aria-controls，Enter/Space 可操作，焦点保持在触发器；展开内容里的链接只在可见时可聚焦。处理异步图片与字体改变高度的情况。收起时若内容会跳出视野，保留用户阅读位置并让触发器可见，不主动滚动整个页面。减少动态效果时立即更新。\n\n减少动态效果：直接展开和收起，保留焦点和完整正文。\n\n上述数值为项目起始参数，应结合真实设备调整；不增加与当前任务无关的效果。",
+      "acceptance": [
+        "不同长度正文与图片加载后都不溢出或被截断。",
+        "重复展开不会丢失焦点或重置整个页面滚动。",
+        "折叠内容不可见时不留下隐藏可聚焦元素。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "interaction-character-scene",
+      "title": "资源就绪后的有序角色场景切换",
+      "category": "场景方案",
+      "tags": [
+        "角色",
+        "场景",
+        "渐变"
+      ],
+      "sourceIds": [
+        "int-s04",
+        "int-s06",
+        "int-s12",
+        "int-s13"
+      ],
+      "score": 9.5,
+      "verdict": "推荐",
+      "suitable": [
+        "六种表情对应场景",
+        "主题卡片",
+        "封面氛围"
+      ],
+      "avoid": [
+        "全页持续缩放",
+        "先换人物后等背景",
+        "自动频繁切换心情"
+      ],
+      "why": "符合项目角色品牌，连续场景变化比多层炫技更适合日常首页。",
+      "cost": "中；预加载与竞态处理比动画本身重要",
+      "prompt": "改进角色表情与对应茶室背景的切换，保留现有六套素材、人物位置与文案安全区。用户选择心情后预加载并解码目标人物和背景，资源齐全才按旧人物退出、背景过渡、新人物与文字错峰入场的顺序提交；仅背景可交叉淡化，任何时刻禁止双人物重影。快速切换仅处理最后一次选择，不能出现错配场景或旧图闪回。加载失败保留当前场景并给文字反馈。固定容器比例避免页面跳动，完成后清理旧图层。选择器支持键盘并暴露选中状态，装饰图不重复朗读；减少动态效果时关闭视差、漂浮和大位移，资源准备好后直接更新。\n\n减少动态效果：保持静态场景；用户切换时资源准备好后立即完整替换，不显示双人物。\n\n上述数值为项目起始参数，应结合真实设备调整；不增加与当前任务无关的效果。",
+      "acceptance": [
+        "慢网连续切换表情时人物、背景、标签最终一一对应。",
+        "图片失败不产生空白封面。",
+        "减少动态效果与后台页面均无持续运动。"
+      ],
+      "appliedTo": [
+        "src/home/SceneCover.jsx",
+        "src/home/Home.jsx"
+      ],
+      "applicationScope": "沿用旧人物退出、背景过渡、新人物与文字入场的既有顺序；本轮补充心情场景预览和装饰暂停。"
+    },
+    {
+      "id": "interaction-status-toast",
+      "title": "可读且可撤销的操作反馈",
+      "category": "可用性",
+      "tags": [
+        "Toast",
+        "复制",
+        "收藏",
+        "撤销"
+      ],
+      "sourceIds": [
+        "int-s17",
+        "int-s02",
+        "int-s13"
+      ],
+      "score": 9.6,
+      "verdict": "推荐",
+      "suitable": [
+        "复制提示词",
+        "收藏成功",
+        "保存设置",
+        "可逆移除"
+      ],
+      "avoid": [
+        "重大错误只闪现几秒",
+        "一条操作触发多条提示",
+        "把 toast 当唯一数据状态"
+      ],
+      "why": "真实结果反馈可避免重复点击；撤销、堆叠及暂停计时是额外能力。本轮收藏已有即时状态反馈，完整可撤销通知模式保留为候选。",
+      "cost": "中；统一状态组件与计时逻辑",
+      "prompt": "建立统一操作提示，区分进行中、成功、失败；同一操作用同一条消息更新，保持信息简短明确。底部或角落固定提示区避免覆盖主要导航；新提示约 160ms 淡入，可中断和更新，最多展示少量消息。复制成功必须在 Clipboard API 实际成功后出现，失败给手动复制入口。可逆移除显示“撤销”按钮并真实恢复数据；重要错误保持到用户处理。消息不抢焦点，普通结果用礼貌播报；悬停、键盘聚焦或页面隐藏时暂停自动消失计时。保留关闭按钮与触摸可达性，减少动态效果时不位移。\n\n减少动态效果：用静态出现或轻淡入，去掉位移堆叠。\n\n上述数值为项目起始参数，应结合真实设备调整；不增加与当前任务无关的效果。",
+      "acceptance": [
+        "系统剪贴板失败不会显示成功。",
+        "焦点进入提示操作后消息不会突然消失。",
+        "页面切后台再回来仍能看到尚未读完的结果。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "interaction-quiet-metrics",
+      "title": "可信的数字更新",
+      "category": "交互动效",
+      "tags": [
+        "指标",
+        "NumberFlow",
+        "等宽数字"
+      ],
+      "sourceIds": [
+        "int-s18",
+        "int-s02"
+      ],
+      "score": 9.4,
+      "verdict": "推荐",
+      "suitable": [
+        "收藏数量",
+        "待办数量",
+        "低频汇总指标"
+      ],
+      "avoid": [
+        "首次从零滚到资产金额",
+        "高频行情每次全列翻滚",
+        "用数字动画暗示虚假趋势"
+      ],
+      "why": "保留数字精确读数，并用小幅变化提示数据更新。",
+      "cost": "低；复用现有 @number-flow/react",
+      "prompt": "使用现有 NumberFlow 优化少量汇总数字，只在真实数据变化时短暂过渡。首次加载立即显示最终数值，不从零计数；输入与财务精确核对期间关闭滚动。统一 Intl 数字格式、正负号、单位和小数位，使用 tabular-nums 与稳定宽度避免卡片抖动。更新方向由真实数据决定，不为装饰统一向上滚；涨跌同时用文字或符号表达。加载、未知、错误与数值零明确区分。约 220ms 作为起始动画预算，减少动态效果使用 animated=false 或默认偏好机制；快速新值到达直接以最新值为准。\n\n减少动态效果：保留默认尊重用户偏好，直接显示最终值。\n\n上述数值为项目起始参数，应结合真实设备调整；不增加与当前任务无关的效果。",
+      "acceptance": [
+        "0、未知、加载失败呈现不同状态。",
+        "负数、较长金额与小数更新不挤压相邻标签。",
+        "首次加载无误导性零值，关闭动态效果仍显示精确值。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "interaction-precise-chart",
+      "title": "精确图表检查与结构化替代",
+      "category": "可用性",
+      "tags": [
+        "图表",
+        "财务",
+        "无障碍"
+      ],
+      "sourceIds": [
+        "int-s01",
+        "int-s19",
+        "int-s12"
+      ],
+      "score": 9.6,
+      "verdict": "推荐",
+      "suitable": [
+        "财务趋势",
+        "历史统计",
+        "计划完成率"
+      ],
+      "avoid": [
+        "弹簧追随十字线",
+        "缓动改变准确数据点",
+        "只有颜色区分系列"
+      ],
+      "why": "实时读值与结构化替代使趋势图可信。本轮详情页已采用原生滑杆实时读值，完整数据表和逐点图形键盘检查仍是后续候选，因此本条不标为整体已应用。",
+      "cost": "中；语义摘要、数据表与输入支持",
+      "prompt": "重构现有趋势图的阅读体验，采用细网格、克制色彩和明确单位。筛选周期后立即显示对应真实数据，坐标轴与数据同步更新；鼠标查看数据点的十字线和数值不要弹簧追随。提供触摸点击锁定与键盘逐点查看，清晰显示日期、指标名、精确值和缺失数据。图表邻近放一句真实趋势摘要与可展开数据表；颜色之外使用标签、线型或符号区分。更新动画仅限轻淡入，不让金额中间帧被误读成真实数据。保持图表高度与图例位置稳定，减少动态效果时直接更新。\n\n减少动态效果：图表即时呈现最终数据，不绘制进场路径。\n\n上述数值为项目起始参数，应结合真实设备调整；不增加与当前任务无关的效果。",
+      "acceptance": [
+        "同一数据点在悬停、触摸和表格里的数值一致。",
+        "全部关键结论能通过文字或结构化表格获取。",
+        "空数据、单点、负值和接口错误都有可读状态。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "interaction-origin-popover",
+      "title": "从触发位置展开的浮层",
+      "category": "交互动效",
+      "tags": [
+        "Popover",
+        "起点",
+        "设置"
+      ],
+      "sourceIds": [
+        "int-s01",
+        "int-s08",
+        "int-s21"
+      ],
+      "score": 9.2,
+      "verdict": "推荐",
+      "suitable": [
+        "筛选浮层",
+        "轻量设置",
+        "信息说明"
+      ],
+      "avoid": [
+        "含按钮内容塞入 tooltip",
+        "漂离触发器的弹窗",
+        "hover 是唯一打开方式"
+      ],
+      "why": "合理起点建立空间关系，比所有元素从屏幕中心缩放更自然。",
+      "cost": "中；定位、碰撞与焦点行为",
+      "prompt": "让筛选或轻设置浮层从实际触发器方向出现。以锚点为 transform-origin，约 150ms 从轻微缩小和透明到正常；碰到屏幕边缘时自动翻转或调整，起点同步改变。内容与交互不等待动画，触发器用 button 并暴露展开状态。含可操作内容时使用 popover 或非模态 dialog，不用 tooltip；纯说明才使用 aria-describedby。支持点击、键盘打开与 Esc 关闭，关闭后焦点返回触发器；移动端用点击并控制最大宽高。连续开关不中断到错误位置，减少动态效果取消缩放。\n\n减少动态效果：取消缩放，仅直接出现或短淡入。\n\n上述数值为项目起始参数，应结合真实设备调整；不增加与当前任务无关的效果。",
+      "acceptance": [
+        "四个屏幕边缘附近打开都不截断操作。",
+        "弹层内部按钮可用键盘访问，关闭后焦点返回。",
+        "触摸设备无需 hover 也能访问全部信息。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "interaction-mobile-sheet",
+      "title": "有滚动边界的手势抽屉增强",
+      "category": "交互动效",
+      "tags": [
+        "抽屉",
+        "触摸",
+        "阅读"
+      ],
+      "sourceIds": [
+        "int-s16",
+        "int-s08",
+        "int-s04"
+      ],
+      "score": 8.7,
+      "verdict": "有条件",
+      "suitable": [
+        "手机文章详情",
+        "筛选面板",
+        "短设置"
+      ],
+      "avoid": [
+        "长表单任意拖拽关闭",
+        "未保存编辑丢失",
+        "正文滚动触发关闭"
+      ],
+      "why": "在可靠原生弹窗基础上，确有移动手势需求时再添加拖拽；基础弹窗与手势增强分开评估，避免把普通底部布局误称为已实现手势。",
+      "cost": "高；软键盘、滚动、焦点及手势协同",
+      "prompt": "仅在手机视图将短设置或只读详情显示为底部抽屉，保留可见关闭按钮、标题和遮罩；桌面保留适合的面板。面板约 220ms 进入，打开即建立正确焦点范围和背景不可操作状态，关闭恢复触发器焦点。拖拽只能从明确手柄开始，正文照常滚动；手势取消回到当前状态，不能误关闭未保存编辑。尊重系统返回与 Esc，输入时检测可用视口，确保软键盘不挡确认按钮。优先完成按钮关闭与滚动后再增强拖拽。减少动态效果取消位移和背景缩放。\n\n减少动态效果：抽屉直接出现或淡入；禁用背景缩放与惯性装饰。\n\n上述数值为项目起始参数，应结合真实设备调整；不增加与当前任务无关的效果。",
+      "acceptance": [
+        "手机长正文滚动不误触关闭。",
+        "打开软键盘后输入与确认按钮都可达。",
+        "未保存信息不会被轻扫直接丢弃；Esc 与关闭按钮均可用。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "interaction-reorder-list",
+      "title": "带明确手柄的列表重排",
+      "category": "交互动效",
+      "tags": [
+        "拖动",
+        "排序",
+        "收藏"
+      ],
+      "sourceIds": [
+        "int-s15",
+        "int-s05",
+        "int-s13"
+      ],
+      "score": 8.7,
+      "verdict": "有条件",
+      "suitable": [
+        "用户自定义收藏顺序",
+        "可编辑快捷入口"
+      ],
+      "avoid": [
+        "系统排名列表",
+        "只读行情列表",
+        "没有持久化的假拖动"
+      ],
+      "why": "有真实排序需求时，位置过渡能预告放置结果；不应为演示额外创造任务。",
+      "cost": "高；指针、键盘、持久化和回滚",
+      "prompt": "为允许自定义顺序的列表增加独立拖动手柄，文本、链接和收藏按钮保持正常点击行为。拖动时保持占位和原始尺寸，仅当前项略升起，其他项用短位置过渡预告落点；拖拽中不让文字缩放变形。触摸仅在手柄上启动，列表本身照常滚动。提供“上移／下移”键盘可用操作与位置播报，不依赖拖动完成任务。放下后持久化真实顺序，失败回滚并提示；按 Esc 可取消当前拖动。稳定 key 与数据 id 对应，减少动态效果直接改变位置。\n\n减少动态效果：排序立即更新，保留明确位置提示。\n\n上述数值为项目起始参数，应结合真实设备调整；不增加与当前任务无关的效果。",
+      "acceptance": [
+        "关闭页面重开后用户顺序保留。",
+        "保存失败恢复原顺序，删除或过滤不使 id 错位。",
+        "不使用鼠标也能完成同样的排序任务。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "interaction-shared-image",
+      "title": "图片缩略图到详情的连续展开",
+      "category": "交互动效",
+      "tags": [
+        "共享元素",
+        "图片",
+        "预览"
+      ],
+      "sourceIds": [
+        "int-s05",
+        "int-s08",
+        "int-s12"
+      ],
+      "score": 8.6,
+      "verdict": "有条件",
+      "suitable": [
+        "背景素材预览",
+        "角色立绘查看",
+        "UI 参考缩略图"
+      ],
+      "avoid": [
+        "只为文本详情硬做形变",
+        "跨比例图像拉伸",
+        "未加载原图先放大空框"
+      ],
+      "why": "源图与详情关系明确时有价值，适合未来素材库而非所有卡片。",
+      "cost": "中到高；图片解码、焦点与滚动状态",
+      "prompt": "为素材缩略图增加可访问的大图预览。点击后先确认原图解码可用，保留原缩略图占位，在约 240ms 内建立从缩略图到预览图的连续关系；图像始终保持纵横比，不把文字和整个卡片一起拉伸。预览作为有名称的 dialog，锁定背景操作，支持 Esc、可见关闭按钮和焦点返回，保留打开前滚动位置。窄屏优先保证完整图像和关闭控件可达。连续打开不同图时清理上一张过渡；图片失败保留缩略图并显示重试。减少动态效果直接打开。\n\n减少动态效果：无空间移动，直接打开详情或淡入。\n\n上述数值为项目起始参数，应结合真实设备调整；不增加与当前任务无关的效果。",
+      "acceptance": [
+        "大图始终保持比例，横图和竖图均不变形。",
+        "关闭后仍在原浏览位置和原触发器。",
+        "慢网、失败、快速换图不会闪白或出现两个焦点目标。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "interaction-decorative-parallax",
+      "title": "受限的角色装饰视差",
+      "category": "交互动效",
+      "tags": [
+        "视差",
+        "装饰",
+        "精细指针"
+      ],
+      "sourceIds": [
+        "int-s04",
+        "int-s06",
+        "int-s12"
+      ],
+      "score": 8,
+      "verdict": "有条件",
+      "suitable": [
+        "宽屏角色封面",
+        "低频品牌展示"
+      ],
+      "avoid": [
+        "新闻阅读区",
+        "财务图表",
+        "触摸页面滚动驱动",
+        "持续自动漂浮"
+      ],
+      "why": "能增添插画层次，但必须只作用装饰层并可以完全关闭。",
+      "cost": "中；分层边界、指针调度和偏好处理",
+      "prompt": "只在支持 hover 的精细指针设备上为角色封面加入极轻视差。人物装饰层的位移总幅度限制在 4px 左右，背景更小；文案、按钮和命中范围完全固定，角色不跟随鼠标穿过内容。指针离开后平滑归中，使用 requestAnimationFrame 或 Motion 值更新，避免每帧触发整页 React 渲染；不持续随机摆动。图片边缘要覆盖位移余量，页面隐藏时停止计算。触屏、prefers-reduced-motion、用户关闭动效时使用同一静态构图；该效果不得承担任何信息或操作功能。\n\n减少动态效果：完全静止；不以减速代替关闭。\n\n上述数值为项目起始参数，应结合真实设备调整；不增加与当前任务无关的效果。",
+      "acceptance": [
+        "鼠标移动不会改变按钮命中位置或遮住文案。",
+        "封面边缘不露底，离开后归中。",
+        "触屏、减少动态效果和后台状态下没有视差更新。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "interaction-batch-selection",
+      "title": "立即生效的批量选择",
+      "category": "可用性",
+      "tags": [
+        "批量",
+        "复选框",
+        "状态"
+      ],
+      "sourceIds": [
+        "int-s13",
+        "int-s02",
+        "int-s12"
+      ],
+      "score": 9,
+      "verdict": "推荐",
+      "suitable": [
+        "批量收藏管理",
+        "材料筛选",
+        "待办勾选"
+      ],
+      "avoid": [
+        "为逐个打勾延迟真实选择",
+        "全屏庆祝",
+        "选择动效触发昂贵全列表重排"
+      ],
+      "why": "即时状态与轻微视觉强调组合，比慢慢勾完更适合真实任务。",
+      "cost": "中；需要完整选择模型",
+      "prompt": "完善批量选择反馈：点击全选时所有数据状态立即更新，并显示实际已选数量，不能等待逐项动画。复选框使用原生语义，支持全选、部分选择与全不选；行内其他操作不应误切选择。视觉上可让当前可见的少量选中背景以最多约 100ms 总差值轻淡入，离屏项目直接显示最终状态。筛选后明确全选作用范围，删除需符合既有确认策略，失败保留可恢复状态。键盘操作立刻反映焦点与选中值，触摸点击区域清晰；减少动态效果去掉级联。\n\n减少动态效果：全部选择状态立即显示，无波浪和级联。\n\n上述数值为项目起始参数，应结合真实设备调整；不增加与当前任务无关的效果。",
+      "acceptance": [
+        "全选后立即执行批量操作时使用完整正确集合。",
+        "部分选中显示 mixed 状态。",
+        "筛选前后选中数量和操作范围清楚且一致。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "interaction-filter-chips",
+      "title": "稳定布局的筛选标签",
+      "category": "交互动效",
+      "tags": [
+        "标签",
+        "筛选",
+        "轻反馈"
+      ],
+      "sourceIds": [
+        "int-s05",
+        "int-s07",
+        "int-s12"
+      ],
+      "score": 9.3,
+      "verdict": "推荐",
+      "suitable": [
+        "提示词库分类",
+        "场景筛选",
+        "资讯过滤"
+      ],
+      "avoid": [
+        "选中标签大幅膨胀挤走手指",
+        "无限弹簧",
+        "只用颜色表示选中"
+      ],
+      "why": "让选择状态明确，同时避免截图式标签扩散导致布局不稳定。",
+      "cost": "低；原生按钮组与 CSS",
+      "prompt": "将分类筛选做成可扫描的标签组，标签文字与命中宽度保持稳定。选中时用浅暖红底、深红文字和小勾表示，不扩大到挤走邻居；有多个标签换行时保持自然文档布局。每个标签为带 aria-pressed 的 button，多选规则在文案里说明；单选则采用明确的 radio 或同页 tab 语义。点击、Space/Enter 后立刻更新结果与数量，当前结果区域保留高度，空结果给重置入口。键盘焦点始终可见，触摸范围不重叠；颜色过渡约 120ms，减少动态效果直接更新。\n\n减少动态效果：直接改变填色、图标与选中状态。\n\n上述数值为项目起始参数，应结合真实设备调整；不增加与当前任务无关的效果。",
+      "acceptance": [
+        "反复选择时触点不被挤走。",
+        "键盘与触摸获得相同筛选结果。",
+        "空结果可一键清除，状态不只依赖颜色。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "interaction-stable-loading",
+      "title": "保持上下文的加载与刷新",
+      "category": "可用性",
+      "tags": [
+        "骨架屏",
+        "刷新",
+        "空状态"
+      ],
+      "sourceIds": [
+        "int-s13",
+        "int-s12",
+        "int-s02"
+      ],
+      "score": 9.6,
+      "verdict": "推荐",
+      "suitable": [
+        "新闻列表",
+        "财务概览",
+        "提示词库搜索",
+        "异步内容"
+      ],
+      "avoid": [
+        "每次刷新清空整屏",
+        "多个闪烁骨架同时争夺注意",
+        "无限假进度"
+      ],
+      "why": "稳定空间和真实状态比持续闪动更容易让产品显得可靠。",
+      "cost": "低到中；区分初次加载与后台刷新",
+      "prompt": "区分首次加载、后台刷新、成功、空结果和失败。首次没有内容时用与真实卡片尺寸一致的静态占位，避免虚构文字；后台刷新保留旧内容并明确显示更新时间与正在刷新状态，不把整页清空。请求成功轻淡入新增内容，保留稳定 key、滚动和当前选中项；失败给可用重试入口与可读错误。用 aria-busy 标记区域，结果播报简洁，不逐条朗读动画。不要模拟进度百分比。若保留微弱骨架明暗变化，数量和时间受限；减少动态效果使用完全静态骨架。\n\n减少动态效果：静态骨架或加载文字，无 shimmer。\n\n上述数值为项目起始参数，应结合真实设备调整；不增加与当前任务无关的效果。",
+      "acceptance": [
+        "慢网刷新不丢已有可读内容与滚动位置。",
+        "空数组、请求错误、首次加载能够明确区分。",
+        "完成、失败后所有加载动画与计时器都停止。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "system-vermilion-tokens",
+      "title": "朱红、纸白与暖墨的设计尺度",
+      "category": "设计系统",
+      "tags": [
+        "设计变量",
+        "角色品牌",
+        "表面层次"
+      ],
+      "sourceIds": [
+        "anthropic-frontend-design",
+        "ui-ux-pro-max",
+        "jakub-feel-better",
+        "typeui-structure"
+      ],
+      "score": 9.4,
+      "verdict": "推荐",
+      "suitable": [
+        "多页视觉统一",
+        "长期产品维护",
+        "角色陪伴工具"
+      ],
+      "avoid": [
+        "为了流行更换角色品牌",
+        "混用互相冲突的视觉主题"
+      ],
+      "why": "把高级感落实为可复用的色彩、排版、间距与状态关系，能持续约束后续页面。",
+      "cost": "中；先提取变量，再逐组件替换",
+      "prompt": "为小彤建立一套小而完整的设计变量。保留朱红角色、米白茶室与暖棕氛围：深暖墨作主画布，浅纸色用于需要长时间阅读的局部表面；每种表面绑定自己的正文、次要文字、边界和焦点颜色。区分品牌红、错误语义与本项目盈利红，状态同时带文字或符号。统一字号阶梯、中文行高、间距、卡片和控件圆角、两级阴影与短反馈时长，用语义变量表达用途，不在组件里不断增加相似颜色。真实检查长中文、数字、窄屏和明暗表面反差；减少动态效果保留全部静态层次。",
+      "acceptance": [
+        "同用途控件跨页使用一致颜色、尺寸和状态。",
+        "纸色卡片的次要文字不沿用深色画布上的浅灰。",
+        "普通正文对比度与 320px 窄屏实际检查通过。"
+      ],
+      "appliedTo": [
+        "src/home/refined.css"
+      ]
+    },
+    {
+      "id": "scenario-character-dashboard",
+      "title": "以角色开场的安静个人首页",
+      "category": "场景方案",
+      "tags": [
+        "首页",
+        "角色场景",
+        "信息主次"
+      ],
+      "sourceIds": [
+        "anthropic-frontend-design",
+        "taste-main",
+        "typeui-structure",
+        "junaid-task-focused"
+      ],
+      "score": 9.2,
+      "verdict": "推荐",
+      "suitable": [
+        "小彤首页",
+        "陪伴型个人空间",
+        "内容与角色并存"
+      ],
+      "avoid": [
+        "品牌栏抢占首屏",
+        "照搬 SaaS 侧栏",
+        "把宣传标语放进个人任务"
+      ],
+      "why": "尊重本项目从人物场景开始的习惯，把氛围与真实内容分出明确主次。",
+      "cost": "中；重排层次与响应式，不更改数据接口",
+      "prompt": "重构小彤个人首页时，直接从人物场景开始，不加品牌栏、欢迎标题、头像铃铛或底部导航。封面维持文案左上、角色右侧的构图，统计条在下缘承接内容；往下依次阅读收益、资讯和设置。卡片直接展示金额、趋势与文章标题，用少量明确标签说明数据含义，演示内容持续标注。深暖墨画布与浅纸阅读表面协调，朱红只强调当前动作。点击卡片进入详情，返回恢复原来的浏览位置。手机不横向溢出；键盘能抵达主要内容、卡片和设置；关闭动态效果仍保留完整场景和信息层级。",
+      "acceptance": [
+        "首页首个可见主体仍是角色场景。",
+        "卡片进入详情并返回后位置保持。",
+        "标题、人物和统计条在窄屏互不遮挡。"
+      ],
+      "appliedTo": [
+        "src/home/Home.jsx",
+        "src/home/refined.css"
+      ]
+    },
+    {
+      "id": "system-chinese-editorial",
+      "title": "适合中文的编辑式内容阅读",
+      "category": "设计系统",
+      "tags": [
+        "中文排版",
+        "文章",
+        "信息密度"
+      ],
+      "sourceIds": [
+        "designprompts-newsprint",
+        "designprompts-professional",
+        "typeui-editorial",
+        "jakub-feel-better"
+      ],
+      "score": 9.1,
+      "verdict": "推荐",
+      "suitable": [
+        "资讯列表",
+        "长文阅读",
+        "研究笔记"
+      ],
+      "avoid": [
+        "照搬英文字距",
+        "大段正文每句卡片化",
+        "背景纹理干扰阅读"
+      ],
+      "why": "从编辑式风格保留对齐、阅读顺序和留白，避免整套报纸装饰覆盖动漫主题。",
+      "cost": "中；排版与内容结构调整",
+      "prompt": "为资讯列表与文章详情建立中文阅读层级。列表清楚区分来源、标题、摘要和时间；标题是入口，收藏是独立操作，避免按钮嵌套。正文采用舒适的固定最大阅读宽度与充分行高，段落留白表达逻辑，不依赖过重阴影或每段一个容器。标题允许自然换行，正文不使用密集负字距，数字和英文名称保持可辨。角色品牌色用于少量引导，阅读表面用稳定纸白和深棕文字。展示真实来源或明确演示标记；收藏等待、成功、失败不打断正文。保留返回入口和阅读位置，键盘焦点始终可见。",
+      "acceptance": [
+        "长中文标题、英文来源和多段正文不截断。",
+        "文章正文与列表信息层级能快速分辨。",
+        "收藏控件与阅读入口可分别操作。"
+      ],
+      "appliedTo": [
+        "src/home/FeedPage.jsx",
+        "src/home/refined.css"
+      ]
+    },
+    {
+      "id": "system-optical-polish",
+      "title": "几何与光学细节的最后一轮打磨",
+      "category": "设计系统",
+      "tags": [
+        "对齐",
+        "圆角",
+        "细节"
+      ],
+      "sourceIds": [
+        "jakub-feel-better",
+        "impeccable",
+        "designprompts-professional"
+      ],
+      "score": 8.9,
+      "verdict": "推荐",
+      "suitable": [
+        "发布前精修",
+        "组件一致性",
+        "有既定视觉方向的产品"
+      ],
+      "avoid": [
+        "不解决任务却只调阴影",
+        "为了变化反复换字体"
+      ],
+      "why": "细小的一致性容易积累成质感，而且通常比增加动画更经济。",
+      "cost": "低到中；逐组件核对",
+      "prompt": "在现有设计方向上做最后一轮精修：比较相邻卡片的内边距、标题基线、图标线宽和文字粗细；数字使用等宽字形。嵌套圆角随内边距自然递减，阴影只表达层级，细分割线组织内容。图标与文字按视觉中心校正，但不缩小触控命中范围。逐项检查默认、悬停、聚焦、按下、禁用、加载与错误，不用 transition-all。先用静态截图发现对齐问题，再用真实点击和键盘验证；只有能说明收益的差异才修改。",
+      "acceptance": [
+        "同级卡片和按钮的间距与圆角有统一依据。",
+        "图标视觉对齐不改变可操作区域。",
+        "状态切换不造成文字宽度或容器位置抖动。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "usability-touch-and-keyboard",
+      "title": "触摸与键盘都完整的控件基线",
+      "category": "可用性",
+      "tags": [
+        "触控",
+        "键盘",
+        "焦点"
+      ],
+      "sourceIds": [
+        "rauno-guidelines",
+        "vercel-web-guidelines",
+        "baseline-ui",
+        "a11y-project-checklist"
+      ],
+      "score": 9.5,
+      "verdict": "推荐",
+      "suitable": [
+        "筛选",
+        "表单",
+        "移动端操作",
+        "图标按钮"
+      ],
+      "avoid": [
+        "只依赖 hover",
+        "隐藏默认焦点却不给替代",
+        "所有控件套同一种键盘规则"
+      ],
+      "why": "可靠的触控与焦点反馈让精致外观成为真实可用的界面。",
+      "cost": "中；逐流程检查，不依赖整站换库",
+      "prompt": "检查小彤的所有主要操作是否使用恰当的 button、link、input 或 select 语义。图标按钮有中文名称，表单标签关联输入；项目触摸目标按至少 44px 设计，相邻目标不重叠。焦点外环在深色和浅色表面都清晰，不能被圆角容器裁掉。输入、原生滑杆和单选组分别使用自身键盘规则，不劫持页面滚动键；触摸不需要先 hover 才看见功能。保留有用的浏览器自动填充，缩放页面仍能阅读。减少动态效果时保留选中与按下状态，用真实鼠标、触摸模拟和键盘验证核心路径。",
+      "acceptance": [
+        "不使用鼠标也能完成主要筛选和设置。",
+        "图标按钮均有可辨名称与足够命中区域。",
+        "触摸无悬停依赖，窄屏和 200% 缩放下内容可达。"
+      ],
+      "appliedTo": [
+        "src/home/ui/SegmentedControl.jsx",
+        "src/home/ui/Dialog.jsx",
+        "src/home/refined.css"
+      ],
+      "applicationScope": "本轮应用于分段控件、对话框及主要按钮的焦点和触控规则；不宣称已完成全产品无障碍认证。"
+    },
+    {
+      "id": "usability-native-dialog",
+      "title": "保留焦点与阅读位置的原生弹窗",
+      "category": "可用性",
+      "tags": [
+        "弹窗",
+        "手机面板",
+        "焦点恢复"
+      ],
+      "sourceIds": [
+        "int-s08",
+        "int-s16",
+        "vercel-web-guidelines"
+      ],
+      "score": 9.6,
+      "verdict": "推荐",
+      "suitable": [
+        "心情预览",
+        "首页统计编辑",
+        "短设置"
+      ],
+      "avoid": [
+        "自画遮罩但背景仍可操作",
+        "打开就丢失原页面位置",
+        "把手机底部布局当手势实现"
+      ],
+      "why": "原生模态能力减少焦点和背景隔离错误，适合项目现有设置与场景选择。",
+      "cost": "中；滚动锁、焦点和关闭边界需实际验证",
+      "prompt": "使用原生 dialog.showModal 实现短设置面板，标题通过 aria-labelledby 关联，描述按需提供。桌面居中、手机靠底，但始终保留可见的 44px 关闭按钮。打开后焦点置于适当标题或控件，背景不能获得焦点或交互；关闭后恢复触发器焦点和原浏览位置。锁定背景滚动并补偿消失的滚动条，内部长内容能独立滚动。Esc 和真正点击遮罩均可关闭；从内容拖到遮罩不算点击关闭。关闭过渡简短，不推迟数据结果，减少动态效果立即关闭。不要为普通弹窗额外加入未要求的拖拽手势。",
+      "acceptance": [
+        "Esc、关闭按钮和真实遮罩点击都能关闭。",
+        "跨边界拖动不误关，背景无法被聚焦。",
+        "关闭后焦点、滚动与页面宽度恢复；手机长内容可滚动。"
+      ],
+      "appliedTo": [
+        "src/home/ui/Dialog.jsx"
+      ]
+    },
+    {
+      "id": "usability-reading-return",
+      "title": "详情返回时恢复上下文",
+      "category": "可用性",
+      "tags": [
+        "返回",
+        "阅读位置",
+        "浏览历史"
+      ],
+      "sourceIds": [
+        "vercel-web-guidelines",
+        "rauno-guidelines",
+        "int-s13"
+      ],
+      "score": 9.5,
+      "verdict": "推荐",
+      "suitable": [
+        "文章列表到正文",
+        "首页到收益详情",
+        "连续浏览内容"
+      ],
+      "avoid": [
+        "每次返回都跳回顶部",
+        "用平滑滚动强迫用户等待",
+        "只保存单一全局位置"
+      ],
+      "why": "返回能继续原来的阅读，比华丽页面转场更直接改善日常体验。",
+      "cost": "中；路由条目、滚动与焦点联合管理",
+      "prompt": "为每次浏览历史条目记录自己的滚动位置与触发控件标识。进入新的详情时把焦点交给页面标题，返回列表时先恢复筛选与内容，再恢复对应触发器焦点和滚动位置；聚焦使用 preventScroll，避免二次跳动。浏览器后退、前进和页面返回按钮遵循同一行为。直接进入详情时提供合理返回落点；原条目已不存在时回到列表标题，不让焦点消失。不要只使用一个全局 scrollY，不为恢复位置播放长滚动动画。减少动态效果下保持完全相同的导航功能。",
+      "acceptance": [
+        "从列表中部打开文章再返回，仍在相同条目附近。",
+        "浏览器前进后退与页面按钮结果一致。",
+        "焦点回到原入口，失效入口有可用回退。"
+      ],
+      "appliedTo": [
+        "src/home/useNavigation.js",
+        "src/home/FeedPage.jsx"
+      ]
+    },
+    {
+      "id": "system-motion-budget",
+      "title": "按用途与可见性分配动效",
+      "category": "设计系统",
+      "tags": [
+        "动效预算",
+        "减少动态",
+        "性能"
+      ],
+      "sourceIds": [
+        "motion-performance",
+        "emil-design-eng",
+        "int-s02",
+        "int-s04",
+        "accessible-ui-animation-case"
+      ],
+      "score": 9.5,
+      "verdict": "推荐",
+      "suitable": [
+        "角色氛围",
+        "多模块首页",
+        "长期使用的个人工具"
+      ],
+      "avoid": [
+        "所有组件持续摆动",
+        "后台页面继续帧循环",
+        "一刀切让所有动画变慢"
+      ],
+      "why": "把装饰与信息反馈分开，既保留人物气氛，也避免消耗注意力和渲染资源。",
+      "cost": "中；建立可见性和用户偏好的明确停止条件",
+      "prompt": "逐项列出角色背景、光线、文字、数字与控件动画的触发、信息职责、持续时间和停止条件。高频筛选立即生效；偶发场景切换维持空间关系；环境装饰只在首页可见、页面前台、没有打开模态面板且用户允许时运行。离屏、后台、关闭自动轮换或系统减少动态效果时暂停装饰位移与循环。保留状态文字和选择反馈，不能把减少动态理解为全部动画只是变慢。复用现有 Motion 与 CSS，优先 transform/opacity，集中读写布局，只在证实必要时使用 will-change。",
+      "acceptance": [
+        "页面隐藏、封面离屏和模态打开后装饰运动停止。",
+        "系统减少动态设置改变后界面响应。",
+        "停止动效不会隐藏操作结果或角色信息。"
+      ],
+      "appliedTo": [
+        "src/home/SceneCover.jsx",
+        "src/home/Home.jsx"
+      ],
+      "applicationScope": "本轮用于场景环境动画和自动轮换的暂停条件；其他动画仍按组件分别检查。"
+    },
+    {
+      "id": "system-progressive-redesign",
+      "title": "有证据的渐进式 UI 重构",
+      "category": "设计系统",
+      "tags": [
+        "重构",
+        "功能保留",
+        "设计评审"
+      ],
+      "sourceIds": [
+        "impeccable",
+        "taste-redesign",
+        "khosro-ui-workflow"
+      ],
+      "score": 9,
+      "verdict": "推荐",
+      "suitable": [
+        "已有产品改造",
+        "多人维护",
+        "长期迭代"
+      ],
+      "avoid": [
+        "先换框架再讨论问题",
+        "一轮混入多个审美主题",
+        "只凭截图删掉功能"
+      ],
+      "why": "先保留真实行为与数据路径，再按问题改善层级，变化才可审查、可验证。",
+      "cost": "中；需要清单和真实页面检查",
+      "prompt": "重构已有页面前先盘点主要用户任务、当前入口、API、保存行为、返回路径和品牌资产。记录每个实际问题及其位置，按任务清晰度、信息层级、控件一致性和边界状态排序。沿用现有技术栈，先修主次与拥挤，再统一重复尺度，最后添加能解释状态的少量动效。不要为了新鲜改掉熟悉入口。每次变更说明解决了什么问题，并回归原有数据、键盘、触摸、网络失败与返回行为。用真实截图和操作结果复核，未验证的推断明确标记。",
+      "acceptance": [
+        "改造前后主要功能和数据保存路径可以逐项对照。",
+        "每一类视觉变化有具体问题依据。",
+        "源码、桌面和手机验证结果一起交付。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "usability-verification-plan",
+      "title": "从截图到真实操作的验收",
+      "category": "可用性",
+      "tags": [
+        "验收",
+        "无障碍",
+        "回归"
+      ],
+      "sourceIds": [
+        "vercel-web-guidelines",
+        "a11y-project-checklist",
+        "baseline-ui"
+      ],
+      "score": 9.4,
+      "verdict": "推荐",
+      "suitable": [
+        "发布前检查",
+        "UI 仓库条目审核",
+        "新组件验收"
+      ],
+      "avoid": [
+        "axe 零问题即宣称全面认证",
+        "只测试宽屏默认态",
+        "截图漂亮即判完成"
+      ],
+      "why": "把审美主张转成可观察结果，能识别截图无法暴露的交互缺陷。",
+      "cost": "中；重点流程浏览器检查",
+      "prompt": "为这次 UI 变更制定与范围相称的验收：先走核心用户路径，再检查桌面、窄屏、长中文、空数据、接口失败与加载。验证 Tab 焦点顺序、原生控件键盘操作、弹窗关闭恢复、触摸命中、快速反向操作和减少动态效果。静态截图检查层级、边界、截断和对比，浏览器操作检查真实状态与数据；自动工具只辅助发现问题，不替代人工判断。按位置修复真正的问题，记录通过项、工具发现和尚未覆盖的条件，不虚构用户测试或转化率提升。",
+      "acceptance": [
+        "验收内容与实际实现范围一致。",
+        "截图检查与键盘、触摸、异常操作都实际执行。",
+        "报告区分已验证、部分验证与待验证。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "usability-progressive-settings",
+      "title": "按频率分组的清晰设置",
+      "category": "可用性",
+      "tags": [
+        "设置",
+        "渐进展开",
+        "保存状态"
+      ],
+      "sourceIds": [
+        "better-web-ui",
+        "junaid-task-focused",
+        "int-s20",
+        "rauno-guidelines"
+      ],
+      "score": 8.7,
+      "verdict": "推荐",
+      "suitable": [
+        "个人设置",
+        "低频配置",
+        "有少量高级选项的工具"
+      ],
+      "avoid": [
+        "把全部选项塞进同级网格",
+        "折叠核心操作",
+        "输入变化却没有保存说明"
+      ],
+      "why": "明确常用、低频与危险操作的位置，比一套奢华控件皮肤更能降低配置负担。",
+      "cost": "中；调整信息分组与保存反馈",
+      "prompt": "按用户操作频率整理设置：常用选项直接可见，低频高级项置于明确命名的可展开区域；不要折叠完成当前任务所必需的控件。每组有短标题，必要说明紧邻输入，保存方式是立即生效还是集中提交要清楚。危险操作单独说明后果，失败信息靠近相关字段并保留已输入内容。标签可点击聚焦，保留有用自动填充；折叠状态暴露 aria-expanded，隐藏内容不能继续获得焦点。手机单列与安全区可用，减少动态效果直接展开，颜色移除后仍能理解主次。",
+      "acceptance": [
+        "常用设置无需猜测分组即可找到。",
+        "保存失败保留输入并给出恢复方法。",
+        "展开、收起和提交均能由键盘完成。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "scenario-focused-task-list",
+      "title": "让下一件事明确的计划列表",
+      "category": "场景方案",
+      "tags": [
+        "待办",
+        "行动层级",
+        "完整状态"
+      ],
+      "sourceIds": [
+        "junaid-task-focused",
+        "typeui-structure",
+        "ui-ux-pro-max"
+      ],
+      "score": 8.8,
+      "verdict": "推荐",
+      "suitable": [
+        "未来计划模块",
+        "习惯清单",
+        "个人任务面板"
+      ],
+      "avoid": [
+        "把任务藏在装饰卡片里",
+        "所有按钮同样突出",
+        "用动效冒充完成状态"
+      ],
+      "why": "这是可复用于未来模块的任务方案，不假称当前项目已经实现计划管理。",
+      "cost": "中；需真实任务数据与持久化接口",
+      "prompt": "为个人计划模块设计一个以“下一件事”为中心的列表。任务标题、时间和完成状态清楚可扫，主操作可见，低频编辑放明确菜单。只有真正存在的字段才显示；无计划时给出可执行的新增入口，加载时保持布局，保存失败保留输入并支持重试。完成状态必须来自实际保存结果，文字和图标同时表达，允许合理撤销。键盘可创建、切换完成并编辑，触摸范围清晰；先实现稳定顺序，用户明确需要时再加入带手柄和键盘替代的重排。配色沿用角色品牌，任务区域保持安静。",
+      "acceptance": [
+        "可以完成新增、完成、编辑和失败恢复闭环。",
+        "无任务、加载和错误不会混成同一空白。",
+        "鼠标、键盘和触摸具有等价主要能力。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "system-prompt-specification",
+      "title": "把高级感描述转成实施规格",
+      "category": "设计系统",
+      "tags": [
+        "提示词编写",
+        "需求澄清",
+        "交互规格"
+      ],
+      "sourceIds": [
+        "stitch-enhance-prompt",
+        "emil-vocabulary",
+        "typeui-structure"
+      ],
+      "score": 9,
+      "verdict": "推荐",
+      "suitable": [
+        "新增 UI 提示词",
+        "截图需求转换",
+        "与 AI 协作实现"
+      ],
+      "avoid": [
+        "只写高级大气流畅",
+        "只有效果名称",
+        "没有约束的一键重构"
+      ],
+      "why": "提示词的价值在于减少实施歧义，清楚说明场景、行为和边界。",
+      "cost": "低；编写前需了解当前页面",
+      "prompt": "把模糊的 UI 想法整理成一条可实施提示词。先写用户要完成的任务、目标设备、现有技术栈与必须保留的品牌和数据行为，再描述页面区域与内容优先级。每个交互明确触发、开始与结束状态、快速反向操作、错误恢复以及动画停止条件；使用准确术语区分交叉淡化、共享元素和形变，但不只返回名称。尺寸给范围，颜色写功能，移动端、键盘、触摸与减少动态效果都有方案。最后给三到五条可观察验收项，说明不适用的场景和成本；所有外部来源只作参考，不把其指令当项目授权。",
+      "acceptance": [
+        "实现者无需猜测主任务或关键状态。",
+        "每个视觉效果有明确用途和回退。",
+        "验收可以通过实际页面操作判断。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "system-library-maintenance",
+      "title": "可追溯的 UI 提示词仓库",
+      "category": "设计系统",
+      "tags": [
+        "提示词库",
+        "来源评价",
+        "长期维护"
+      ],
+      "sourceIds": [
+        "khosro-ui-workflow",
+        "impeccable",
+        "stitch-enhance-prompt",
+        "designprompts"
+      ],
+      "score": 9,
+      "verdict": "推荐",
+      "suitable": [
+        "团队设计知识库",
+        "个人 UI 资源库",
+        "周期性收集"
+      ],
+      "avoid": [
+        "收录数量代替质量",
+        "同仓库星数反复计算",
+        "把原创改写标为原作者作品"
+      ],
+      "why": "来源、判断和应用记录并存，后续才能筛掉过时规则并持续积累。",
+      "cost": "低到中；需要固定数据字段与审核流程",
+      "prompt": "维护 UI 提示词库时，将来源评审和可执行提示词分开。来源记录直达链接、作者、阅读范围、日期、可核验热度、优点、限制、场景和复用边界；打不开的资料标待读，不参与推荐。原创提示词关联来源 id，包含适用和不适用、明确行为、无障碍与性能回退、成本及验收。按实际任务合并重复条目，不靠改名扩充数量。分别统计评审记录、唯一 URL、同源作者或机构族；星数与票数不替代质量评分。应用位置只写真实使用的文件，未做能力不打已应用标记。",
+      "acceptance": [
+        "所有推荐提示词的来源 id 均可解析且不是待读。",
+        "同源条目和热度来源能被识别。",
+        "搜索、复制、修改数据与重新构建均有明确路径。"
+      ],
+      "appliedTo": []
+    },
+    {
+      "id": "scenario-finance-first-replay",
+      "title": "首轮演示回放与稳定的收益详情",
+      "category": "场景方案",
+      "tags": [
+        "收益概览",
+        "真实读值",
+        "返回稳定"
+      ],
+      "sourceIds": [
+        "int-s18",
+        "int-s01",
+        "int-s02",
+        "vercel-web-guidelines"
+      ],
+      "score": 9.2,
+      "verdict": "推荐",
+      "suitable": [
+        "本项目演示收益卡片",
+        "有历史序列的概览"
+      ],
+      "avoid": [
+        "把插值当实时行情",
+        "每次返回都重播",
+        "用户调节数值仍追随弹簧"
+      ],
+      "why": "保留项目规定的首轮叙事，同时让重复浏览和详情核对回到即时、稳定的体验。",
+      "cost": "中；回放状态、可见性和详情控件协同",
+      "prompt": "保留收益卡片既有首轮演示顺序：按实际示例日期与历史序列展示累计值，结束后累计区域收小并出现今日收益，清楚标注演示。只在字体稳定且卡片可见时开始，离屏或后台暂停；本轮会话已经播放完成后，从详情返回保持最终状态，不反复重播。读屏提供固定的最终摘要，不逐帧播报。详情使用原生 range 即时检查日期和精确金额，aria-valuetext 包含日期与单位，分段控件切换周期即更新数据，不对滑杆数值加弹簧。系统减少动态效果时概览直接显示最终结果。",
+      "acceptance": [
+        "初次演示使用已有日期序列，不伪装实时行情。",
+        "播放完成后进入详情再返回不会重播。",
+        "原生滑杆键盘和指针即时改变同一准确读值；减少动态时直接最终态。"
+      ],
+      "appliedTo": [
+        "src/home/FinanceCard.jsx",
+        "src/home/FinancePage.jsx"
+      ]
+    }
+  ]
+}

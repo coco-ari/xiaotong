@@ -1,0 +1,112 @@
+/* 场景配置面板沿用暖墨、纸白与朱红，让规则和素材编辑保持清晰。 */
+.scene-settings { margin-top: 28px; padding: 22px; border: 1px solid var(--ui-border, #4b3e35); border-radius: 20px; background: var(--ui-surface, #2b2420); color: var(--ui-text, #f2e9de); min-width: 0; }
+.scene-settings * { box-sizing: border-box; }
+.scene-settings-heading, .scene-subheading, .scene-preview-caption { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.scene-settings h2 { margin: 0; font-size: 19px; line-height: 1.5; font-weight: 600; }
+.scene-settings h3 { margin: 0; font-size: 15px; line-height: 1.6; font-weight: 600; }
+.scene-settings-heading > span, .scene-subheading > span, .scene-preview-caption > span { flex-shrink: 0; font-size: 12px; color: var(--ui-muted, #beafa1); }
+.scene-settings-intro, .scene-help { margin: 9px 0 0; color: var(--ui-muted, #beafa1); font-size: 12px; line-height: 1.8; overflow-wrap: anywhere; }
+.scene-settings-fields, .scene-condition, .scene-templates { min-width: 0; margin: 0; padding: 0; border: 0; }
+.scene-settings-fields { margin-top: 22px; }
+.scene-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.scene-field { display: flex; flex-direction: column; align-items: stretch; min-width: 0; gap: 8px; font-size: 12px; line-height: 1.7; color: var(--ui-text, #f2e9de); }
+.scene-settings :is(input:not([type=checkbox]), select, textarea) { width: 100%; min-width: 0; min-height: 44px; border: 1px solid #756052; border-radius: 10px; background: #241e1b; color: #f2e9de; padding: 10px 12px; font: inherit; font-size: 16px; line-height: 1.5; color-scheme: dark; }
+.scene-settings textarea { resize: vertical; min-height: 98px; }
+.scene-settings input::placeholder, .scene-settings textarea::placeholder { color: #af9f91; opacity: 1; }
+.scene-settings input[type=checkbox] { width: 20px; height: 20px; accent-color: #ef776a; margin: 0; flex-shrink: 0; }
+.scene-settings :is(button, summary, input, select, textarea):focus-visible { outline: 3px solid #ef998d; outline-offset: 3px; }
+.scene-settings button { min-height: 44px; cursor: pointer; font-size: 12px; line-height: 1.5; }
+.scene-settings button:disabled, .scene-settings-fields:disabled { opacity: .55; cursor: default; }
+.scene-settings-fields:disabled button { cursor: default; }
+.scene-interval-row { display: grid; grid-template-columns: 130px 1fr; gap: 20px; align-items: end; }
+.scene-interval-row .scene-help { padding-bottom: 4px; margin: 0; }
+.scene-number-unit { display: flex; align-items: center; gap: 10px; }
+.scene-number-unit input { max-width: 95px; }
+.scene-number-unit > span { color: var(--ui-muted, #beafa1); }
+.scene-subheading { margin-top: 22px; margin-bottom: 10px; }
+.scene-text-button { display: inline-flex; align-items: center; justify-content: center; padding: 8px 9px; border: 0; background: transparent; color: #edbaab; text-align: center; border-radius: 8px; }
+.scene-outline-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 14px; border: 1px solid #766152; background: #372c25; color: #f0dfd1; text-align: center; border-radius: 10px; }
+.scene-module-list { display: flex; flex-direction: column; gap: 7px; }
+.scene-module-item { display: flex; align-items: center; gap: 5px; min-width: 0; border: 1px solid #514238; border-radius: 12px; background: #261f1b; }
+.scene-module-item.is-selected { border-color: #d58c76; background: #412d25; }
+.scene-module-select { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; text-align: left; padding: 12px; color: inherit; background: none; border: 0; border-radius: 11px; }
+.scene-module-number { flex-shrink: 0; font-size: 12px; color: #d39c87; font-variant-numeric: tabular-nums; }
+.scene-module-select > span:last-child { display: grid; gap: 3px; min-width: 0; }
+.scene-module-select b { font-size: 14px; font-weight: 500; overflow-wrap: anywhere; }
+.scene-module-select small { font-size: 11px; color: #c7b4a4; }
+.scene-module-actions { display: flex; padding-right: 4px; flex-shrink: 0; }
+.scene-icon-button { min-width: 44px; border: 0; border-radius: 8px; color: #e4cbb8; background: none; font-size: 18px !important; }
+.scene-module-editor { margin-top: 23px; padding-top: 4px; border-top: 1px solid #5a473c; }
+.scene-check { display: inline-flex; min-height: 44px; align-items: center; gap: 9px; font-size: 13px; }
+.scene-data-settings, .scene-variable-help { margin-top: 14px; font-size: 12px; color: var(--ui-muted, #beafa1); }
+.scene-settings summary { min-height: 44px; padding: 11px 0; cursor: pointer; line-height: 1.8; }
+.scene-data-settings summary, .scene-variable-help summary { color: #decbbb; }
+.scene-details-body { padding: 6px 0 10px; display: grid; gap: 14px; }
+.scene-field-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.scene-module-id { margin: 0; color: #beafa1; font-size: 11px; overflow-wrap: anywhere; }
+.scene-data-status { display: flex; flex-direction: column; gap: 7px; margin-top: 10px; padding: 13px 14px; border: 1px solid #615042; background: #322920; border-radius: 11px; font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
+.scene-data-status > span { color: #cbb6a3; }
+.scene-data-status > b { color: #f1deca; font-weight: 500; }
+.scene-rules { display: grid; gap: 10px; margin-top: 12px; margin-bottom: 12px; }
+.scene-rule { min-width: 0; border: 1px solid #685344; border-radius: 13px; background: #261f1b; }
+.scene-rule > summary { display: flex; align-items: center; gap: 10px; list-style: none; padding: 14px; border-radius: 12px; }
+.scene-rule > summary::-webkit-details-marker { display: none; }
+.scene-rule > summary::before { content: '›'; font-size: 23px; line-height: 1; color: #d3a990; transform: rotate(0); flex-shrink: 0; }
+.scene-rule[open] > summary::before { transform: rotate(90deg); }
+.scene-rule > summary > span:first-of-type { display: grid; min-width: 0; gap: 4px; flex: 1; }
+.scene-rule summary b { font-size: 14px; font-weight: 500; overflow-wrap: anywhere; }
+.scene-rule summary small { color: #c4ae9e; font-size: 11px; line-height: 1.7; overflow-wrap: anywhere; }
+.scene-match-badge { padding: 3px 7px; background: #583a2c; color: #f2c5a9; border-radius: 5px; font-size: 10px; flex-shrink: 0; }
+.scene-rule-body { padding: 0 14px 16px; }
+.scene-rule-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 2px; border-top: 1px solid #4b3c31; padding-top: 4px; margin-bottom: 10px; }
+.scene-rule-actions .scene-remove { margin-left: auto; }
+.scene-remove { color: #f0a797; overflow-wrap: anywhere; }
+.scene-state-editor { display: grid; gap: 18px; }
+.scene-condition { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.scene-condition legend, .scene-templates legend { margin-bottom: 10px; font-size: 13px; color: #e9d8c7; }
+.scene-condition > .scene-help { grid-column: 1 / -1; }
+.scene-templates legend small { margin-left: 7px; font-size: 11px; color: #beafa1; }
+.scene-templates > .scene-help { margin-top: 0; }
+.scene-template { margin-top: 14px; }
+.scene-template-meta { display: flex; align-items: center; justify-content: space-between; gap: 5px; color: #beafa1; font-size: 11px; }
+.scene-template-meta > span { overflow-wrap: anywhere; }
+.scene-template-meta .scene-text-button { padding-inline: 8px; }
+.scene-invalid { color: #ffb8a7; }
+.scene-settings [aria-invalid=true] { border-color: #e79481; }
+.scene-variable-help { margin: 0; padding: 0 0 4px; border-top: 1px solid #4f3e32; border-bottom: 1px solid #4f3e32; }
+.scene-variable-help p { margin: 8px 0; line-height: 1.9; }
+.scene-variable-help dl { margin: 12px 0; }
+.scene-variable-help dt { font-family: ui-monospace, monospace; font-size: 11px; color: #f0c9b5; overflow-wrap: anywhere; }
+.scene-variable-help dd { margin: 4px 0 13px; color: #c4b1a1; line-height: 1.8; }
+.scene-preview-caption { font-size: 12px; margin-bottom: -8px; flex-wrap: wrap; }
+.scene-preview-caption b { font-weight: 500; }
+.scene-setting-preview { position: relative; aspect-ratio: 1.6; min-height: 145px; overflow: hidden; isolation: isolate; border-radius: 10px; background: #edd6bd; }
+.scene-setting-background, .scene-setting-shade, .scene-setting-character { position: absolute; pointer-events: none; }
+.scene-setting-background { inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.scene-setting-shade { inset: 0; background: linear-gradient(90deg, #f6e6ceea, #f6e6cebb 38%, #f6e6ce00 66%); }
+.scene-setting-character { width: 63%; height: 140%; right: -6%; top: 5%; object-fit: contain; object-position: center top; }
+.scene-setting-preview-text { position: absolute; z-index: 1; width: 48%; left: 7%; top: 50%; transform: translateY(-50%); margin: 0; white-space: pre-line; overflow-wrap: anywhere; text-wrap: pretty; color: #59372d; font-family: 'Songti SC', 'SimSun', serif; font-size: clamp(17px, 3.5vw, 26px); line-height: 1.65; font-weight: 600; max-height: 88%; overflow: hidden; }
+.scene-setting-preview-text[data-length=long] { font-size: clamp(12px, 2.5vw, 18px); line-height: 1.5; }
+.scene-fallback { margin-top: 15px; margin-bottom: 7px; }
+.scene-settings-save { display: grid; grid-template-columns: 1fr 1.5fr; gap: 10px; margin-top: 22px; padding-top: 20px; border-top: 1px solid #624b3c; }
+.scene-settings-save > button { min-width: 0; }
+.scene-unsaved { margin-top: 12px; }
+.scene-settings-error, .scene-settings-message { padding: 12px 14px; border-radius: 10px; font-size: 12px; line-height: 1.8; margin: 12px 0 0; overflow-wrap: anywhere; }
+.scene-settings-error { color: #ffd3c6; background: #4f2c25; border: 1px solid #a96854; }
+.scene-settings-message { color: #dce7d5; background: #2c372a; border: 1px solid #65785a; }
+@media (max-width: 420px) {
+  .scene-settings { padding: 16px 12px; }
+  .scene-settings-heading { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .scene-interval-row { grid-template-columns: 110px 1fr; gap: 12px; }
+  .scene-module-select { gap: 8px; padding-inline: 9px; }
+  .scene-rule > summary { padding-inline: 11px; }
+  .scene-rule-body { padding-inline: 11px; }
+  .scene-field-pair, .scene-condition { grid-template-columns: 1fr; }
+  .scene-settings-save { grid-template-columns: 1fr; }
+  .scene-settings-save .personal-primary { grid-row: 1; }
+  .scene-setting-preview-text { font-size: 17px; }
+  .scene-setting-preview-text[data-length=long] { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene-settings *, .scene-settings *::before { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

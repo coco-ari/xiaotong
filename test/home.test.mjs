@@ -4,6 +4,8 @@ import {readFileSync} from 'node:fs';
 import {DEMO_ASSETS,portfolio,daySeries,chartPoints} from '../src/home/data.mjs';
 import {MOODS,automaticMoods} from '../src/home/moods.mjs';
 import {SCENES} from '../src/home/scenes.mjs';
+import {SCENE_ASSETS} from '../shared/scene-assets.mjs';
+import {DEFAULT_PRESENTATION,validatePresentation} from '../shared/scene-engine.mjs';
 import {PLAYBACK,playbackAt} from '../src/home/playback.mjs';
 
 test('收益回放：每一天的合计等于所有持仓，最后一天增量等于今日收益',()=>{
@@ -36,7 +38,7 @@ test('角色条件：盈利开心、亏损落泪、资讯兴奋、夜间晚安�
   assert.deepEqual(automaticMoods({hour:23,todayProfit:-10,newItems:0}),['greeting','sad','sleepy']);
   assert.deepEqual(automaticMoods({hour:5,todayProfit:0}),['greeting','sleepy']);
   assert.deepEqual(automaticMoods({hour:6,todayProfit:NaN}),['greeting','reading']);
-  assert.equal(new Set(MOODS.map(m=>m.id)).size,6);
+  assert.equal(new Set(MOODS.map(m=>m.id)).size,SCENE_ASSETS.length);
   for(const mood of MOODS){
     const png=readFileSync(new URL('../src/home/art/'+mood.file,import.meta.url));
     assert.equal(png.subarray(1,4).toString(),'PNG');
@@ -59,13 +61,26 @@ test('收益动画按日期递进，最后一个交易日稳定后再展示今�
   assert.deepEqual(playbackAt(Infinity),{progress:1,step:29,phase:'done'});
 });
 
-test('每个心情都存在完整场景资源，沉静与晚安使用独立画报',()=>{
-  assert.equal(SCENES.sad.background,'scene-silver-v4.png');
-  assert.equal(SCENES.sleepy.background,'scene-nocturne-v4.png');
+test('人物注册表同步选择项、背景和规则校验，PNG 与 WebP 资源均完整',()=>{
+  assert.deepEqual(MOODS.map(mood=>mood.id),SCENE_ASSETS.map(asset=>asset.id));
+  assert.deepEqual(Object.keys(SCENES),SCENE_ASSETS.map(asset=>asset.id));
+  assert.equal(new Set(MOODS.map(mood=>SCENES[mood.id].background)).size,MOODS.length);
+  assert.equal(SCENES.sleepy.tone,'night');
   for(const mood of MOODS){
     const scene=SCENES[mood.id];
+    const asset=SCENE_ASSETS.find(item=>item.id===mood.id);
+    assert.equal(mood.file,asset.file);
+    assert.equal(scene.background,asset.background);
+    assert.deepEqual(scene.lines,asset.sceneLines);
+    const presentation=structuredClone(DEFAULT_PRESENTATION);
+    presentation.modules[0].fallback.characterId=asset.id;
+    presentation.modules[0].fallback.backgroundId=asset.id;
+    assert.doesNotThrow(()=>validatePresentation(presentation));
     assert.equal(scene.lines.length,2);
     const png=readFileSync(new URL('../src/home/art/'+scene.background,import.meta.url));
     assert.equal(png.subarray(1,4).toString(),'PNG');
+    const webp=readFileSync(new URL('../src/home/art/'+scene.background.replace(/\.png$/,'.webp'),import.meta.url));
+    assert.equal(webp.subarray(0,4).toString(),'RIFF');
+    assert.equal(webp.subarray(8,12).toString(),'WEBP');
   }
 });

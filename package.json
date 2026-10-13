@@ -8,6 +8,11 @@
   },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
+    "prebuild": "node scripts/build-ui-library.mjs",
+    "ui:check": "node scripts/build-ui-library.mjs --check",
+    "ui:preview": "node scripts/preview-ui-review.mjs",
+    "scene:check": "node scripts/check-scene-sources.mjs",
+    "scene:verify": "node --test test/scene-adapters.test.mjs",
     "build": "vite build",
     "start": "node server/index.mjs",
     "test": "node --test test/*.test.mjs"

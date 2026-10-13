@@ -5,19 +5,26 @@ import {pathToFileURL} from 'node:url';
 import {randomBytes} from 'node:crypto';
 import webpush from 'web-push';
 import {Space,fail} from './space.mjs';
+import {loadSceneSources,startSceneAdapters,validateSceneSources} from './scene-adapters.mjs';
+import {validateSceneData} from './scene-data.mjs';
 
 async function body(req){
   if(!String(req.headers['content-type']||'').startsWith('application/json'))fail('需要 JSON 格式',415);
   let bytes=0;const chunks=[];for await(const c of req){bytes+=c.length;if(bytes>65536)fail('内容过大',413);chunks.push(c);}
   try{const b=JSON.parse(Buffer.concat(chunks));if(!b||typeof b!=='object'||Array.isArray(b))throw Error();return b;}catch{fail('请求格式不正确');}
 }
-export function createApp({dataDir=resolve('state'),staticDir=resolve('dist'),origin='http://127.0.0.1:18788',additionalOrigins=[],clock=()=>Date.now(),scheduler=true,sendPush}={}){
+export function createApp({dataDir=resolve('state'),staticDir=resolve('dist'),origin='http://127.0.0.1:18788',additionalOrigins=[],clock=()=>Date.now(),scheduler=true,sendPush,sceneSources,sceneSourcesFile,sceneEnv=process.env}={}){
   const allowedOrigins=new Set([origin,...additionalOrigins]);
+  const sourceFile=sceneSourcesFile||join(dataDir,'scene-sources.json');
+  const sources=sceneSources!==undefined?validateSceneSources(sceneSources,sceneEnv):(sceneSourcesFile||existsSync(sourceFile)?loadSceneSources(sourceFile,sceneEnv):[]);
   mkdirSync(dataDir,{recursive:true,mode:0o700});
   const secretsFile=join(dataDir,'secrets.json');
   const secrets=existsSync(secretsFile)?JSON.parse(readFileSync(secretsFile,'utf8')):{access:randomBytes(24).toString('base64url'),vapid:webpush.generateVAPIDKeys(),subscription:null};
   function persist(){writeFileSync(secretsFile+'.tmp',JSON.stringify(secrets),{mode:0o600});renameSync(secretsFile+'.tmp',secretsFile);}persist();
   const prefix='/app/'+secrets.access+'/',store=new Space(dataDir,{clock});
+  // 启动前检查已有摘要的容量，防止新配置在监听回调中才抛出异常。
+  const configuredSources={...store.sceneSnapshot().snapshots};
+  for(const source of sources){validateSceneData(source.id,{status:'error'},configuredSources,clock());configuredSources[source.id]={};}
   const send=async payload=>{
     if(!secrets.subscription)throw Error('尚未连接手机');
     try{return await (sendPush||webpush.sendNotification.bind(webpush))(secrets.subscription,JSON.stringify(payload),{TTL:3600,urgency:'high',timeout:15000,vapidDetails:{subject:origin.startsWith('https:')?origin:'mailto:local@example.com',...secrets.vapid}});}
@@ -42,6 +49,9 @@ export function createApp({dataDir=resolve('state'),staticDir=resolve('dist'),or
           if(!c||now-c.at>60000){c={at:now,count:0};counts.set(ip,c);}if(++c.count>150)fail('操作太快，请稍等一下',429);
         }
         if(path==='api/state'&&method==='GET')return reply(200,snapshot());
+        if(path==='api/scene-data'&&method==='GET')return reply(200,store.sceneSnapshot());
+        const sceneSource=path.match(/^api\/scene-data\/([^/]+)$/);
+        if(sceneSource&&method==='POST')return reply(200,store.writeSceneData(sceneSource[1],await body(req)));
         if(path==='api/settings'&&method==='PATCH'){store.settings(await body(req));return reply(200,snapshot());}
         if(path==='api/saved'&&method==='POST'){const b=await body(req);store.save(b.id,b.saved);return reply(200,snapshot());}
         if(/^api\/(tasks|series|samples|export)(\/|$)/.test(path))return reply(410,{error:'旧版功能已移除'});
@@ -67,13 +77,25 @@ export function createApp({dataDir=resolve('state'),staticDir=resolve('dist'),or
   const timer=scheduler?setInterval(()=>void store.tick(send).catch(e=>console.error('通知发送失败：',e.message)),1000):null;
   timer?.unref();server.requestTimeout=30000;server.headersTimeout=15000;
   Object.assign(server,{store,prefix,snapshot});
-  server.on('close',()=>{if(timer)clearInterval(timer);});
+  let adapters;
+  server.once('listening',()=>{
+    for(const source of sources){
+      // 已配置真实源但尚未收到数据时使用默认形象，不显示演示盈利。
+      if(store.sceneSnapshot().snapshots[source.id]?.mode!=='live'){
+        try{store.writeSceneData(source.id,{status:'error'});}catch{console.error('场景接入器',source.id,'初始化摘要失败，请检查运行数据目录');}
+      }
+    }
+    adapters=startSceneAdapters({sources,clock,write:(id,input)=>store.writeSceneData(id,input),onError:(id,message)=>console.error('场景接入器',id,message)});
+  });
+  const close=server.close.bind(server);
+  server.close=(...args)=>{adapters?.stop();return close(...args);};
+  server.on('close',()=>{if(timer)clearInterval(timer);adapters?.stop();});
   return server;
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
   const dataDir=resolve(process.env.DATA_DIR||'state'),origin=process.env.PUBLIC_ORIGIN||readFileSync(join(dataDir,'public-origin.txt'),'utf8').trim();
   const additionalOrigins=(process.env.ADDITIONAL_ORIGINS||'').split(',').map(v=>v.trim()).filter(Boolean);
-  const app=createApp({dataDir,origin,additionalOrigins}),port=Number(process.env.PORT||18788);
+  const app=createApp({dataDir,origin,additionalOrigins,sceneSourcesFile:process.env.SCENE_SOURCES_FILE}),port=Number(process.env.PORT||18788);
   app.listen(port,'127.0.0.1',()=>console.log('小彤已启动：http://127.0.0.1:'+port+app.prefix));
   for(const sig of ['SIGTERM','SIGINT'])process.on(sig,()=>app.close(()=>process.exit(0)));
 }

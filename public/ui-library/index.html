@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f1e9">
+    <meta name="description" content="小彤的 UI 提示词仓库：有来源、有评价，也有适用边界的界面设计与交互提示词。">
+    <title>界面提示词库 · 小彤</title>
+    <link rel="stylesheet" href="./library.css">
+    <script src="./library.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到提示词内容</a>
+    <div class="library-shell">
+      <header class="site-header">
+        <a class="library-brand" href="#prompts" aria-label="界面提示词库首页"><span class="brand-mark" aria-hidden="true">彤</span><span>界面提示词库<small>小彤的设计资料室</small></span></a>
+        <a class="back-link" href="../"><span aria-hidden="true">←</span> 返回小彤</a>
+      </header>
+
+      <main id="main-content">
+        <section class="library-intro" aria-labelledby="library-title">
+          <div class="intro-copy">
+            <p class="eyebrow"><span aria-hidden="true"></span> 收集，判断，再落地</p>
+            <h1 id="library-title">值得落地的<br><em>界面提示词。</em></h1>
+            <p class="intro-description">好的界面不止好看。这里记录设计的出处、适用场景与实现边界，把值得采用的想法，整理成可以直接使用的提示词。</p>
+            <p class="review-date" id="review-date">正在读取查证记录…</p>
+          </div>
+          <aside class="interaction-preview" aria-labelledby="preview-title">
+            <div class="preview-heading"><span class="small-label">一个小小的交互示例</span><span class="preview-number" aria-hidden="true">01 / 03</span></div>
+            <h2 id="preview-title">状态变了，位置不变。</h2>
+            <div class="preview-segments" role="group" aria-label="体验共享底板切换" data-preview="0">
+              <button type="button" data-preview-index="0" aria-pressed="true">午后</button>
+              <button type="button" data-preview-index="1" aria-pressed="false">阅读</button>
+              <button type="button" data-preview-index="2" aria-pressed="false">晚安</button>
+            </div>
+            <div class="preview-note" aria-live="polite"><span class="preview-dot" aria-hidden="true"></span><p id="preview-description">暖光停在茶杯边。选中底板轻移，文字与点击区域保持稳定。</p></div>
+            <p class="preview-caption">共享底板 · 键盘可用 · 尊重减少动态效果</p>
+          </aside>
+        </section>
+
+        <dl class="library-stats" aria-label="资料库统计">
+          <div><dt>整理的提示词</dt><dd id="stat-prompts">—</dd></div>
+          <div><dt>评价为推荐</dt><dd id="stat-recommended">—</dd></div>
+          <div><dt>本项目已采用</dt><dd id="stat-applied">—</dd></div>
+          <div><dt>来源评审记录</dt><dd id="stat-sources">—</dd></div>
+        </dl>
+
+        <div class="library-navigation">
+          <nav aria-label="资料库内容">
+            <a href="#prompts" data-view="prompts" aria-current="page">提示词目录 <span id="nav-prompt-count">0</span></a>
+            <a href="#sources" data-view="sources">来源与评价 <span id="nav-source-count">0</span></a>
+          </nav>
+          <p>热度是线索，<strong>不是质量结论。</strong></p>
+        </div>
+
+        <div id="loading-message" class="loading-message" role="status">正在整理资料架…</div>
+        <div id="load-error" class="load-error" role="alert" hidden><h2>暂时没能打开资料库</h2><p id="load-error-detail"></p><button id="reload-catalog" class="solid-button" type="button">重新读取</button></div>
+
+        <section id="prompts-panel" class="catalog-panel" aria-labelledby="catalog-title" hidden>
+          <div class="section-heading"><div><p class="eyebrow">从具体需求开始</p><h2 id="catalog-title">找一个合适的设计方法</h2></div><p id="catalog-summary" class="section-description">每条提示词均附评价与边界，可展开查看完整内容。</p></div>
+          <div class="catalog-tools">
+            <label class="search-field" for="prompt-search"><span aria-hidden="true" class="search-symbol"></span><input id="prompt-search" type="search" placeholder="搜索名称、交互、场景或关键词" autocomplete="off"><kbd aria-hidden="true">/</kbd><span class="visually-hidden">搜索提示词</span></label>
+            <div class="filter-line"><span class="filter-label" id="category-label">分类</span><div class="filter-buttons" role="group" aria-labelledby="category-label" id="category-filters"><button type="button" data-category="all" aria-pressed="true">全部</button><button type="button" data-category="设计系统" aria-pressed="false">设计系统</button><button type="button" data-category="交互动效" aria-pressed="false">交互动效</button><button type="button" data-category="可用性" aria-pressed="false">可用性</button><button type="button" data-category="场景方案" aria-pressed="false">场景方案</button></div></div>
+            <div class="filter-line"><span class="filter-label" id="verdict-label">评价</span><div class="filter-buttons quiet-filters" role="group" aria-labelledby="verdict-label" id="verdict-filters"><button type="button" data-verdict="all" aria-pressed="true">全部评价</button><button type="button" data-verdict="recommended" aria-pressed="false">推荐</button><button type="button" data-verdict="conditional" aria-pressed="false">有条件</button><button type="button" data-verdict="applied" aria-pressed="false">当前采用</button></div></div>
+          </div>
+          <div class="results-heading"><p id="result-count" role="status" aria-live="polite" aria-atomic="true"></p><button type="button" id="clear-filters" class="text-button" hidden>清除筛选 <span aria-hidden="true">↗</span></button><span class="score-note">评分为本项目的主观适配评价</span></div>
+          <div id="prompt-list" class="prompt-grid"></div>
+          <div id="prompt-empty" class="empty-state" hidden><span aria-hidden="true">∅</span><h3>这一格，暂时还没有收录。</h3><p>换一个关键词，或清除筛选查看全部提示词。</p><button class="solid-button" id="reset-empty" type="button">查看全部</button></div>
+        </section>
+
+        <section id="sources-panel" class="sources-panel" aria-labelledby="sources-title" hidden>
+          <div class="section-heading"><div><p class="eyebrow">把出处留在判断旁边</p><h2 id="sources-title">来源与评价</h2></div><p class="section-description">原始资料提供思路；仓库中的中文提示词按实际使用需求重新整理。没有查证到热度数据，就明确记录为未知。</p></div>
+          <label class="search-field source-search" for="source-search"><span aria-hidden="true" class="search-symbol"></span><input id="source-search" type="search" placeholder="搜索来源、作者或评价" autocomplete="off"><span class="visually-hidden">搜索资料来源</span></label>
+          <div class="source-principles"><span>01 <b>保留原始链接</b></span><span>02 <b>区分证据与判断</b></span><span>03 <b>记录适用边界</b></span></div>
+          <p id="source-result-count" class="source-result-count" role="status" aria-live="polite"></p>
+          <div id="source-list" class="source-list"></div>
+          <p id="source-empty" class="empty-state" hidden>没有找到匹配的资料来源。</p>
+        </section>
+      </main>
+
+      <footer class="site-footer"><p>小彤 · 界面提示词库</p><p>以场景判断，以实际体验验收。<span id="footer-reviewed"></span></p></footer>
+    </div>
+    <div id="copy-status" class="copy-status" role="status" aria-live="polite" hidden></div>
+    <noscript><p class="noscript-message">需要启用 JavaScript 才能搜索与浏览提示词。原始记录保存在同目录的 catalog.json。</p></noscript>
+  </body>
+</html>

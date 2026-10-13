@@ -1,12 +1,15 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {AnimatePresence, motion, useReducedMotion} from 'motion/react';
-import {MOODS} from './moods.mjs';
-import {SCENES, COVER_TIMING as TIME} from './scenes.mjs';
+import {AnimatePresence, motion} from 'motion/react';
+import useMotionPreference from './useMotionPreference.js';
+import {COVER_TIMING as TIME} from './scenes.mjs';
 import {characterArt} from './art.js';
+import {sceneView} from './scene-view.mjs';
+import AdaptiveSceneWords from './AdaptiveSceneWords.jsx';
+import './scene-presentation.css';
 
 const decoded = new Map();
 function loadImage(src) {
-  if (!src) return Promise.reject(new Error('Missing scene asset'));
+  if (!src) return Promise.reject(new Error('场景资源不存在'));
   if (!decoded.has(src)) {
     const img = new Image();
     img.src = src;
@@ -14,42 +17,49 @@ function loadImage(src) {
   }
   return decoded.get(src);
 }
-export function preloadScene(id) {
-  const mood = MOODS.find(m => m.id === id) || MOODS[0];
-  return Promise.all([characterArt(mood.file), characterArt(SCENES[mood.id].background)].map(loadImage));
+export function preloadScene(value) {
+  const scene = sceneView(value);
+  return Promise.all([characterArt(scene.character.file), characterArt(scene.background)].map(loadImage));
 }
 
-export default function SceneCover({moodId, onChoose}) {
-  const reduced = useReducedMotion();
-  const [ready, setReady] = useState(moodId);
-  const [background, setBackground] = useState(moodId);
+export default function SceneCover({scene: requested, moodId = 'greeting', onChoose, ambient = true, onSettled}) {
+  const desired = sceneView(requested || moodId);
+  const reduced = useMotionPreference();
+  const [ready, setReady] = useState(() => sceneView('greeting'));
+  const [background, setBackground] = useState(ready);
   const [phase, setPhase] = useState('idle');
-  const pending = useRef(moodId);
-  const displayed = useRef(moodId);
-  const mood = MOODS.find(m => m.id === ready) || MOODS[0];
-  const scene = SCENES[ready];
+  const [failure, setFailure] = useState('');
+  const pending = useRef(ready), displayed = useRef(ready.key), settled = useRef(onSettled);
+  settled.current = onSettled;
   const duration = n => reduced ? 0 : n;
 
   useEffect(() => {
     let cancelled = false;
-    preloadScene(moodId).then(() => {
+    preloadScene(desired).then(() => {
       if (cancelled) return;
-      pending.current = moodId;
-      if (displayed.current !== moodId) {
+      setFailure('');
+      pending.current = desired;
+      if (displayed.current !== desired.key) {
         setPhase('exiting');
-        displayed.current = moodId;
-        setReady(moodId);
-      }
-    }).catch(() => {}); // 保留完整旧场景，加载失败不显示空白。
+        displayed.current = desired.key;
+        setReady(desired);
+      } else settled.current?.(desired.key);
+    }).catch(() => {
+      if (cancelled) return;
+      // 保留完整旧画面并明确标记，队列仍可继续尝试下一模块。
+      setFailure('新场景暂未载入，当前为上一画面');
+      settled.current?.(desired.key);
+    });
     return () => { cancelled = true; };
-  }, [moodId]);
+  }, [desired.key]);
 
-  return <section className="scene-cover" data-mood={ready} data-scene={background} data-phase={phase} aria-label="小彤的封面">
+  return <section className="scene-cover" data-mood={ready.characterId} data-scene={background.backgroundId} data-module={ready.moduleId}
+    data-rule={ready.ruleId} data-key={ready.key} data-phase={phase} data-ambient={ambient ? 'running' : 'paused'} aria-label={ready.moduleName + '的角色场景'}>
     <AnimatePresence initial={false}>
-      <motion.div key={background} className={'scene-environment tone-' + SCENES[background].tone}
+      <motion.div key={background.background} className={'scene-environment tone-' + background.tone}
         initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}
         transition={{duration: duration(TIME.background), ease: [0.22, 1, 0.36, 1]}}>
-        <img className="scene-background" src={characterArt(SCENES[background].background)} alt="" fetchPriority="high"/>
+        <img className="scene-background" src={characterArt(background.background)} alt="" fetchPriority="high"/>
         <div className="scene-wash"/>
         <div className="scene-light"/>
         <div className="scene-atmosphere" aria-hidden="true"><i/><i/><i/><i/></div>
@@ -59,24 +69,20 @@ export default function SceneCover({moodId, onChoose}) {
       setBackground(pending.current);
       setPhase('entering');
     }}>
-      <motion.div key={ready} className={'scene-foreground tone-' + scene.tone}
+      <motion.div key={ready.key} className={'scene-foreground tone-' + ready.tone}
         initial="hidden" animate="enter" exit="exit"
-        variants={{hidden: {opacity: 1}, enter: {opacity: 1}, exit: {opacity: 0, transition: {duration: duration(TIME.exit)}}}}
-        onAnimationComplete={label => {if (label === 'enter') setPhase('idle');}}>
+        variants={{hidden: {opacity: 1}, enter: {opacity: 1, transition: {when: 'afterChildren'}}, exit: {opacity: 0, transition: {duration: duration(TIME.exit)}}}}
+        onAnimationComplete={label => {if (label === 'enter') {setPhase('idle'); settled.current?.(ready.key);}}}>
         <motion.div className="scene-character-position" variants={{
           hidden: {opacity: 0, x: 22, y: 9, scale: 1.035},
           enter: {opacity: 1, x: 0, y: 0, scale: 1, transition: {duration: duration(TIME.enter), delay: duration(TIME.characterDelay), ease: [0.16, 1, 0.3, 1]}},
           exit: {opacity: 0, x: -15, y: 5, scale: 0.987, transition: {duration: duration(TIME.exit), ease: [0.4, 0, 1, 1]}},
-        }}><img className="scene-character" src={characterArt(mood.file)} alt={'小彤：' + mood.alt} fetchPriority="high"/></motion.div>
-        <h1 className="scene-words">{scene.lines.map((line, index) => <span className="scene-line-mask" key={line}>
-          <motion.span variants={{
-            hidden: {opacity: 0, y: 24},
-            enter: {opacity: 1, y: 0, transition: {duration: duration(0.8), delay: duration(TIME.textDelay + index * 0.11), ease: [0.16, 1, 0.3, 1]}},
-            exit: {opacity: 0, y: -9, transition: {duration: duration(0.3)}},
-          }}>{line}</motion.span>
-        </span>)}</h1>
+        }}><img className="scene-character" src={characterArt(ready.character.file)} alt={'小彤：' + ready.character.alt} fetchPriority="high"/></motion.div>
+        <AdaptiveSceneWords scene={ready} duration={duration}/>
+        <p className="scene-module-caption">{ready.moduleName}{ready.dataStatus === 'unavailable' ? ' · 等待更新' : ready.dataMode === 'demo' ? ' · 演示' : ''}</p>
       </motion.div>
     </AnimatePresence>
-    <button className="scene-touch" onClick={onChoose} aria-label="选择小彤的心情"/>
+    <button className="scene-touch" data-focus-key="moods-open" onClick={onChoose} aria-label="选择小彤的心情"/>
+    {failure && <p className="scene-load-status" role="status">{failure}</p>}
   </section>;
 }

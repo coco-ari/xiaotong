@@ -1,17 +1,30 @@
 import {existsSync,readFileSync,writeFileSync,renameSync} from 'node:fs';
 import {join} from 'node:path';
+import {DEFAULT_PRESENTATION,validatePresentation} from '../shared/scene-engine.mjs';
+import {sceneDataSnapshot,validateSceneData} from './scene-data.mjs';
 export function fail(message,status=400){throw Object.assign(new Error(message),{status});}
-export const DEFAULT_SETTINGS={autoMood:true,slots:['reading','saved','assets'],plugins:{finance:true,feed:true}};
+export const DEFAULT_SETTINGS={autoMood:true,slots:['reading','saved','assets'],plugins:{finance:true,feed:true},presentation:DEFAULT_PRESENTATION};
 export class Space {
- constructor(dir,{clock=()=>Date.now()}={}){this.file=join(dir,'xiaotong.json');this.clock=clock;this.data=existsSync(this.file)?JSON.parse(readFileSync(this.file,'utf8')):{settings:structuredClone(DEFAULT_SETTINGS),saved:[],notifications:[]};for(const n of this.data.notifications)if(n.status==='sending')n.status='pending';this.persist();}
- persist(){writeFileSync(this.file+'.tmp',JSON.stringify(this.data),{mode:0o600});renameSync(this.file+'.tmp',this.file);}
- snapshot(){return structuredClone(this.data);}
+ constructor(dir,{clock=()=>Date.now()}={}){
+  this.file=join(dir,'xiaotong.json');this.clock=clock;
+  const previous=existsSync(this.file)?JSON.parse(readFileSync(this.file,'utf8')):{};
+  const defaults=structuredClone(DEFAULT_SETTINGS),settings=previous.settings||{};
+  // 补齐新设置，同时保留旧版偏好、收藏、通知和其他已保存字段。
+  this.data={...previous,settings:{...defaults,...settings,plugins:{...defaults.plugins,...settings.plugins},presentation:settings.presentation??defaults.presentation},saved:previous.saved??[],notifications:previous.notifications??[],sceneData:previous.sceneData??{}};
+  for(const n of this.data.notifications)if(n.status==='sending')n.status='pending';
+  this.persist();
+ }
+ persist(next=this.data){writeFileSync(this.file+'.tmp',JSON.stringify(next),{mode:0o600});renameSync(this.file+'.tmp',this.file);this.data=next;}
+ snapshot(){const {sceneData,...snapshot}=this.data;return structuredClone(snapshot);}
+ sceneSnapshot(){return sceneDataSnapshot(this.data.sceneData,this.clock());}
+ writeSceneData(sourceId,input){const now=this.clock(),next=validateSceneData(sourceId,input,this.data.sceneData,now);this.persist({...this.data,sceneData:{...this.data.sceneData,[sourceId]:{...next,updatedAt:now,mode:'live'}}});return this.sceneSnapshot();}
  settings(patch){if(!patch||typeof patch!=='object'||Array.isArray(patch))fail('设置格式不正确');const next=structuredClone(this.data.settings);for(const [key,value] of Object.entries(patch)){
   if(key==='autoMood'){if(typeof value!=='boolean')fail('心情设置无效');next[key]=value;}
   else if(key==='slots'){if(!Array.isArray(value)||value.length!==3||value.some(v=>!['reading','saved','assets','empty'].includes(v)))fail('统计位置无效');next.slots=value;}
   else if(key==='plugins'){if(!value||typeof value!=='object'||Array.isArray(value)||Object.entries(value).some(([k,v])=>!['finance','feed'].includes(k)||typeof v!=='boolean'))fail('插件设置无效');next.plugins={...next.plugins,...value};}
+  else if(key==='presentation'){try{next.presentation=validatePresentation(value);}catch(error){fail(error.message||'人物展示设置无效');}}
   else fail('设置项不存在');
- }this.data.settings=next;this.persist();}
+ }this.persist({...this.data,settings:next});}
  save(id,saved){if(!['one','two','three'].includes(id)||typeof saved!=='boolean')fail('收藏内容无效');this.data.saved=this.data.saved.filter(v=>v!==id);if(saved)this.data.saved.push(id);this.persist();}
  enqueue(id){const last=this.data.notifications.at(0);if(last&&this.clock()-last.createdAt<30000)fail('30 秒后可以再次测试',429);this.data.notifications.unshift({id,status:'pending',createdAt:this.clock(),due:this.clock()+10000,attempts:0});this.data.notifications=this.data.notifications.slice(0,50);this.persist();}
  receipt(id,event){if(!['shown','clicked'].includes(event))fail('回执无效');const n=this.data.notifications.find(v=>v.id===id);if(n){if(n.status!=='clicked')n.status=event;n[event+'At']=this.clock();this.persist();}}

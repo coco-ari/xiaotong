@@ -1,0 +1,159 @@
+.xt-ui-segmented {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  overflow-x: auto;
+  border: 1px solid var(--xt-line, #ffffff12);
+  border-radius: 15px;
+  background: #17131180;
+  scrollbar-width: thin;
+}
+
+.xt-ui-segmented-option {
+  position: relative;
+  isolation: isolate;
+  flex: 1 0 auto;
+  min-height: 44px;
+  padding: 8px 16px;
+  border-radius: 11px;
+  color: var(--xt-muted, #aaa098);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.xt-ui-segmented-option:hover { color: var(--xt-ink, #f2eee8); }
+.xt-ui-segmented-option[aria-checked="true"] { color: var(--xt-ink, #f2eee8); }
+.xt-ui-segmented-option:focus-visible { outline-offset: -3px; }
+
+.xt-ui-segmented-indicator {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border: 1px solid #ffad951f;
+  border-radius: inherit;
+  background: #4b3830;
+  box-shadow: 0 2px 8px #100a0733;
+  pointer-events: none;
+}
+
+.xt-ui-segmented-label { position: relative; }
+
+.xt-ui-dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 32px;
+  overflow: hidden;
+  border: 0;
+  color: var(--xt-ink, #f2eee8);
+  background: transparent;
+}
+
+.xt-ui-dialog[open] {
+  display: grid;
+  place-items: center;
+}
+
+.xt-ui-dialog::backdrop { background: #100c0ac7; }
+
+.xt-ui-dialog-panel {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 620px);
+  max-height: calc(100dvh - 64px);
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid #ffffff1a;
+  border-radius: 25px;
+  background: var(--xt-paper, #26211e);
+  box-shadow: 0 28px 100px #09060488;
+  animation: xt-ui-dialog-enter 180ms cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.xt-ui-dialog-header {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 24px 18px;
+  border-bottom: 1px solid var(--xt-line, #ffffff12);
+}
+
+.xt-ui-dialog-title {
+  padding-top: 8px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -.02em;
+  overflow-wrap: anywhere;
+}
+
+.xt-ui-dialog-description {
+  margin-top: 10px;
+  color: var(--xt-muted, #aaa098);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.xt-ui-dialog-close {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--xt-line, #ffffff12);
+  border-radius: 50%;
+  background: #ffffff06;
+}
+
+.xt-ui-dialog-close:hover { background: #ffffff10; }
+
+.xt-ui-dialog-body {
+  min-height: 0;
+  padding: 22px 24px 26px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.xt-ui-dialog[data-closing] .xt-ui-dialog-panel {
+  animation: xt-ui-dialog-leave 160ms ease-in both;
+  pointer-events: none;
+}
+
+@keyframes xt-ui-dialog-enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes xt-ui-dialog-leave {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(8px); }
+}
+
+@media (max-width: 640px) {
+  .xt-ui-dialog {
+    padding: 12px 12px max(12px, env(safe-area-inset-bottom));
+  }
+  .xt-ui-dialog[open] { align-items: end; }
+  .xt-ui-dialog-panel {
+    max-height: calc(100dvh - 24px - env(safe-area-inset-bottom));
+    border-radius: 25px 25px 18px 18px;
+  }
+  .xt-ui-dialog-header { padding: 18px 18px 14px; }
+  .xt-ui-dialog-title { font-size: 20px; }
+  .xt-ui-dialog-body { padding: 18px 18px 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xt-ui-dialog-panel,
+  .xt-ui-dialog[data-closing] .xt-ui-dialog-panel {
+    animation: none;
+  }
+}

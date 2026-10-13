@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "finance",
+      "url": "https://api.example.com/portfolio/summary",
+      "intervalSeconds": 60,
+      "timeoutMs": 10000,
+      "headers": {"Authorization": {"env": "FINANCE_API_TOKEN", "prefix": "Bearer "}},
+      "readyWhen": {"path": "code", "equals": 0},
+      "fields": {
+        "todayProfit": {"path": "data.todayProfit", "type": "number"},
+        "totalProfit": {"path": "data.totalProfit", "type": "number"}
+      },
+      "asOf": {"path": "data.updatedAt", "format": "iso"}
+    }
+  ]
+}
