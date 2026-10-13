@@ -24,7 +24,7 @@ import './refined.css';
 const PORTFOLIO = portfolio();
 const TODAY = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Shanghai', year:'numeric', month:'2-digit', day:'2-digit'}).format(new Date());
 const DAYS = daySeries(TODAY);
-const MOOD_NOTES = {greeting:'午后茶室', happy:'暖阳庆祝', sad:'雨天陪伴', excited:'礼物惊喜', reading:'安静书香', sleepy:'月色晚安'};
+const MOOD_NOTES = {greeting:'暖阳问候', happy:'暖阳庆祝', sad:'雨天陪伴', excited:'礼物惊喜', reading:'安静书香', sleepy:'月色晚安'};
 const SLOT_LABELS = {assets:'持仓', reading:'待读', saved:'收藏', empty:'留给以后'};
 
 function Overview({saved, slots, onEdit}) {

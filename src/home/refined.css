@@ -34,8 +34,14 @@
 /* 主容器只承接跳转和焦点恢复，不绘制覆盖整页的浏览器默认焦点框。 */
 .refined-app .personal-main:focus { outline: none; }
 .refined-app .home-content-column { gap: var(--ui-space-medium); margin-top: 28px; }
-.refined-app .scene-cover { border-radius: var(--ui-radius-card); }
-.refined-app .scene-words { font-weight: 500; }
+.refined-app .scene-cover { border-radius: var(--ui-radius-card); background: #f6efe5; }
+.refined-app .scene-background { animation: none; }
+.refined-app .scene-wash { background: none; }
+.refined-app .scene-light { opacity: .3; }
+.refined-app .scene-atmosphere { display: none; }
+.refined-app .scene-character-position { width: 75%; height: 91%; right: -12%; bottom: -8%; }
+.refined-app .scene-character { filter: drop-shadow(-2px 4px 5px #7d4c3b12); }
+.refined-app .scene-words { font-weight: 650; }
 .refined-app :is(h1, h2, .collection-headline) { text-wrap: balance; overflow-wrap: anywhere; }
 .refined-app :is(p, .collection-secondary) { text-wrap: pretty; overflow-wrap: anywhere; }
 .refined-app button { -webkit-tap-highlight-color: transparent; }
@@ -76,19 +82,21 @@
 
 /* 统计条依然属于场景，不扩展为额外导航或信息栏。 */
 .refined-app .overview-bar {
-  min-height: 92px;
+  min-height: 88px;
   padding: 18px 8px;
-  border-color: #625043;
-  border-radius: 18px;
-  background: #302721;
-  box-shadow: 0 8px 24px #100b0738;
+  border-color: #e8dcd0;
+  border-radius: 20px;
+  color: #493b34;
+  background: #fffaf3;
+  box-shadow: 0 7px 18px #3a26151a, inset 0 1px 0 #fff;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
-.refined-app .overview-item { gap: 10px; min-width: 0; }
-.refined-app .overview-item + .overview-item { border-left-color: #58483c; }
-.refined-app .overview-item strong { font-size: 29px; font-weight: 400; font-variant-numeric: tabular-nums; }
-.refined-app .overview-item > span { font-size: 12px; line-height: 1.5; color: #d0beb0; letter-spacing: 0; }
+.refined-app .overview-sticky { margin-top: -30px; }
+.refined-app .overview-item { gap: 8px; min-width: 0; }
+.refined-app .overview-item + .overview-item { border-left-color: #e1d5c9; }
+.refined-app .overview-item strong { font-size: 29px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.refined-app .overview-item > span { font-size: 11px; line-height: 1.5; color: #7b675e; letter-spacing: 0; }
 
 /* 浅色区域局部换色，不影响设置、浮层和其他深色卡片。 */
 .refined-app :is(.quiet-finance, .finance-detail-panel, .article-body) {

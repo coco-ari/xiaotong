@@ -16,27 +16,45 @@ export function sceneView(scene, variant = 0) {
 }
 
 const segments = new Intl.Segmenter('zh-CN', {granularity: 'grapheme'});
+const words = new Intl.Segmenter('zh-CN', {granularity: 'word'});
 export const textUnits = value => [...segments.segment(value)].map(part => part.segment);
 
 export function fitSceneText(text, width, height, measure) {
   const tokens = paragraph => {
     const result = [];
+    const appendWords = value => result.push(...[...words.segment(value)].map(part => part.segment));
     let position = 0;
     for (const match of paragraph.matchAll(/[+\-−]?\d[\d,]*(?:\.\d+)?%?/g)) {
-      result.push(...textUnits(paragraph.slice(position, match.index)), match[0]);
+      appendWords(paragraph.slice(position, match.index));
+      result.push(match[0]);
       position = match.index + match[0].length;
     }
-    return [...result, ...textUnits(paragraph.slice(position))];
+    appendWords(paragraph.slice(position));
+    const grouped = [];
+    for (const part of result) {
+      // 中文词语保持完整，句末标点跟随前词，避免出现“关／系”或标点独占一行。
+      if (grouped.length && (/^[，。？！、：；）》】」』]+$/.test(part) || /^[（《【「『]+$/.test(grouped.at(-1)))) grouped[grouped.length - 1] += part;
+      else grouped.push(part);
+    }
+    return grouped.flatMap(part => measure(part, 16) > width && !/^[+\-−]?\d/.test(part) ? textUnits(part) : [part]);
   };
+  const paragraphs = text.split('\n').map(value => value.trim()).filter(Boolean);
+  const maxSize = Math.min(44, Math.floor(width / 3));
+  // 短文案优先保留作者的语句分行，通过字号适配宽度，不为放大字号拆碎短句。
+  if (paragraphs.length > 1 && paragraphs.length <= 4 && textUnits(paragraphs.join('')).length <= 16) {
+    for (let size = maxSize; size >= 16; size--) {
+      if (paragraphs.every(line => measure(line, size) <= width) && paragraphs.length * size * 1.4 <= height) {
+        return {lines: paragraphs, size, lineHeight: 1.4, clipped: false};
+      }
+    }
+  }
   const wrap = size => {
     const lines = [];
-    for (const paragraph of text.split('\n').filter(Boolean)) {
+    for (const paragraph of paragraphs) {
       let line = [];
       for (const unit of tokens(paragraph)) {
         if (line.length && measure(line.join('') + unit, size) > width) {
-          // 金额整体换行，中文句末标点尽量与前一个字一起保留。
-          const previous = /^[，。？！、：；）》】」』]$/.test(unit) && line.length > 1 ? line.pop() : null;
-          lines.push(line.join('').trimEnd()); line = previous ? [previous] : [];
+          lines.push(line.join('').trimEnd()); line = [];
         }
         if (line.length || unit.trim()) line.push(unit);
       }
@@ -45,8 +63,8 @@ export function fitSceneText(text, width, height, measure) {
     return lines.length ? lines : [' '];
   };
   // 用实际字体测量安全区，从大字号逐步缩小；文字始终留在人物左侧。
-  for (let size = Math.min(49, Math.floor(width / 3)); size >= 16; size--) {
-    const lines = wrap(size), lineHeight = lines.length > 2 ? 1.4 : 1.55;
+  for (let size = maxSize; size >= 16; size--) {
+    const lines = wrap(size), lineHeight = 1.4;
     if (lines.length <= 4 && lines.every(line => measure(line, size) <= width) && lines.length * size * lineHeight <= height) return {lines, size, lineHeight, clipped: false};
   }
   const all = wrap(16), lines = all.slice(0, 4);

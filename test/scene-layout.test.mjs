@@ -4,6 +4,15 @@ import {fitSceneText, textUnits} from '../src/home/scene-view.mjs';
 
 const measure = (text, size) => textUnits(text).reduce((sum, unit) => sum + (/^[\d+\-., ]$/.test(unit) ? 0.6 : 1) * size, 0);
 
+test('手机短文案保留完整语句，不把没关系拆成孤立字行', () => {
+  for (const width of [108, 126, 158, 286]) {
+    const layout = fitSceneText('慢一点，\n也没关系。', width, 220, measure);
+    assert.deepEqual(layout.lines, ['慢一点，', '也没关系。']);
+    assert.equal(layout.clipped, false);
+    assert.ok(layout.lines.every(line => measure(line, layout.size) <= width));
+  }
+});
+
 test('文案排版保持正负金额完整，并在窄屏安全区控制行数和字号', () => {
   for (const width of [108, 126, 158, 286]) {
     for (const amount of ['-15.00', '+368.24', '-12345.67']) {

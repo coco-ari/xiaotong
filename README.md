@@ -4,7 +4,7 @@
 
 ## 当前功能
 
-- 六种角色心情分别搭配独立的玫瑰蕾丝茶室背景：迎接、暖阳庆祝、雨天陪伴、礼物惊喜、安静阅读、月色晚安。旧人物淡出后，背景与新人物、文字错峰入场。
+- 六种角色心情分别搭配独立的轻插画背景：暖阳问候、暖阳庆祝、雨后陪伴、来信惊喜、安静书香、月色晚安。统一使用奶油纸色与柔和玫瑰色块，文案左置、人物右置，下方叠放浅色统计条。旧人物淡出后，背景与新人物、文字错峰入场。
 - Inter 等宽数字与 NumberFlow 滚动金额，最近 30 天收益动画、累计与今日盈亏、虚拟币/基金/股票详情、周期与日期选择。
 - 资讯列表、来源与关键词筛选、阅读详情、收藏。
 - 统计布局、收藏与插件开关保存在服务器。遵循系统减少动态效果设置。
@@ -56,7 +56,7 @@ iOS 已安装网页 App 的图标或名称可能继续使用安装时的缓存�
 
 图像使用内置 image_gen 生成；PNG 原图位于 `src/home/art/`，页面使用压缩 WebP。图标母版位于 `docs/design/xiaotong-icon-master.png`，移动端使用 180/192/512 像素版本。
 
-- 茶室背景提示词：`docs/design/xiaotong-rose-tearoom-v5.prompt.txt`、`docs/design/v6-mood-prompts.json`（内置 image_gen）
+- 当前背景提示词：`docs/design/v7-pastel-prompts.json`（内置 image_gen）；历史茶室背景提示词：`docs/design/xiaotong-rose-tearoom-v5.prompt.txt`、`docs/design/v6-mood-prompts.json`（内置 image_gen）
 - 旧版画报提示词：`docs/design/v4-prompts.txt`
 - 参考作品、原始链接与具体取舍：`docs/design/v4-references.json`
 - 画报构图参考：[Persona 5 Royal](https://persona.atlus.com/p5r/) 与 Ellen Joe 角色画报。
