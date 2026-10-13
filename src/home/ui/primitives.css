@@ -61,6 +61,10 @@
 
 .xt-ui-dialog::backdrop { background: #100c0ac7; }
 
+/* 弹窗容器与标题只负责焦点定位，实际操作控件继续显示键盘焦点。 */
+.xt-ui-dialog:focus,
+.xt-ui-dialog-title:focus { outline: none; }
+
 .xt-ui-dialog-panel {
   display: flex;
   flex-direction: column;

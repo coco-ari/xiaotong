@@ -31,6 +31,8 @@
   color: var(--ui-text);
 }
 .refined-app .personal-main { width: min(660px, calc(100% - 32px)); }
+/* 主容器只承接跳转和焦点恢复，不绘制覆盖整页的浏览器默认焦点框。 */
+.refined-app .personal-main:focus { outline: none; }
 .refined-app .home-content-column { gap: var(--ui-space-medium); margin-top: 28px; }
 .refined-app .scene-cover { border-radius: var(--ui-radius-card); }
 .refined-app .scene-words { font-weight: 500; }
